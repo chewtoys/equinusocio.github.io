@@ -6,10 +6,12 @@
   z-index: 10;
   width: 100%;
   height: auto !important;
+  user-select: none;
   pointer-events: none;
   animation-name: fadeIn;
   animation-duration: 8s;
   mix-blend-mode: color-dodge;
+
 
   @media screen and (break(medium)) {
     transform: none;
@@ -21,6 +23,11 @@
   &.click {
     transform: scale(1.2);
   }
+}
+
+// Hack to fix blend mode on Sarai 9+ only
+_::-webkit-:not(:root:root), .o-background {
+  mix-blend-mode: multiply;
 }
 
 

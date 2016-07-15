@@ -53,6 +53,6 @@ document.ontouchstart = i;
 
 i();
 
-setInterval(function() {
-  i();
-}, 2000);
+// setInterval(function() {
+//   i();
+// }, 2000);
