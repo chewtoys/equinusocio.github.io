@@ -12,7 +12,8 @@ var c = document.getElementsByTagName('canvas')[0],
   r = 0,
   u = m.PI * 2,
   v = m.cos,
-  z = m.random;
+  z = m.random,
+  hue = 50;
 c.width = w * pr;
 c.height = h * pr;
 x.scale(pr, pr);
@@ -25,7 +26,6 @@ function y(p) {
 }
 
 function d(t, j) {
-  //x.globalCompositeOperation = 'lighten';
   x.beginPath();
   x.moveTo(t.x, t.y);
   x.lineTo(j.x, j.y);
@@ -34,7 +34,9 @@ function d(t, j) {
   x.lineTo(k, n);
   x.closePath();
   r -= u / -50;
-  x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16);
+  hue += 10;
+  x.fillStyle = 'hsl(' + hue + ', 70%, 60%)';
+  // x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16);
   x.fill();
   q[0] = q[1];
   q[1] = {x: k, y: n};
@@ -56,3 +58,4 @@ i();
 // setInterval(function() {
 //   i();
 // }, 2000);
+
