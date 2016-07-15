@@ -1,0 +1,13 @@
+
+.o-centering {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+
+.o-centering__content {
+  position: relative;
+}

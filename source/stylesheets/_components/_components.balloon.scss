@@ -1,0 +1,36 @@
+// Component configuration
+
+$componentName: 'balloon';
+
+// --------------------------------------------------
+
+
+.c-#{$componentName} {
+  position: relative;
+  user-select: none;
+  cursor: default;
+  mix-blend-mode: lighten;
+  opacity: 0.8;
+}
+
+
+.c-#{$componentName}__title {
+  font-size: 48px;
+  color: #9a9a9a;
+  letter-spacing: 3.4px;
+  margin-bottom: 0;
+  font-weight: 100;
+}
+
+
+.c-#{$componentName}__text {
+  font-size: 15px;
+  color: #c8cfd6;
+  letter-spacing: 1.65px;
+  text-align: center;
+  margin-top: $base-spacing;
+
+  a {
+    color: inherit;
+  }
+}

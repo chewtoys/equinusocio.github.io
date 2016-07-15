@@ -1,0 +1,45 @@
+.o-background {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: auto !important;
+  pointer-events: none;
+  animation-name: fadeIn;
+  animation-duration: 8s;
+  mix-blend-mode: color-dodge;
+
+  @media screen and (break(medium)) {
+    transform: none;
+    top: 0;
+    height: 100%;
+  }
+
+
+  &.click {
+    transform: scale(1.2);
+  }
+}
+
+
+// Override zindex on IE browser (💩)
+
+// IE 8-10
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .o-background {
+    z-index: 0;
+  }
+}
+
+@media screen\0 {
+  .o-background {
+    z-index: 0;
+  }
+}
+
+// Edge
+@supports (-ms-accelerator:true) {
+  z-index: 0;
+}
