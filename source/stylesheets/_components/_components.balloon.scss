@@ -9,8 +9,13 @@ $componentName: 'balloon';
   position: relative;
   user-select: none;
   cursor: default;
-  //mix-blend-mode: lighten;
+  mix-blend-mode: lighten;
   opacity: 0.8;
+}
+
+// Hack to fix blend mode on Sarai 9+ only
+_::-webkit-:not(:root:root), .c-#{$componentName} {
+  mix-blend-mode: initial;
 }
 
 
