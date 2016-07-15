@@ -16,7 +16,6 @@
         // Possible Errors
         "comma-dangle": [2, "never"],
         "no-cond-assign": 2,
-        "no-console": 2,
         "no-constant-condition": 2,
         "no-control-regex": 2,
         "no-debugger": 2,
@@ -140,7 +139,6 @@
         "quotes": [2, "single"],
         "quote-props": [2, "as-needed"],
         "semi": [2, "always"],
-        "sort-vars": [2, {"ignoreCase": true}],
         "keyword-spacing": 2,
         "space-before-blocks": 2,
         "object-curly-spacing": [0, "never"],
