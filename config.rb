@@ -47,6 +47,9 @@ configure :build do
   # Minify Javascript on build
   activate :minify_javascript
 
+  # Ignoring
+  ignore "/lab"
+
   # Autoprefixer config
   activate :autoprefixer do |config|
     config.browsers = ['last 2 versions', 'Explorer >= 11']
