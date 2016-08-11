@@ -48,7 +48,7 @@ configure :build do
   activate :minify_javascript
 
   # Ignoring
-  ignore "/lab"
+  # ignore "/lab"
 
   # Autoprefixer config
   activate :autoprefixer do |config|
