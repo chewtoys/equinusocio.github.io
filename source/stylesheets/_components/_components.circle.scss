@@ -17,6 +17,8 @@ $componentName: 'Loader';
   left: 50%;
   transform: translate(-50%, -50%);
   animation: scale 15s infinite;
+  -webkit-filter: url("#glitch");
+	filter: url("#glitch");
 
   &::after {
     content: attr(data-text);
