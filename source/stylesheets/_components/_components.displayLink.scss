@@ -51,6 +51,17 @@ $componentName: 'displayLink';
 }
 
 
+.c-#{$componentName}--green {
+  &:hover {
+    color: #69F0AE;
+  }
+
+  &:before {
+    background-color: #69F0AE;
+  }
+}
+
+
 .c-#{$componentName}--cyan {
   &:hover {
     color: #55acee;

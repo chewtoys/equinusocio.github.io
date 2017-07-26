@@ -9,7 +9,7 @@ $componentName: 'balloon';
   position: relative;
   user-select: none;
   cursor: default;
-  mix-blend-mode: lighten;
+  mix-blend-mode: exclusion;
   opacity: 0.8;
 }
 
@@ -21,7 +21,7 @@ _::-webkit-:not(:root:root), .c-#{$componentName} {
 
 .c-#{$componentName}__title {
   font-size: 48px;
-  color: #9a9a9a;
+  color: #FFF;
   letter-spacing: 3.4px;
   margin-bottom: 0;
   margin-top: 0;
@@ -32,7 +32,7 @@ _::-webkit-:not(:root:root), .c-#{$componentName} {
 
 .c-#{$componentName}__text {
   font-size: 15px;
-  color: #c8cfd6;
+  color: #FFF;
   letter-spacing: 1.65px;
   text-align: center;
   margin-top: $base-spacing;

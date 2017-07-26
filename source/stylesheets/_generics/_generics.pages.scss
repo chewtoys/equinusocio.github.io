@@ -16,8 +16,16 @@
 }
 
 
-html {
+:root {
   font-size: 100%;
+  background-color: #000;
+  --loader-size: 150px;
+  --text-color: #CECECE; /* Fill data-text */
+  --color-one: #2979FF;
+  --color-two: #FF1744;
+  --color-three: #FFFF8D;
+  --color-four: #B2FF59;
+  --light-size: 3px;
 }
 
 
@@ -27,6 +35,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: red;
   overflow: hidden;
+  -webkit-filter: url("#glitch");
+	filter: url("#glitch");
 }
 
 
