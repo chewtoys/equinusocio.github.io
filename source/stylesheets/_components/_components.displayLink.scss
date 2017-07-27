@@ -10,6 +10,12 @@ $componentName: 'displayLink';
   text-decoration: none;
   position: relative;
   transition: color 300ms;
+  contain: layout style;
+
+  &:hover {
+    -webkit-filter: url("#glitch");
+    filter: url("#glitch");
+  }
 
   &:before {
     content: "";

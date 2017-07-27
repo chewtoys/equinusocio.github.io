@@ -8,6 +8,7 @@ $componentName: 'Loader';
 
 .c-#{$componentName} {
   position: absolute;
+  contain: layout style;
   width: var(--loader-size, 150px);
   min-width: 110px;
   overflow: visible;

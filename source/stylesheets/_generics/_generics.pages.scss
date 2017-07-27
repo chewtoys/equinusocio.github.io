@@ -35,7 +35,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: red;
   overflow: hidden;
-  animation: fadeIn 2s ease-out;
+  will-change: filter;
+  animation: fadeIn 4s ease-out;
 }
 
 
