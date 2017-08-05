@@ -18,6 +18,7 @@
 
 :root {
   font-size: 100%;
+  will-change: background-position;
   background: radial-gradient(circle at center, rgba(12, 12, 12, 1) 0%, rgba(0, 0, 0, 1) 100%);
   background-size: 105% 105%;
   --loader-size: 150px;
