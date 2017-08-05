@@ -18,7 +18,9 @@
 
 :root {
   font-size: 100%;
-  background-color: #000;
+  background: radial-gradient(ellipse at center, rgba(13,13,13,1) 0%, rgba(0,0,0,1) 100%);
+  background-size: 105% 105%;
+  animation: bgNaimation 8s ease infinite;
   --loader-size: 150px;
   --text-color: #CECECE; /* Fill data-text */
   --color-one: #2979FF;
@@ -44,4 +46,11 @@ body {
   color: #FFF;
   text-shadow: none;
   background-color: #000;
+}
+
+
+@keyframes bgNaimation {
+    0%{ background-position: 0% 50% }
+    50%{ background-position: 100% 50% }
+    100%{ background-position: 0% 50% }
 }
