@@ -1,0 +1,14 @@
+// Component configuration
+
+$componentName: 'AudioControls';
+
+// --------------------------------------------------
+
+
+
+.c-#{$componentName} {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+
+}
