@@ -1,0 +1,142 @@
+#footer-post
+  position: fixed
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 5000000
+  width: 100%
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.02);
+  background: $color-background
+  transition: opacity .2s
+
+  a
+    background: none
+    color: inherit
+    text-decoration: none
+
+  a.icon
+    background: none
+
+    &:hover
+      color: $color-link
+
+  #nav-footer
+    padding-right: 1rem
+    padding-left: 1rem
+    background: $color-background
+    text-align: center
+
+    a
+      color: $color-accent-1
+      font-size: 1em
+
+    a:hover
+      underline(5px, $color-accent-1)
+
+    ul
+      display: table
+      margin: 0
+      padding: 0
+      width: 100%
+      list-style-type: none
+
+      li
+        display: inline-table
+        padding: 10px
+        width: 20%
+        vertical-align: middle
+
+  #actions-footer
+    overflow: auto
+    margin-top: 1rem
+    margin-bottom: 1rem
+    padding-right: 1rem
+    padding-left: 1rem
+    width: 100%
+    text-align: center
+    white-space: nowrap
+    display: flex
+    justify-content: space-around
+
+    a
+      user-select: none
+      display: inline-block
+      color: $color-accent-1
+
+  #share-footer
+    padding-right: 1rem
+    padding-left: 1rem
+    background: $color-background
+    text-align: center
+
+    ul
+      display: table
+      margin: 0
+      padding: 0
+      width: 100%
+      list-style-type: none
+
+      li
+        display: inline-table
+        padding: 10px
+        width: 20%
+        vertical-align: middle
+
+  #toc-footer
+    clear: both
+    padding-top: 1rem
+    padding-bottom: 1rem
+    background: $color-background
+    text-align: left
+
+    ol
+      margin: 0
+      padding-left: 20px
+      list-style-type: none
+
+      li
+        line-height: 1.5
+
+    a
+      padding: 8px 0
+      display: block
+
+    a:hover
+      color: $color-link
+
+    .toc-level-1 > .toc-link
+      display: none
+
+    .toc-level-2
+      color: $color-text
+      font-size: .8rem
+
+      &:before
+        color: $color-accent-1
+        content: "#"
+
+    .toc-level-3
+      color: $color-meta
+      font-size: .7rem
+      line-height: 15px
+
+    .toc-level-4
+      display: none
+
+    .toc-level-5
+      display: none
+
+    .toc-level-6
+      display: none
+
+    .toc-number
+      display: none
+
+@media screen and (min-width: 500px)
+  #footer-post-container
+    display: none
+
+@supports (-webkit-backdrop-filter: blur(10px))
+  #footer-post
+    background: rgba(255, 255, 255, 0.7)
+    backdrop-filter: blur(10px)
