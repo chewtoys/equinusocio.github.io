@@ -5,7 +5,7 @@
 # Site
 title: Mattia Astorino
 subtitle:
-description: "I'm a 29-year-old born in Italy and i'm a UXD Lead Engineer and CSS/HTML architect in Milan"
+description: "I'm a 29-year-old born in Italy and i'm a UXD Lead Engineer and CSS/HTML architect in Milan."
 keywords:
 author: Mattia Astorino
 language:
@@ -47,7 +47,7 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace:
 
@@ -69,7 +69,7 @@ tag_map:
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
+date_format: "MMMM Do, YYYY"
 time_format: HH:mm:ss
 
 # Pagination
@@ -84,6 +84,11 @@ theme: cactus
 theme_config:
   colorscheme: white
   rss:
+  open_graph:
+    fb_app_id:
+    fb_admins:
+    twitter_id:
+    google_plus:
   logo:
     enabled: true
     width: 50
@@ -98,14 +103,15 @@ theme_config:
   nav:
     Home: /
     About: /about/
-    Writing: /archives/
-    Projects: http://github.com/probberechts
+    Blog: /archives/
   google_analytics:
     enabled: true
     id: UA-10572528-8
 
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:equinusocio/equinusocio.github.io.git
+  branch: master
