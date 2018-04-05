@@ -1,6 +1,5 @@
 ---
-title: Web Components – the right way
-permalink: web-components-the-right-way
+title: Web Components — the right way
 thumbnail: https://thepracticaldev.s3.amazonaws.com/i/qak0o6n6fh9x8y86ezk2.gif
 featured_image: https://thepracticaldev.s3.amazonaws.com/i/qak0o6n6fh9x8y86ezk2.gif
 feature_image_caption: Building Blocks by Ola Tandstad
