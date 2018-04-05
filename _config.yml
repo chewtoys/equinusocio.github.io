@@ -85,9 +85,9 @@ theme_config:
   colorscheme: white
   rss:
   open_graph:
-    fb_app_id:
-    fb_admins:
-    twitter_id:
+    fb_app_id: 182057739084551
+    fb_admins: 100000812852895
+    twitter_id: 66939834
     google_plus:
   logo:
     enabled: true
