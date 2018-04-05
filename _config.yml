@@ -22,7 +22,7 @@ autoprefixer:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://equinsuocha.io
 root: /
-permalink: :year/:month/:day/:title/
+permalink: blog/:title/
 permalink_defaults:
 
 # Directory
