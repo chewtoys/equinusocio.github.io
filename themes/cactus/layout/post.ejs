@@ -5,12 +5,7 @@
     <div class="meta">
       <%- partial('_partial/post/date', { post: page, class_name: 'postdate', date_format: 'MMMM Do, YYYY' }) %>
     </div>
-    <% if (page.featured_image){ %>
-      <img class="featured-image"
-          itemprop="image"
-          draggable="false"
-          src="<%- page.featured_image %>">
-    <% } %>
+    <%- partial('_partial/post/featured_image') %>
   </header>
   <%- partial('_partial/post/gallery') %>
   <div class="content" itemprop="articleBody">

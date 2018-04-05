@@ -1,0 +1,11 @@
+<% if (page.featured_image){ %>
+  <div class="featured-image">
+    <img class=""
+        itemprop="image"
+        draggable="false"
+        src="<%- page.featured_image %>">
+    <% if (page.featured_image){ %>
+      <small class="image-caption"><%= page.feature_image_caption %></small>
+    <% } %>
+  </div>
+<% } %>
