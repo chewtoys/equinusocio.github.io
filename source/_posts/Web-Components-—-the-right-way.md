@@ -19,7 +19,14 @@ We can consider web components as a tool to **extend HTML, not to replace it**. 
 
 Every web developer knows — or at least should — the basics of HTML and how to define the markup of a web element that will be represented by the browser in a certain way and with a specific behaviour.
 
-![example1](https://cdn-images-1.medium.com/max/1600/1*3hAL96Wb0tyLuSV40CslKQ.png)
+```html
+<select multiple>
+  <option disabled hidden>Pick an option</option>
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+```
 
 In the above example, like the greatest part of HTML elements, the node can accept a content that will be shown (and stylised) by the browser or by CSS user. But as we all know, it exists also elements that can not accept children nodes (well known as void elements) —for example the `<img>` and `<input>` tags — and other tags that require only some types of nodes.
 
