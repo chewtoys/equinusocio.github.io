@@ -6,6 +6,7 @@ featured_image: https://thepracticaldev.s3.amazonaws.com/i/qak0o6n6fh9x8y86ezk2.
 feature_image_caption: Building Blocks by Ola Tandstad
 date: 2018-04-05 22:48:50
 tags:
+- Web Components
 ---
 
 From about two years we have been heard about **web components**, well this article will not explain how they work (for that [there is Google](http://bfy.tw/H9oY
