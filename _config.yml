@@ -29,7 +29,7 @@ permalink_defaults:
 source_dir: source
 public_dir: build
 tag_dir: tags
-archive_dir: archives
+archive_dir: blog
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
@@ -103,7 +103,7 @@ theme_config:
   nav:
     Home: /
     About: /about/
-    Blog: /archives/
+    Blog: /blog/
   google_analytics:
     enabled: true
     id: UA-10572528-8
