@@ -106,7 +106,7 @@ theme_config:
     Blog: /blog/
   google_analytics:
     enabled: true
-    id: UA-10572528-8
+    id: UA-117081439-1
   favicon:
     desktop:
       url: /images/favicon.png
