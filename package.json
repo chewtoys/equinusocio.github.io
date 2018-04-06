@@ -1,7 +1,8 @@
 {
   "name": "equinsuocha.io",
   "scripts": {
-    "start": "hexo clean && hexo g && hexo s"
+    "start": "hexo clean && hexo g && hexo s",
+    "deploy": "hexo clean && hexo g && hexo deploy"
   },
   "version": "0.0.1",
   "private": true,

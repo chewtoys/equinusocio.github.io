@@ -1,5 +1,10 @@
 [
     {
+       "name":"UXD Design System",
+       "url":"https://ux.contactlab.com",
+       "desc":"Contactlab design system by the UXD team."
+    },
+    {
        "name":"Material Theme for ST",
        "url":"https://github.com/equinusocio/material-theme",
        "desc":"★ 10k — The most epic theme for Sublime Text 3."
