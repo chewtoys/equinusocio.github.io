@@ -161,7 +161,7 @@ progress {
 }
 ```
 
-{% jsfiddle p375dkp3 result,css light?accentColor=00e2bc %}
+{% jsfiddle p375dkp3 result,css light?accentColor=00e2bc&bodyColor=FFF %}
 
 
 ## Extra
