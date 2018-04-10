@@ -151,16 +151,6 @@ Making another internal layer, we can now decouple public and internal css api a
 
 We have now our component with his shiny css api, let's go on and see how to use them.
 
-```css
-progress {
-  --my-progress-filled-color: linear-gradient(to right, deeppink, tomato);
-}
-
-.mySpecialProgress {
-  --my-progress-filled-color: linear-gradient(to right, lightgreen, greenyellow);
-}
-```
-
 {% jsfiddle p375dkp3 result,css light?accentColor=00e2bc&bodyColor=FFF %}
 
 
