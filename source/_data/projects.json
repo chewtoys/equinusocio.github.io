@@ -2,16 +2,19 @@
     {
        "name":"UXD Design System",
        "url":"https://ux.contactlab.com",
-       "desc":"Contactlab design system by the UXD team."
+       "desc":"Contactlab design system by the UXD team.",
+       "target": "_blank"
+    },
+    {
+       "name":"Material Theme for VSC",
+       "url":"https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme",
+       "desc":"★ 300 — The most epic theme for Visual Studio Code.",
+       "target": "_self"
     },
     {
        "name":"Material Theme for ST",
        "url":"https://github.com/equinusocio/material-theme",
-       "desc":"★ 10k — The most epic theme for Sublime Text 3."
-    },
-    {
-       "name":"Material Theme for VSC",
-       "url":"https://github.com/equinusocio/vsc-material-theme",
-       "desc":"★ 300 — The most epic theme for Visual Studio Code."
+       "desc":"★ 10k — The most epic theme for Sublime Text 3.",
+       "target": "_blank"
     }
 ]

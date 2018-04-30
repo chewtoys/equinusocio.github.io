@@ -104,6 +104,7 @@ theme_config:
     Home: /
     About: /about/
     Blog: /blog/
+    MT: /material-theme/
   google_analytics:
     enabled: true
     id: UA-117081439-1
