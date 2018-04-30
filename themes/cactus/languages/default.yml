@@ -2,7 +2,7 @@ nav:
   home: Home
   about: About
   articles: Last articles
-  projects: Projects
+  projects: Popular projects
   search: Search
 
 footer:
@@ -13,7 +13,7 @@ index:
   enum_comma: ','
   enum_and: and
   articles: Last articles
-  projects: Projects
+  projects: Popular projects
 
 post:
   desktop:

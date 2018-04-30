@@ -34,19 +34,66 @@ h1 {
 
 
 h2 {
-  grid-area: "h";
-  font-size: 30px;
+  font-size: 55px;
   text-align: center;
-  line-height: 42px;
-  font-weight: 300;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
+
+
+h3 {
+  font-weight: 500;
+  font-size: 30px;
+  position: relative;
+  z-index: 0;
+}
+
+
+h3::before {
+  content: '';
+  left: 0;
+  bottom: 4px;
+  background-color: #00E2BC;
+  opacity: 0.4;
+  height: 8px;
+  width: 90px;
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
 
 
 p {
   font-size: 18px;
   line-height: 1.5;
+  font-weight: 100;
 }
 
+a {
+  color: #D480AA;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: #00E2BC;
+}
+
+
+ul {
+  padding-left: 0;
+  font-weight: 300;
+}
+
+li {
+  list-style-type: none;
+  padding: 4px 0 4px 32px;
+  background-image: url('./bullet.svg');
+  background-position: 0 10px;
+  background-repeat: no-repeat;
+  background-size: 16px 10px;
+}
 
 [ne-button] {
   --ne-button-font-size: 18px;
@@ -79,6 +126,7 @@ p {
 }
 
 
+
 .HeroBanner {
   box-sizing: border-box;
   padding: 0 24px;
@@ -107,7 +155,12 @@ p {
 
 
 .Subtitle {
+  grid-area: "h";
   margin-top: 0;
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+  font-weight: 300;
 }
 
 
@@ -144,6 +197,18 @@ p {
   height: 56px;
 }
 
+.Social {
+  transition: filter 200ms ease-out;
+}
+
+.Social:hover {
+  filter: brightness(150%);
+}
+
+.Share .Social + .Social {
+  margin-left: 24px;
+}
+
 
 .Screens {
   width: 100%;
@@ -152,5 +217,63 @@ p {
   grid-column-end: 6;
   grid-row-start: 2;
   grid-row-end: 3;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
+
+.Details {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-template-areas: "l"
+                       "r";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  margin-top: -50px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  grid-gap: 30px;
+}
+
+@media (min-width: 60em) {
+  .Details {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    padding: 0;
+    grid-template-areas: "l r";
+    grid-template-columns: 1.5fr 1fr;
+    grid-gap: 100px;
+    margin-top: -130px;
+    margin-bottom: 100px;
+  }
+}
+
+
+.Overview {
+  grid-area: l;
+  box-sizing: border-box;
+}
+
+
+.Features {
+  grid-area: r;
+}
+
+
+.Teams {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+
+@media (min-width: 60em) {
+  .Teams {
+    grid-column-start: 2;
+    grid-column-end: 5;
+  }
+}
