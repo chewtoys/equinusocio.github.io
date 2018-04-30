@@ -26,18 +26,30 @@ main {
 
 
 h1 {
-  font-size: 72px;
+  font-size: 42px;
   text-align: center;
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
+@media (min-width: 60em) {
+  h1 {
+    font-size: 72px;
+  }
+}
+
 
 h2 {
-  font-size: 55px;
+  font-size: 38px;
   text-align: center;
   font-weight: 700;
   margin-bottom: 1.5rem;
+}
+
+@media (min-width: 60em) {
+  h2 {
+    font-size: 50px;
+  }
 }
 
 
@@ -75,7 +87,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:not([ne-button]):not(.Back):hover {
   text-decoration: underline;
   text-decoration-color: #00E2BC;
 }
@@ -126,6 +138,44 @@ li {
 }
 
 
+.Back {
+  display: inline-flex;
+  line-height: 14px;
+  color: #FFF;
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  z-index: 0;
+}
+
+.Back::before {
+  content: "";
+  width: 18px;
+  height: 14px;
+  margin-right: 16px;
+  background-image: url("./left-arrow.svg");
+  background-size: 18px 14px;
+}
+
+
+.Back::after {
+  content: '';
+  right: 0;
+  bottom: -4px;
+  background-color: #D480AA;
+  height: 8px;
+  width: 90px;
+  display: block;
+  position: absolute;
+  z-index: -1;
+  transition: all 200ms ease-in-out;
+}
+
+
+.Back:hover::after {
+  right: -4px;
+}
+
 
 .HeroBanner {
   box-sizing: border-box;
@@ -155,12 +205,17 @@ li {
 
 
 .Subtitle {
-  grid-area: "h";
   margin-top: 0;
-  font-size: 30px;
-  line-height: 42px;
+  font-size: 22px;
+  line-height: 1.5;
   text-align: center;
   font-weight: 300;
+}
+
+@media (min-width: 60em) {
+  .Subtitle {
+    font-size: 30px;
+  }
 }
 
 
@@ -246,7 +301,7 @@ li {
     grid-template-areas: "l r";
     grid-template-columns: 1.5fr 1fr;
     grid-gap: 100px;
-    margin-top: -130px;
+    margin-top: -160px;
     margin-bottom: 100px;
   }
 }
@@ -268,6 +323,15 @@ li {
   grid-column-end: 6;
   grid-row-start: 4;
   grid-row-end: 5;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.Teams > h2 {
+  margin-bottom: 40px;
 }
 
 
@@ -276,4 +340,16 @@ li {
     grid-column-start: 2;
     grid-column-end: 5;
   }
+}
+
+
+.Socials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-rows: auto;
+  width: 100%;
+  justify-items: center;
+  grid-gap: 24px;
+  margin-top: 60px;
+  margin-bottom: 100px;
 }

@@ -7,7 +7,7 @@
     },
     {
        "name":"Material Theme for VSC",
-       "url":"https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme",
+       "url":"/projects/material-theme",
        "desc":"★ 300 — The most epic theme for Visual Studio Code.",
        "target": "_self"
     },
