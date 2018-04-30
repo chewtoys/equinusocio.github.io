@@ -65,8 +65,8 @@ p {
   appearance: initial;
 }
 
-a:hover,
-a:active {
+[ne-button]:hover,
+[ne-button]:active {
   transform: translateY(-2px);
   --ne-button-outline-color: transparent;
 }
