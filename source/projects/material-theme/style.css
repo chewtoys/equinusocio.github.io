@@ -14,6 +14,8 @@ body {
   color: #FFFFFF;
 }
 
+::-moz-selection { background: #D480AA; color: #FFF; }
+::selection { background: #D480AA; color: #FFF; }
 
 main {
   max-width: 1400px;
