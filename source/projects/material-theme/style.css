@@ -18,9 +18,12 @@ body {
 main {
   max-width: 1400px;
   margin: 0 auto;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   margin-top: 5rem;
 }
 
@@ -89,7 +92,8 @@ a {
 
 a:not([ne-button]):not(.Back):hover {
   text-decoration: underline;
-  text-decoration-color: #00E2BC;
+  -webkit-text-decoration-color: #00E2BC;
+          text-decoration-color: #00E2BC;
 }
 
 
@@ -121,12 +125,14 @@ li {
   transition: all 200ms ease-out;
   line-height: 22px;
   -webkit-appearance: initial;
-  appearance: initial;
+  -moz-appearance: initial;
+       appearance: initial;
 }
 
 [ne-button]:hover,
 [ne-button]:active {
-  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
   --ne-button-outline-color: transparent;
 }
 
@@ -180,9 +186,11 @@ li {
 .HeroBanner {
   box-sizing: border-box;
   padding: 0 24px;
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   grid-column-end: 6;
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   grid-row-end: 2;
   display: flex;
   align-items: center;
@@ -192,7 +200,8 @@ li {
 
 @media (min-width: 60em) {
   .HeroBanner {
-    grid-column-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 5;
   }
 }
@@ -224,7 +233,7 @@ li {
   justify-content: center;
   margin-top: 2rem;
   flex-wrap: wrap;
-  align-items: end;
+  align-items: flex-end;
 }
 
 
@@ -248,16 +257,19 @@ li {
 .Share {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   height: 56px;
 }
 
 .Social {
+  transition: -webkit-filter 200ms ease-out;
   transition: filter 200ms ease-out;
+  transition: filter 200ms ease-out, -webkit-filter 200ms ease-out;
 }
 
 .Social:hover {
-  filter: brightness(150%);
+  -webkit-filter: brightness(150%);
+          filter: brightness(150%);
 }
 
 .Share .Social + .Social {
@@ -268,25 +280,34 @@ li {
 .Screens {
   width: 100%;
   margin-top: 60px;
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   grid-column-end: 6;
-  grid-row-start: 2;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
   grid-row-end: 3;
-  user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
 }
 
 
 .Details {
+  display: -ms-grid;
   display: grid;
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   grid-column-end: 6;
-  grid-row-start: 3;
+  -ms-grid-row: 3;
+      grid-row-start: 3;
   grid-row-end: 4;
-  grid-template-areas: "l"
+      grid-template-areas: "l"
                        "r";
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   margin-top: -50px;
   padding: 0 24px;
   box-sizing: border-box;
@@ -295,11 +316,13 @@ li {
 
 @media (min-width: 60em) {
   .Details {
-    grid-column-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 5;
     padding: 0;
-    grid-template-areas: "l r";
-    grid-template-columns: 1.5fr 1fr;
+        grid-template-areas: "l r";
+    -ms-grid-columns: 1.5fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
     grid-gap: 100px;
     margin-top: -160px;
     margin-bottom: 100px;
@@ -308,20 +331,26 @@ li {
 
 
 .Overview {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: l;
   box-sizing: border-box;
 }
 
 
 .Features {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: r;
 }
 
 
 .Teams {
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   grid-column-end: 6;
-  grid-row-start: 4;
+  -ms-grid-row: 4;
+      grid-row-start: 4;
   grid-row-end: 5;
   align-items: center;
   display: flex;
@@ -337,16 +366,20 @@ li {
 
 @media (min-width: 60em) {
   .Teams {
-    grid-column-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 5;
   }
 }
 
 
 .Socials {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-  grid-template-rows: auto;
+  -ms-grid-columns: (minmax(60px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   width: 100%;
   justify-items: center;
   grid-gap: 24px;
