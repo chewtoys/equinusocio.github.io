@@ -87,7 +87,7 @@ h3::before {
 p {
   font-size: 18px;
   line-height: 1.5;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 a {
@@ -110,7 +110,7 @@ ul {
 li {
   list-style-type: none;
   padding: 4px 0 4px 32px;
-  background-image: url('./bullet.svg');
+  background-image: url('./images/bullet.svg');
   background-position: 0 10px;
   background-repeat: no-repeat;
   background-size: 16px 10px;
@@ -164,7 +164,7 @@ li {
   width: 18px;
   height: 14px;
   margin-right: 16px;
-  background-image: url("./left-arrow.svg");
+  background-image: url("./images/left-arrow.svg");
   background-size: 18px 14px;
 }
 
