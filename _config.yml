@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Mattia Astorino
+title: CSS, HTML, Tips & Tricks - Mattia Astorino (equinsuocha)
 subtitle:
 description: "I'm a 29-year-old guy born in Italy. I'm a UXD Lead Engineer and CSS/HTML architect in Milan."
 keywords:
@@ -42,7 +42,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:

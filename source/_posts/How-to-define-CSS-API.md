@@ -1,8 +1,8 @@
 ---
 title: How to define CSS API
 date: 2018-04-05 22:08:27
-thumbnail: https://image.ibb.co/kGDsBc/css.png
-featured_image: https://image.ibb.co/kGDsBc/css.png
+thumbnail: cover.png
+featured_image: cover.png
 tags:
 - Css
 - Custom Properties

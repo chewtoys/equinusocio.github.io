@@ -1,7 +1,7 @@
 ---
 title: Web Components — the right way
-thumbnail: https://thepracticaldev.s3.amazonaws.com/i/qak0o6n6fh9x8y86ezk2.gif
-featured_image: https://thepracticaldev.s3.amazonaws.com/i/qak0o6n6fh9x8y86ezk2.gif
+thumbnail: cover.png
+featured_image: cover.png
 feature_image_caption: Building Blocks by Ola Tandstad
 date: 2018-04-05 22:48:50
 tags:

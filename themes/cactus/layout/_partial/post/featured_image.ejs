@@ -1,8 +1,9 @@
 <% if (page.featured_image){ %>
   <div class="featured-image">
-    <img class=""
+    <img class="featured-image__image"
         itemprop="image"
         draggable="false"
+        height="420"
         src="<%- page.featured_image %>">
     <% if (page.featured_image){ %>
       <small class="image-caption"><%= page.feature_image_caption %></small>
