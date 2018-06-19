@@ -200,6 +200,7 @@ li {
 
 .Picture {
   overflow: hidden;
+  background-color: #070707;
 }
 
 .Picture[data-span="2"] {
@@ -214,14 +215,18 @@ li {
 
 .Picture img {
   display: block;
-  background-color: #333;
   max-width: 100%;
+  min-height: 196px;
+  object-fit: cover;
+  object-position: center;
   user-select: none;
-  transition: filter 0.6s ease-in;
-  image-rendering: optimizequality;
+  will-change: filter, image-rendering;
+  filter: brightness(100%) contrast(1.1) saturate(103%);
+  transition: filter 1s linear;
+  image-rendering: pixelated;
+  image-rendering: optimizespeed;
 }
 
 .Picture img.Lazy {
-  filter: blur(10px);
-  image-rendering: optimizespeed;
+  filter: brightness(10%);
 }
