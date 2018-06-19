@@ -4,8 +4,8 @@
     <%- partial('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
     <div class="meta">
       <%- partial('_partial/post/date', { post: page, class_name: 'postdate', date_format: 'MMMM Do, YYYY' }) %>
+      <%- partial('_partial/post/featured_image') %>
     </div>
-    <%- partial('_partial/post/featured_image') %>
   </header>
   <%- partial('_partial/post/gallery') %>
   <div class="content" itemprop="articleBody">

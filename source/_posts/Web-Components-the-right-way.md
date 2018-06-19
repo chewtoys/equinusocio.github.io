@@ -55,14 +55,31 @@ If we need to create a new `<my-button>` element with a customised style, we mus
 
 If we surf on the Internet, we can find some *pattern libraries* fully composed by custom elements (using or not some frameworks, like [Polymer](https://www.polymer-project.org/)), *tests*, *examples*, *playgrounds* …and they all have one thing in common, **they are all created using a wrong pattern**. Do you remember? We are extending the HTML, so we should follow its paradigms and its composition. Here some examples:
 
-![ex2](https://cdn-images-1.medium.com/max/1600/1*fXvsGsqwR9QcP-E9jeXsxg.png)
+```html
+<my-app>
+  #shadow-root
+    App content here
+```
 
+<!-- ![ex2](https://cdn-images-1.medium.com/max/1600/1*fXvsGsqwR9QcP-E9jeXsxg.png) -->
 <small class="image-caption">An entire app inside the shadow root. It’s the same as putting the app inside the `<input>` tag.</small>
 
-![ex3](https://cdn-images-1.medium.com/max/1600/1*vBXhxekSAeyj5U35AUkrCA.png)
+```html
+<my-button>
+  #shadow-root
+    <button><slot></slot></button>
+```
+
+<!-- ![ex3](https://cdn-images-1.medium.com/max/1600/1*vBXhxekSAeyj5U35AUkrCA.png) -->
 <small class="image-caption">A native `<button>` element wrapped… inside another custom button. [It’s the same as putting a `<button>` inside another `<button>`](https://inception.davepedu.com/).</small>
 
-![ex4](https://cdn-images-1.medium.com/max/1600/1*E-gG1wPhyjHbsrdABqlgKQ.png)
+```html
+<my-select options="{...}">
+  #shadow-root
+    ...for each opt in options ⮐
+    <option></option>
+```
+<!-- ![ex4](https://cdn-images-1.medium.com/max/1600/1*E-gG1wPhyjHbsrdABqlgKQ.png) -->
 <small class="image-caption">Does this image really need a description? Think about the `<select>` example above.</small>
 
 They are many other wrong examples around, but these are the most misleading that I found, compared to the fundamental HTML principle, the **composition** ([read more about it](https://developers.google.com/web/fundamentals/web-components/shadowdom#composition_slot)).
@@ -77,15 +94,58 @@ When we develop a web component, we must consider the two models described above
 
 For example, let’s consider to create a custom element that shows a tooltip balloon near any element passed as a child, as we would do with the HTML.
 
-![ext5](https://cdn-images-1.medium.com/max/1600/1*Z0GCsm-ZigYuknElX8j-hA.png)
+**my-tooltip**:
+```html
+#shadow-root
+  <slot></slot>
+  if this.text ?
+  <span role="tooltip" aria-label="More info" class="tooltip">${this.tooltip}</span>
+```
 
-The above `<my-tooltip>` element, if we want, can allow users to customise the tooltip balloon style— that it is in the **#shadow-root** — only through a set of custom properties, if we define them inside the `:host` selector. You can read more about defining CSS api (or style-hooks) here:
+**usage**:
+```html
+<my-tooltip class="UserClass" text="Don't click me. I'm serious." position="right">
+  <button>CLick Me</button>
+</my-tooltip>
+```
+
+As we can see, our component will wrap a slotted element that user can pass as child. This element is not encapsulated in the component `#shadow-root` so who consume the component can use any element they want.
+
+<!-- ![ext5](https://cdn-images-1.medium.com/max/1600/1*Z0GCsm-ZigYuknElX8j-hA.png) -->
+
+The above `<my-tooltip>` element, if we want, can also allow users to customise the tooltip balloon style — that is in the **#shadow-root** —  only through a set of custom properties, if we define them inside the `:host` selector. You can read more about defining CSS api (or style-hooks) here:
 
 {% post_link How-to-define-CSS-API %}
 
+<br><br>
+
 Go on with a more complex example and define a custom element that allows only one type of child node, as per `<ul>` and `<li>` tags to generate a list:
 
-![ext6](https://cdn-images-1.medium.com/max/1600/1*g4GHGKlyRig5Ny0oKntRpg.png)
+**todo-list**
+```html
+#shadow-root
+  <slot></slot>
+```
+
+**todo-li**
+```html
+#shadow-root
+  <input type="checkbox" disabled=${this.disabled}>
+  <slot></slot>
+  <div class="PriorityIndicator"></div>
+```
+
+**usage**
+```html
+  <todo-list>
+    <todo-li priority="low">Buy new shoes</todo-li>
+    <todo-li priority="high">Give 100.000$ do Mattia Astorino</todo-li>
+  </todo-list>
+```
+
+<!-- ![ext6](https://cdn-images-1.medium.com/max/1600/1*g4GHGKlyRig5Ny0oKntRpg.png) -->
+
+In this example we built a custom todo list using two separated components. The `todo-list` element is just a wrapper that will accept only `todo-li` elements as children (as for ul/ol with li) and the `todo-li` element is used to define the list tasks with a priority indicator and an encapsulated native checkbox.
 
 ## In conclusion
 

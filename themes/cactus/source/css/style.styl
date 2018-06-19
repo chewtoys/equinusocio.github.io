@@ -12,10 +12,11 @@ global-reset()
 
 html
   height: 100%
-  border-top: 2px solid $color-text
+  border-top: 4px solid $color-text
   text-size-adjust: 100%
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: calc(100% + 0.25 * (100vw - 60em) / 150);
 
 body
   display: flex
@@ -23,7 +24,6 @@ body
   background-color: $color-background
   color: $color-text
   font-weight: 400
-  font-size: $font-size
   font-family: $font-family-body
   line-height: $line-height
   text-rendering: geometricPrecision
