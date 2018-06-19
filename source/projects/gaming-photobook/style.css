@@ -226,7 +226,6 @@ li {
   will-change: filter, image-rendering;
   filter: none;
   transition: filter 1s linear;
-  image-rendering: pixelated;
 }
 
 .Picture img.Lazy {
