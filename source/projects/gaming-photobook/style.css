@@ -173,7 +173,8 @@ li {
   }
 }
 
-.Title span {
+.Title::after {
+  content: ".";
   color: #00e2bc;
 }
 
