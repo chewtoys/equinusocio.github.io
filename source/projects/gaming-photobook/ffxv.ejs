@@ -1,9 +1,10 @@
-<% for(var i=0; i <= 3; i++) {%>
+<% for(var i=0; i <= 4; i++) {%>
   <div class="Picture">
     <img class="Lazy"
         draggable="false"
+        data-action="zoom"
         src="./images/spacer.png"
         data-src="./images/ff15/FFXV_<%= i %>.jpg"
-        data-srcset="./images/ff15/FFXV_<%= i %>.jpg 1x">
+        data-srcset="./images/ff15/FFXV_<%= i %>@2x.jpg 2x, ./images/ff15/FFXV_<%= i %>.jpg 1x">
   </div>
 <% }; %>

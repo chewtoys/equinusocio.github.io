@@ -28,6 +28,7 @@ layout: false
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <title>Gaming Photobook by Mattia Astorino</title>
   <link rel="stylesheet" href="./style.css">
+  <link href="./zoom.css" rel="stylesheet">
   <script async src="//www.google-analytics.com/analytics.js"></script>
 </head>
 
@@ -35,7 +36,7 @@ layout: false
   <main>
     <a class="Back" href="https://equinsuocha.io">equinsuocha.io</a>
     <div class="HeroBanner">
-      <h1 class="Title">Gaming Photobook.</h1>
+      <h1 class="Title">Gaming Photobook<span>.</span></h1>
       <h4 class="Subtitle">A cureted collection of screenshots taken from my gaming sessions</h4>
     </div>
 
@@ -46,17 +47,19 @@ layout: false
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/batman/BATMAN_0.jpg"
-            data-srcset="./images/batman/BATMAN_0.jpg 1x">
+            data-srcset="./images/batman/BATMAN_0@2x.jpg 2x, ./images/batman/BATMAN_0.jpg 1x">
       </div>
 
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/battlefield/Battlefield_0.jpg"
-            data-srcset="./images/battlefield/Battlefield_0.jpg 1x">
+            data-srcset="./images/battlefield/Battlefield_0@2x.jpg 2x, ./images/battlefield/Battlefield_0.jpg 1x">
       </div>
 
       <%- include('ac'); %>
@@ -68,72 +71,71 @@ layout: false
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/infamous/infamous_0.jpg"
-            data-srcset="./images/infamous/infamous_0.jpg 1x">
+            data-srcset="./images/infamous/infamous_0@2x.jpg 2x, ./images/infamous/infamous_0.jpg 1x">
       </div>
 
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/mass_effect/Mass_Effect_0.jpg"
-            data-srcset="./images/mass_effect/Mass_Effect_0.jpg 1x">
+            data-srcset="./images/mass_effect/Mass_Effect_0@2x.jpg 2x, ./images/mass_effect/Mass_Effect_0.jpg 1x">
       </div>
 
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/nfs/nfs_0.jpg"
-            data-srcset="./images/nfs/nfs_0.jpg 1x">
+            data-srcset="./images/nfs/nfs_0@2x.jpg 2x, ./images/nfs/nfs_0.jpg 1x">
       </div>
 
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/until_dawn/Until_Dawn_0.jpg"
-            data-srcset="./images/until_dawn/Until_Dawn_0.jpg 1x">
+            data-srcset="./images/until_dawn/Until_Dawn_0@2x.jpg 2x, ./images/until_dawn/Until_Dawn_0.jpg 1x">
       </div>
 
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/rodt/RODT_0.jpg"
-            data-srcset="./images/rodt/RODT_0.jpg 1x">
+            data-srcset="./images/rodt/RODT_0@2x.jpg 2x, ./images/rodt/RODT_0.jpg 1x">
       </div>
 
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
-            src="./images/spacer.png"
-            data-src="./images/destiny/Destiny_0.jpg"
-            data-srcset="./images/destiny/Destiny_0.jpg 1x">
-      </div>
-
-      <div class="Picture">
-        <img class="Lazy"
-            draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/titanfall/Titanfall_2_0.jpg"
-            data-srcset="./images/titanfall/Titanfall_2_0.jpg 1x">
+            data-srcset="./images/titanfall/Titanfall_2_0@2x.jpg 2x, ./images/titanfall/Titanfall_2_0.jpg 1x">
       </div>
 
       <div class="Picture">
         <img class="Lazy"
             draggable="false"
+            data-action="zoom"
             src="./images/spacer.png"
             data-src="./images/last_of_us/The_Last_of_Us_Remastered_0.jpg"
-            data-srcset="./images/last_of_us/The_Last_of_Us_Remastered_0.jpg 1x">
+ data-srcset="./images/last_of_us/The_Last_of_Us_Remastered_0@2x.jpg 2x, ./images/last_of_us/The_Last_of_Us_Remastered_0.jpg 1x">
       </div>
 
     </section>
   </main>
-
   <script>
     document.addEventListener("DOMContentLoaded",function(){var a=[].slice.call(document.querySelectorAll("img.Lazy"));if("IntersectionObserver"in window){let b=new IntersectionObserver(function(c){c.forEach(function(e){if(e.isIntersecting){let f=e.target;f.src=f.dataset.src,f.srcset=f.dataset.srcset,f.classList.remove("Lazy"),b.unobserve(f)}})});a.forEach(function(c){b.observe(c)})}else{let b=!1;const c=function(){!1==b&&(b=!0,setTimeout(function(){a.forEach(function(d){d.getBoundingClientRect().top<=window.innerHeight&&0<=d.getBoundingClientRect().bottom&&"none"!==getComputedStyle(d).display&&(d.src=d.dataset.src,d.srcset=d.dataset.srcset,d.classList.remove("Lazy"),a=a.filter(function(e){return e!==d}),0===a.length&&(document.removeEventListener("scroll",c),window.removeEventListener("resize",c),window.removeEventListener("orientationchange",c)))}),b=!1},200))};document.addEventListener("scroll",c),window.addEventListener("resize",c),window.addEventListener("orientationchange",c)}});
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/zoom-vanilla.js/dist/zoom-vanilla.min.js"></script>
 </body>
 </html>
