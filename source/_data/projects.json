@@ -1,5 +1,11 @@
 [
     {
+       "name":"Gaming Photobook",
+       "url": "/projects/gaming-photobook",
+       "desc": "This photobook is a curated collection of screenshots taken from my gaming sessions with Sony Playstation 4 Pro",
+       "target": "_blank"
+    },
+    {
        "name":"UXD Design System",
        "url":"https://ux.contactlab.com",
        "desc":"Contactlab design system by the UXD team.",
