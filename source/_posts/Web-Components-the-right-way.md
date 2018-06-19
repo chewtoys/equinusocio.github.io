@@ -2,7 +2,6 @@
 title: Web Components — the right way
 thumbnail: cover.png
 featured_image: cover.png
-feature_image_caption:
 date: 2018-04-05 22:48:50
 tags:
 - Web Components
