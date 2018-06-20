@@ -1,8 +1,8 @@
 {
   "name": "equinsuocha.io",
   "scripts": {
-    "start": "hexo clean && hexo g && hexo s",
-    "deploy": "hexo clean && hexo g && hexo deploy"
+    "start": "hexo clean && hexo s --config _config-dev.yml",
+    "deploy": "hexo clean && hexo g && hexo deploy --config _config-dev.yml, _config-prod.yml"
   },
   "version": "0.0.1",
   "private": true,

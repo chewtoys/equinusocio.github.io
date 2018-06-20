@@ -11,6 +11,8 @@ author: Mattia Astorino
 language:
 timezone:
 all_minifier: true
+image_minifier:
+  enable: false
 autoprefixer:
   exclude:
     - '*.min.css'
