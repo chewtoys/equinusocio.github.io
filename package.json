@@ -1,8 +1,8 @@
 {
   "name": "equinsuocha.io",
   "scripts": {
-    "start": "./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo s --config config-dev.yml",
-    "build": "./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo g --config config-dev.yml,config-prod.yml",
+    "start": "./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo server --config config-dev.yml",
+    "build": "./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo generate --config config-dev.yml,config-prod.yml",
     "deploy": "./node_modules/.bin/hexo deploy --config config-dev.yml,config-prod.yml",
     "release": "npm run build && npm run deploy"
   },
