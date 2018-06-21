@@ -1,6 +1,6 @@
 ---
-title: Hot CSS pills
-date: 2018-06-19 11:17:50
+title: Hot tips CSS
+date: 2018-06-21 11:17:50
 thumbnail: cover.png
 featured_image: cover.png
 tags:
@@ -88,10 +88,25 @@ my-component {
 
 ```css
 my-component {
-  font-family: font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Helvetica, Arial, Ubuntu, sans-serif,
                 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 ```
 <small class="image-caption">Use the system font to provide a consistent typography experience.</small>
+
+
+**Check if input have a value**
+
+```css
+.Note {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+input:not(:placeholder-shown) + .Note {
+  opacity: 1;
+}
+```
+<small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="http://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
 
