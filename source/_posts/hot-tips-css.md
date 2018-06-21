@@ -4,8 +4,8 @@ date: 2018-06-21 11:17:50
 thumbnail: cover.png
 featured_image: cover.png
 tags:
-  - css
-  - tips
+  - Css
+  - Tips
 ---
 
 Here a curated collection of css snippets that you can use for determinate situations or just for fun. Let's start.
