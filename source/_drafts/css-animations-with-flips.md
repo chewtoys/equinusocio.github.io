@@ -30,9 +30,13 @@ L'acronimo **FLIP** è composto da _**F**irst_, _**L**ast_, _**I**nvert_, _**P**
 
 In pratica l'approccio è quello di rimuovere le eventuali trasformazioni invece di applicarle. In questo modo, il browser conoscendo già i keyframes di partenza e arrivo è ingrado di far partire l'animazione più velocemente. **FLIP** è particolarmente utile quando le animazioni vengono scatenate dall'interazione di un utente. Non sempre i vantaggi sono percepibili ma a seconda del dispositivo usato può fare la differenza e dare un senso di reattività.
 
-# Animations library
+Another example with a modal..
 
-Tutti ormai conoscono il famoso [animate.css](https://daneden.github.io/animate.css/) di [Daniel Eden](https://daneden.me/), ma negli ultimi anni la technologia web si è evoluta molto e gli strumenti che utilizziamo tutti i giorni dovrebbero evolversi di conseguenza. Animate.css offre molte animazioni ma spesso non sono performanti e richiedono grandi risorse per essere eseguite.. e non tutti i dispositivi possono fornirle. Oggi ci sono molte librerie per gestire questi aspetti, alcune basate su **CSS** e altre su **Javascript**:
+{% jsfiddle p1atjgx7 result,css ?accentColor=00e2bc&bodyColor=FFF %}
+
+# Animation libraries
+
+Tutti ormai conosciamo il famoso [animate.css](https://daneden.github.io/animate.css/) di [Daniel Eden](https://daneden.me/), ma negli ultimi anni la technologia web si è evoluta molto e gli strumenti che utilizziamo tutti i giorni dovrebbero evolversi di conseguenza. Animate.css offre molte animazioni ma spesso non sono performanti e richiedono grandi risorse per essere eseguite.. e non tutti i dispositivi possono fornirle. Oggi ci sono molte librerie per gestire questi aspetti, alcune basate su **CSS** e altre su **Javascript**:
 
 - [**Bounce.js**](http://bouncejs.com/)
 - [**Anime.js**](http://animejs.com/)

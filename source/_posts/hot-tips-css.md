@@ -128,3 +128,29 @@ input:not(:placeholder-shown) + .Note {
 ```
 <small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="http://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
 
+
+**Repeat Gradients**
+
+```css
+.repeat-linear {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      lime,
+      lime 10px,
+      pink 10px,
+      pink 20px
+    );
+}
+
+.repeat-radial {
+  background:
+    repeating-conic-gradient(
+      circle at 0 0,
+      tomato,
+      limegreen 50px
+    );
+}
+```
+<small class="image-caption">You can repeat gradients instead of mess with sass.</small>
+
