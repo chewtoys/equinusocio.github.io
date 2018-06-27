@@ -7,20 +7,19 @@ tags:
   - Animations
 ---
 
-Le animazioni CSS sono un ottimo modo per aggiungere dinamicità e migliorare l'esperienza complessiva dell'utente, ma possono anche incrementare il senso di frustrazione e rallentamento se non sono gestite correttamente. Per questo motivo un'animazione deve essere **ben studiata**, **bilanciata** e **performante**.
+CSS animations are a good way to make dynamic user interfaces and to improve general user experience, but they can also increase a sense of frustration and if not handled properly, users could waste their time. That is the reason why an animation must be **well designed**, **balanced** and **performing**.
 
-<!-- more -->
 
-Esistono diversi approcci per gestire al meglio le animazioni, ma in linea di massima conviene sempre sfruttare l'accelerazione **GPU** del dispositivo ed evitare cambiamenti al *layout* e operazioni che scatenano la fase di *repaint* del browser. Animando la proprietà [transform](https://csstriggers.com/transform) e [opacity](https://csstriggers.com/opacity) si possono già ottenere risultati soddisfacenti ed è consigliato non intervenire su altre proprietà salvo casi specifici. Se vogliamo che le nostre animazioni vengano eseguite a **60*fps*** possiamo fare di più e migliorare il modo in cui progettiamo i vari keyframes che compongono la nostra timeline. Non è sempre facile raggiungere una fluidità soddisfacente e comunque dipende da cosa si vuole ottenere, ma il metodo **FLIP** presentato qualche anno fa da [Paul Lewis](https://aerotwist.com/) può aiutare.
+There are different ways to better handle good animations, but it is always a good choise to use the device **GPU** acceleration, avoiding **layout** changes and browser **repaint** operations. By animating the [transform](https://csstriggers.com/transform) and [opacity](https://csstriggers.com/opacity) properties you can reach good results and it should not be necessary work on other properties, except in specific cases. If we want to make **60*fps*** animations we can do even more and improve the way we design their keyframes along the timeline. The **FLIP** method presented some years ago by [Paul Lewis](https://aerotwist.com/) might help you to reach the mithological **60*fps*** animations.
 
-## Il medoto FLIP
+## Go FLIP yourself
 
-L'acronimo **FLIP** è composto da _**F**irst_, _**L**ast_, _**I**nvert_, _**P**lay_, qui di seguito descritti:
+**FLIP** stands for _**F**irst_, _**L**ast_, _**I**nvert_, _**P**lay_... but let's break them down:
 
-- **First**: Definisci lo stato iniziale degli elementi.
-- **Last**: Definisci lo stato finale degli element.
-- **Invert**: Considerando lo stato iniziale e lo stato di arrivo, sappiamo come gli elementi cambiano durante l'animazione. Se vogliamo — ipotizzando — spostare un elemento di `+150px` sull'*asse X*, in questo caso il nostro punto di arrivo diventa il nostro punto di partenza. Lo stato iniziale dell'animazione avrà `transformX` a `150px`, mentre lo stato di arrivo avrà la proprietà `transform` impostata a `none`.
-- **Play**: Esegui l'animazione azzerando le proprietà cambiate in modo da portare l'elemento al suo stato inziale, ma visivamente allo stato finale che volevamo. Qui una piccola [live demo.](https://jsfiddle.net/equinusocio/psq5g0cd/)
+- **First**: Define the initial state of elements
+- **Last**: Define the final state of elements
+- **Invert**: As you recognized both the states of the elements, you know how they will change along the animation. For example, if you need to move an element along the *X axys* by `150px`, in this case your final keyframe will become the animation starting point. So, the first keyframe will contain a ``transformX` property set to `150px`, while the last keyframe will reset the transformation with `transform: none`.
+- **Play**: Play the animation inverting his direction and remove his changes. The element will have is initial properties but it will appear at the final position. Here you can check a [live demo.](https://jsfiddle.net/equinusocio/psq5g0cd/)
 
 {% blockquote Paul Lewis %}
   FLIP is an approach to animations that remaps animating expensive properties, like width, height, left and top to significantly cheaper changes using transforms. It does this by taking two snapshots, one of the element’s First position (F), another of its Last position (L). It then uses a transform to Invert (I) the element’s changes, such that the element appears to still be in the First position. Lastly it Plays (P) the animation forward by removing the transformations applied in the Invert step.
