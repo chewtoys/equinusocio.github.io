@@ -172,3 +172,25 @@ button {
 ```
 <small class="image-caption">Use svg icons as mask and keep color manipilation. <a href="https://jsfiddle.net/equinusocio/2jekbdas/embedded/result/" target="_blank">Live demo.</a></small>
 
+<br><br><br>
+
+**Float based on document direction**
+
+```css
+img {
+  float: inline-start; /* ...or inline-end */
+}
+```
+<small class="image-caption">Float an element based on the text direction (`rtl` or `ltr`).</small>
+
+<br><br><br>
+
+**Target default form element**
+
+```css
+input:default {
+  opacity: 0.2;
+}
+```
+<small class="image-caption">Target the default selected input in a gruop. <a href="https://jsfiddle.net/equinusocio/kn231bx9/embedded/result/" target="_blank">Live demo.</a></small>
+
