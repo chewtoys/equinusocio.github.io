@@ -128,6 +128,7 @@ input:not(:placeholder-shown) + .Note {
 ```
 <small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="https://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
 
+<br><br><br>
 
 **Repeat Gradients**
 
@@ -154,6 +155,7 @@ input:not(:placeholder-shown) + .Note {
 ```
 <small class="image-caption">You can repeat gradients instead of mess with mixins.</small>
 
+<br><br><br>
 
 **Vector icons as mask**
 
