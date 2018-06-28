@@ -126,7 +126,7 @@ input:not(:placeholder-shown) + .Note {
   opacity: 1;
 }
 ```
-<small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="http://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
+<small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="https://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
 
 
 **Repeat Gradients**
@@ -152,5 +152,21 @@ input:not(:placeholder-shown) + .Note {
     );
 }
 ```
-<small class="image-caption">You can repeat gradients instead of mess with sass.</small>
+<small class="image-caption">You can repeat gradients instead of mess with mixins.</small>
+
+
+**Vector icons as mask**
+
+```css
+button {
+  background: linear-gradient(to right, #d2ff52 0%,#30A85A 100%);
+  height: 40px;
+  width: 100px;
+  mask: url(https://cdn.onlinewebfonts.com/svg/img_529012.svg);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 24px;
+}
+```
+<small class="image-caption">Use svg icons as mask and keep color manipilation. <a href="https://jsfiddle.net/equinusocio/2jekbdas/embedded/result/" target="_blank">Live demo.</a></small>
 
