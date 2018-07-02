@@ -194,3 +194,12 @@ input:default {
 ```
 <small class="image-caption">Target the default selected input in a gruop. <a href="https://jsfiddle.net/equinusocio/kn231bx9/embedded/result/" target="_blank">Live demo.</a></small>
 
+<br><br><br>
+
+**Import your css when you need it**
+
+```css
+@import url('portrait.css') screen and (orientation: portrait);
+```
+<small class="image-caption">You can conditionally import your css like you can do inline with the `<link>`. Please consider that vanilla css imports are a bad thing in terms of performance because they start an potentially <a href="https://image.ibb.co/mZOcBd/Screen_Shot_2018_07_02_at_11_37_16.png" target="_blank">infinite calls chain.</a>.</small>
+
