@@ -208,8 +208,8 @@ input:default {
 **Improve touchable elements based on pointer precision**
 
 ```css
-@media (pointer: fine) { /* I'm default */ }
-@media (pointer: coarse) { /* I'm a bit larger. I have a less precise pointer method */ }
+@media (any-pointer: fine) { /* I'm default */ }
+@media (any-pointer: coarse) { /* I'm a bit larger. I have a less precise pointer method */ }
 ```
 <small class="image-caption">Improve your touchable elements if the main pointer input is `precise` (mouse) or `less precise` (touch).</small>
 
