@@ -205,7 +205,7 @@ input:default {
 
 <br><br><br>
 
-**Improve the UI based on pointer type***
+**Improve touchable elements based on pointer precision**
 
 ```css
 @media (pointer: fine) { /* I'm default */ }
