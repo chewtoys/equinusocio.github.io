@@ -203,3 +203,13 @@ input:default {
 ```
 <small class="image-caption">You can conditionally import your css like you can do inline with the `<link>`. Please consider that vanilla css imports are a bad thing in terms of performance because they start an potentially <a href="https://image.ibb.co/mZOcBd/Screen_Shot_2018_07_02_at_11_37_16.png" target="_blank">infinite calls chain.</a>.</small>
 
+<br><br><br>
+
+**Improve the UI based on pointer type***
+
+```css
+@media (pointer: fine) { /* I'm default */ }
+@media (pointer: coarse) { /* I'm a bit larger. I have a less precise pointer method */ }
+```
+<small class="image-caption">Improve your touchable elements if the main pointer input is `precise` (mouse) or `less precise` (touch).</small>
+
