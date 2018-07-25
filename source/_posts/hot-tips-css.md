@@ -126,7 +126,7 @@ input:not(:placeholder-shown) + .Note {
   opacity: 1;
 }
 ```
-<small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="http://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
+<small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="https://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
 
 <br><br><br>
 
@@ -153,7 +153,65 @@ input:not(:placeholder-shown) + .Note {
     );
 }
 ```
-<small class="image-caption">You can repeat gradients instead of mess with sass.</small>
+<small class="image-caption">You can repeat gradients instead of mess with mixins.</small>
+
+<br><br><br>
+
+**Vector icons as mask**
+
+```css
+button {
+  background: linear-gradient(to right, #d2ff52 0%,#30A85A 100%);
+  height: 40px;
+  width: 100px;
+  mask: url(https://cdn.onlinewebfonts.com/svg/img_529012.svg);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 24px;
+}
+```
+<small class="image-caption">Use svg icons as mask and keep color manipilation. <a href="https://jsfiddle.net/equinusocio/2jekbdas/embedded/result/" target="_blank">Live demo.</a></small>
+
+<br><br><br>
+
+**Float based on document direction**
+
+```css
+img {
+  float: inline-start; /* ...or inline-end */
+}
+```
+<small class="image-caption">Float an element based on the text direction (`rtl` or `ltr`).</small>
+
+<br><br><br>
+
+**Target default form element**
+
+```css
+input:default {
+  opacity: 0.2;
+}
+```
+<small class="image-caption">Target the default selected input in a gruop. <a href="https://jsfiddle.net/equinusocio/kn231bx9/embedded/result/" target="_blank">Live demo.</a></small>
+
+<br><br><br>
+
+**Import your css when you need it**
+
+```css
+@import url('portrait.css') screen and (orientation: portrait);
+```
+<small class="image-caption">You can conditionally import your css like you can do inline with the `<link>`. Please consider that vanilla css imports are a bad thing in terms of performance because they start an potentially <a href="https://image.ibb.co/mZOcBd/Screen_Shot_2018_07_02_at_11_37_16.png" target="_blank">infinite calls chain.</a>.</small>
+
+<br><br><br>
+
+**Improve touchable elements based on pointer precision**
+
+```css
+@media (any-pointer: fine) { /* I'm default */ }
+@media (any-pointer: coarse) { /* I'm a bit larger. I have a less precise pointer method */ }
+```
+<small class="image-caption">Improve your touchable elements if the main pointer input is `precise` (mouse) or `less precise` (touch).</small>
 
 <br><br><br>
 
