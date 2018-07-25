@@ -128,11 +128,12 @@ input:not(:placeholder-shown) + .Note {
 ```
 <small class="image-caption">This pseudo class allows you to check if the input have a value. <a href="http://jsfiddle.net/equinusocio/9hdm3fLc/embedded/result/" target="_blank">Live demo.</a></small>
 
+<br><br><br>
 
 **Repeat Gradients**
 
 ```css
-.repeat-linear {
+.RepeatLinear {
   background:
     repeating-linear-gradient(
       45deg,
@@ -143,7 +144,7 @@ input:not(:placeholder-shown) + .Note {
     );
 }
 
-.repeat-radial {
+.RepeatRadial {
   background:
     repeating-conic-gradient(
       circle at 0 0,
@@ -153,4 +154,15 @@ input:not(:placeholder-shown) + .Note {
 }
 ```
 <small class="image-caption">You can repeat gradients instead of mess with sass.</small>
+
+<br><br><br>
+
+**Prevent over-scroll**
+
+```css
+.ScollingContent {
+  overscroll-behavior: contain;
+}
+```
+<small class="image-caption">Prevent over-scroll when the scroll reach the end of the element</small>
 

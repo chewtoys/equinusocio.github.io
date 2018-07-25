@@ -6,7 +6,7 @@
     "deploy": "./node_modules/.bin/hexo deploy --config config-dev.yml,config-prod.yml",
     "release": "npm run build && npm run deploy"
   },
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "hexo": {
     "version": "3.7.1"

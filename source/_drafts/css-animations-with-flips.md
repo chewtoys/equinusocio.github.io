@@ -18,7 +18,7 @@ There are different ways to better handle good animations, but it is always a go
 
 - **First**: Define the initial state of elements
 - **Last**: Define the final state of elements
-- **Invert**: As you recognized both the states of the elements, you know how they will change along the animation. For example, if you need to move an element along the *X axys* by `150px`, in this case your final keyframe will become the animation starting point. So, the first keyframe will contain a ``transformX` property set to `150px`, while the last keyframe will reset the transformation with `transform: none`.
+- **Invert**: As you recognized both the states of the elements, you know how they will change along the animation. For example, if you need to move an element along the *X axys* by `-150px`, in this case your final keyframe will become the animation starting point. So, the first keyframe will contain a `transformX` property set to `-150px`, while the last keyframe will reset the transformation with `transform: none`.
 - **Play**: Play the animation inverting his direction and remove his changes. The element will have is initial properties but it will appear at the final position. Here you can check a [live demo.](https://jsfiddle.net/equinusocio/psq5g0cd/)
 
 {% blockquote Paul Lewis %}
