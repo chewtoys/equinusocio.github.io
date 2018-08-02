@@ -18,6 +18,8 @@ autoprefixer:
     - '*.min.css'
   browsers:
     - 'last 1 versions'
+browsersync:
+  tunnel: true
 
 
 # URL
