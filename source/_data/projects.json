@@ -1,24 +1,24 @@
 [
     {
-       "name":"Gaming Photobook",
-       "url": "/projects/gaming-photobook",
-       "desc": "This photobook is a curated collection of screenshots taken from my gaming sessions with Sony Playstation 4 Pro",
-       "target": "_blank"
+       "name":"Material Theme for Visual Studio Code",
+       "url":"/projects/material-theme",
+       "desc":"★ 631 — The most epic theme for Visual Studio Code.",
+       "target": "_self"
     },
     {
-       "name":"UXD Design System",
+       "name": "UXD Design System for Contactlab",
        "url":"https://ux.contactlab.com",
        "desc":"Contactlab design system by the UXD team.",
        "target": "_blank"
     },
     {
-       "name":"Material Theme for VSC",
-       "url":"/projects/material-theme",
-       "desc":"★ 400 — The most epic theme for Visual Studio Code.",
-       "target": "_self"
+        "name": "Gaming Photobook",
+        "url": "/projects/gaming-photobook",
+        "desc": "This photobook is a curated collection of screenshots taken from my gaming sessions with Sony Playstation 4 Pro",
+        "target": "_blank"
     },
     {
-       "name":"Material Theme for ST",
+       "name":"Material Theme for Sublime Text",
        "url":"https://github.com/equinusocio/material-theme",
        "desc":"★ 10k — The most epic theme for Sublime Text 3.",
        "target": "_blank"

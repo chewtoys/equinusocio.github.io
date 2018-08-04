@@ -16,6 +16,8 @@ autoprefixer:
     - '*.min.css'
   browsers:
     - last 1 versions
+browsersync:
+  tunnel: true
 url: 'https://equinsuocha.io'
 root: /
 permalink: 'blog/:title/'
