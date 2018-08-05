@@ -22,17 +22,6 @@ img.QRcode {
 
 <br><br><br>
 
-**Run style on Safari 11+**
-
-```css
-@supports (padding: env(safe-area-inset)) {
-  /* Your code for Safari 11+ */
-}
-```
-<small class="image-caption">The `env()` function and the `environment variables` is implemented by Safary 11+ to support Apple iPhone X screens. You can read more info <a title="Designing Websites for iPhone X" href="https://webkit.org/blog/7929/designing-websites-for-iphone-x/" >here</a></small>
-
-<br><br><br>
-
 **Check empty nodes**
 
 ```css

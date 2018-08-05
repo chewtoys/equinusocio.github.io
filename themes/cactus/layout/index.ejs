@@ -43,11 +43,13 @@
 <section id="projects">
   <h1><%= __('index.projects') %></h1>
 
-  <% for(var obj in site.data.projects){ %>
-    <a class="ProjectCard" href="<%= site.data.projects[obj].url %>"
-      target="<%= site.data.projects[obj].target %>">
-      <h2 class="ProjectCard__Name"><%= site.data.projects[obj].name %></h2>
-    </a>
-  <% } %>
+  <menu class="ProjectGrid">
+    <% for(var obj in site.data.projects){ %>
+      <a class="ProjectCard" href="<%= site.data.projects[obj].url %>"
+        target="<%= site.data.projects[obj].target %>">
+        <h2 class="ProjectCard__Name"><%= site.data.projects[obj].name %></h2>
+      </a>
+      <% } %>
+  </menu>
 </section>
 <% } %>
