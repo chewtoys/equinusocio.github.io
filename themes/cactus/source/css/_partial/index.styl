@@ -39,7 +39,7 @@
     background-repeat: auto
     background-size: auto
     position: relative
-    transition: transform 400ms ease-in-out
+    transition: transform 300ms ease-in-out
 
     &::before {
       content: ''
@@ -50,10 +50,10 @@
       right: 0
       background: inherit;
       z-index: -1
-      filter: blur(30px)
+      filter: blur(0)
       pointer-events: none
-      opacity: 0
-      transition: all 400ms ease-out
+      opacity: 0.2
+      transition: all 300ms ease-out
       border-radius: inherit
     }
 
@@ -75,6 +75,7 @@
 
       &::before
         opacity: 0.65
+        filter: blur(30px)
         transform: translateY(23px)
 
     &:nth-child(1)
