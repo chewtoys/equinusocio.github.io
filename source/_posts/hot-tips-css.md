@@ -83,7 +83,7 @@ my-component {
 ```css
 my-component {
   scroll-snap-type: mandatory;
-  scroll-snap-destination: 50% 50%;
+  scroll-snap-align: center;
 }
 ```
 <small class="image-caption">Control scroll snapping for elements with overflow.</small>
