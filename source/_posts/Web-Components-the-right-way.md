@@ -29,7 +29,7 @@ Every web developer knows — or at least should — the basics of HTML 
 </select>
 ```
 
-In the above example, like the greatest part of HTML elements, the node can accept a content that will be shown (and stylised) by the browser or by CSS user. But as we all know, it exists also elements that can not accept children nodes (well known as void elements) —for example the `<img>` and `<input>` tags — and other tags that require only some types of nodes.
+In the above example, like the greatest part of HTML elements, the node can accept a content that will be shown (and stylised) by the browser or by CSS user. But as we all know, there are also elements that can not accept children nodes (well known as void elements) —for example the `<img>` and `<input>` tags — and other tags that require only some types of nodes.
 
 The `<select>` element, like more other, is a node that uses a shadow DOM similar logic; for this reason, if you want, you can see the content of these elements in the same way as per web components:
 
@@ -109,8 +109,6 @@ For example, let’s consider to create a custom element that shows a tooltip ba
 ```
 
 As we can see, our component will wrap a slotted element that user can pass as child. This element is not encapsulated in the component `#shadow-root` so who consume the component can use any element they want.
-
-<!-- ![ext5](https://cdn-images-1.medium.com/max/1600/1*Z0GCsm-ZigYuknElX8j-hA.png) -->
 
 The above `<my-tooltip>` element, if we want, can also allow users to customise the tooltip balloon style — that is in the **#shadow-root** —  only through a set of custom properties, if we define them inside the `:host` selector. You can read more about defining CSS api (or style-hooks) here:
 
