@@ -1,34 +1,30 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "description": "I'm a 29-year-old guy born in Italy. I'm a UXD Lead Engineer and CSS/HTML architect in Milan and member of Open Source Design.",
-  "author": "Mattia Astorino <astorino.mattia@gmail.com>",
+  "name": "test-vue",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "vue": "2.5.17"
   },
   "devDependencies": {
-    "@nuxtjs/blog": "^0.0.1-6",
-    "babel-eslint": "^8.2.1",
-    "cssnano": "^4.1.0",
-    "cssnano-preset-advanced": "^4.0.0",
-    "eslint": "^4.15.0",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-mixins": "^6.2.0",
-    "postcss-preset-env": "^5.3.0",
-    "postcss-reporter": "^6.0.0",
-    "stylelint": "^9.5.0",
-    "stylelint-config-standard": "^18.2.0"
+    "@vue/cli-plugin-babel": "3.0.1",
+    "@vue/cli-plugin-eslint": "3.0.1",
+    "@vue/cli-service": "3.0.1",
+    "@vue/eslint-config-prettier": "3.0.1",
+    "cssnano": "4.1.0",
+    "postcss-easy-import": "3.0.0",
+    "postcss-html": "0.33.0",
+    "postcss-mixins": "6.2.0",
+    "postcss-preset-env": "5.3.0",
+    "postcss-reporter": "6.0.0",
+    "postcss-syntax": "0.33.0",
+    "stylelint": "9.5.0",
+    "stylelint-config-standard": "18.2.0",
+    "vue-router": "3.0.1",
+    "vue-template-compiler": "2.5.17"
   }
 }
