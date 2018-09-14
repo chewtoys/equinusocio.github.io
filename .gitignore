@@ -1,8 +1,11 @@
-.DS_Store
-Thumbs.db
-db.json
-*.log
-node_modules/
-public/
-build/
-.deploy*/
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
