@@ -6,6 +6,8 @@
       <img v-else src="http://via.placeholder.com/250x250" width="900" alt="">
     </figure>
     <h4>{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
+    <small>{{ post.data.published | formatDate }}</small>
+
     <div v-html="post.data.body"></div>
 
     <router-link
@@ -72,18 +74,18 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  h3 {
+    margin: 40px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
 </style>
