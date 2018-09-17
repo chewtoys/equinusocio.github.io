@@ -1,12 +1,13 @@
 <template>
   <div id="blog-home">
+    asd
       <h1>{{ page_title }}</h1>
       <!-- Create `v-for` and apply a `key` for Vue. Here we are using a combination of the slug and index. -->
       <div
         v-for="(post,index) in posts"
         :key="post.slug + '_' + index"
       >
-        <router-link :to="'/blog/' + post.slug">
+        <router-link :to="{ name: 'post', params: { slug: post.slug }}">
           <article class="media">
             <figure>
               <!-- Bind results using a `:` -->
@@ -15,6 +16,7 @@
                 v-if="post.featured_image"
                 :src="post.featured_image"
                 alt=""
+                width="740"
               >
               <img
                 v-else
@@ -34,7 +36,7 @@
   import { butter } from '@/butter';
 
   export default {
-    name: 'blog',
+    name: 'Blog',
     data() {
       return {
         page_title: 'Blog',

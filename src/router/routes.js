@@ -14,8 +14,9 @@ export const routes = [
     component: Blog
   },
   {
-    name: "blog-post",
+    name: "post",
     path: "/blog/:slug",
-    component: Post
+    component: Post,
+    props: route => ({ slug: route.params.slug })
   }
 ];
