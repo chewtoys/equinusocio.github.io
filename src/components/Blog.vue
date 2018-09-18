@@ -33,18 +33,18 @@
 </template>
 
 <script>
-  import { butter } from '@/butter';
+  import { butter } from '@/butter'
 
   export default {
     name: 'Blog',
-    data() {
+    data () {
       return {
         page_title: 'Blog',
         posts: []
       }
     },
     methods: {
-      getPosts() {
+      getPosts () {
         butter.post.list({
           page: 1,
           page_size: 10
@@ -53,7 +53,7 @@
         })
       }
     },
-    created() {
+    created () {
       this.getPosts()
     }
   }

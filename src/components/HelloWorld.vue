@@ -32,11 +32,11 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
     msg: String
   }
-};
+}
 </script>
 
 <style lang="postcss" scoped>
@@ -52,6 +52,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #42B983;
 }
 </style>

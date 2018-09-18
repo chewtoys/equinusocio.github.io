@@ -28,49 +28,49 @@
 </template>
 
 <script>
-import { butter } from "@/butter";
+import { butter } from '@/butter'
 
 export default {
-  name: "Post",
-  data() {
+  name: 'Post',
+  data () {
     return {
       post: {},
       postCategories: []
-    };
+    }
   },
   methods: {
-    getPost() {
+    getPost () {
       butter.post
         .retrieve(this.$route.params.slug)
         .then(res => {
-          this.post = res.data;
-          console.log(res.data);
+          this.post = res.data
+          console.log(res.data)
         })
         .catch(res => {
-          console.log(res);
-        });
+          console.log(res)
+        })
     },
-    getCategories() {
+    getCategories () {
       butter.category.list().then(res => {
-        console.log("List of Categories:");
-        console.log(res.data.data);
-      });
+        console.log('List of Categories:')
+        console.log(res.data.data)
+      })
     },
-    getPostsByCategory() {
+    getPostsByCategory () {
       butter.category
-        .retrieve("example-category", {
-          include: "recent_posts"
+        .retrieve('example-category', {
+          include: 'recent_posts'
         })
         .then(res => {
-          console.log("Posts with specific category:");
-          console.log(res);
-        });
+          console.log('Posts with specific category:')
+          console.log(res)
+        })
     }
   },
-  created() {
-    this.getPost();
+  created () {
+    this.getPost()
   }
-};
+}
 </script>
 
 <style lang="postcss" scoped>
@@ -86,6 +86,6 @@ export default {
     margin: 0 10px;
   }
   a {
-    color: #42b983;
+    color: #42B983;
   }
 </style>
