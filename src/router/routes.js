@@ -6,17 +6,26 @@ export const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HelloWorld
+    component: HelloWorld,
+    meta: {
+      title: 'Home'
+    }
   },
   {
     name: 'blog',
     path: '/blog',
-    component: Blog
+    component: Blog,
+    meta: {
+      title: 'Blog'
+    }
   },
   {
     name: 'post',
     path: '/blog/:slug',
     component: Post,
+    meta: {
+      title: route => (route.params.slug)
+    },
     props: route => ({ slug: route.params.slug })
   }
 ]

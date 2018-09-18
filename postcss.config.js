@@ -1,24 +1,24 @@
 module.exports = {
-  syntax: require("postcss-syntax"),
+  syntax: require('postcss-syntax'),
   plugins: {
     stylelint: {
       options: {
-        configFile: "./.stylelintrc"
+        configFile: './.stylelintrc'
       }
     },
-    "postcss-easy-import": {
-      extensions: ".pcss"
+    'postcss-easy-import': {
+      extensions: '.pcss'
     },
-    "postcss-preset-env": {
+    'postcss-preset-env': {
       stage: 0,
       autoprefixer: {
         grid: true
       },
       insertBefore: {
-        "nesting-rules": require("postcss-mixins")()
+        'nesting-rules': require('postcss-mixins')()
       }
     },
-    cssnano: { preset: "advanced" },
-    "postcss-reporter": { clearReportedMessages: true }
+    cssnano: { preset: 'advanced' },
+    'postcss-reporter': { clearReportedMessages: true }
   }
 };

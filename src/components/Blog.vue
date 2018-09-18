@@ -1,6 +1,5 @@
 <template>
   <div id="blog-home">
-    asd
       <h1>{{ page_title }}</h1>
       <!-- Create `v-for` and apply a `key` for Vue. Here we are using a combination of the slug and index. -->
       <div

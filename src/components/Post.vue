@@ -1,40 +1,45 @@
 <template>
   <div id="blog-post">
-    <h1>{{ post.data.title }}</h1>
+    <h1>{{ post.title }}</h1>
     <figure>
-      <img v-if="post.data.featured_image" :src="post.data.featured_image" width="900" alt="">
+      <img v-if="post.featured_image" :src="post.featured_image" width="900" alt="">
       <img v-else src="http://via.placeholder.com/250x250" width="900" alt="">
     </figure>
-    <h4>{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
-    <small>{{ post.data.published | formatDate }}</small>
+    <small>{{ post.published | formatDate }}</small>
 
-    <div v-html="post.data.body"></div>
+    <vue-markdown :source="post.body"></vue-markdown>
 
     <router-link
-      v-if="post.meta.previous_post"
-      :to="/blog/ + post.meta.previous_post.slug"
+      v-if="postMeta.previous_post"
+      :to="/blog/ + postMeta.previous_post.slug"
       class="button"
     >
-      {{ post.meta.previous_post.title }}
+      {{ postMeta.previous_post.title }}
     </router-link>
     <router-link
-      v-if="post.meta.next_post"
-      :to="/blog/ + post.meta.next_post.slug"
+      v-if="postMeta.next_post"
+      :to="/blog/ + postMeta.next_post.slug"
       class="button"
     >
-      {{ post.meta.next_post.title }}
+      {{ postMeta.next_post.title }}
     </router-link>
   </div>
 </template>
 
 <script>
 import { butter } from '@/butter'
+import VueMarkdown from 'vue-markdown'
+import Prism from 'prismjs'
 
 export default {
   name: 'Post',
+  components: {
+    VueMarkdown
+  },
   data () {
     return {
       post: {},
+      postMeta: {},
       postCategories: []
     }
   },
@@ -43,32 +48,17 @@ export default {
       butter.post
         .retrieve(this.$route.params.slug)
         .then(res => {
-          this.post = res.data
-          console.log(res.data)
+          this.post = res.data.data
+          this.postMeta = res.data.meta
         })
-        .catch(res => {
-          console.log(res)
-        })
-    },
-    getCategories () {
-      butter.category.list().then(res => {
-        console.log('List of Categories:')
-        console.log(res.data.data)
-      })
-    },
-    getPostsByCategory () {
-      butter.category
-        .retrieve('example-category', {
-          include: 'recent_posts'
-        })
-        .then(res => {
-          console.log('Posts with specific category:')
-          console.log(res)
-        })
+        .catch(res => {})
     }
   },
   created () {
     this.getPost()
+  },
+  mounted () {
+    Prism.highlightAll()
   }
 }
 </script>
@@ -77,6 +67,8 @@ export default {
   h3 {
     margin: 40px 0 0;
   }
+
+
   ul {
     list-style-type: none;
     padding: 0;
