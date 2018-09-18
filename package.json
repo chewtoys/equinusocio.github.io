@@ -16,6 +16,7 @@
     "@vue/cli-service": "3.0.1",
     "@vue/eslint-config-prettier": "3.0.1",
     "buttercms": "1.1.1",
+    "contentful": "7.0.3",
     "cssnano": "4.1.0",
     "cssnano-preset-advanced": "4.0.0",
     "eslint-config-standard": "12.0.0",
@@ -35,6 +36,7 @@
     "stylelint": "9.5.0",
     "stylelint-config-standard": "18.2.0",
     "vue-markdown": "2.2.4",
+    "vue-meta": "1.5.3",
     "vue-router": "3.0.1",
     "vue-template-compiler": "2.5.17"
   }

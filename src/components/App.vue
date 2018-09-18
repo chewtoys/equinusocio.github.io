@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  metaInfo: {
+    title: 'Mattia Astorino - Equinusocio',
+    titleTemplate: '%s | Mattia Astorino'
+  }
 }
 </script>
 

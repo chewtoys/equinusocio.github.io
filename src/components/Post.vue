@@ -1,55 +1,46 @@
 <template>
   <div id="blog-post">
-    <h1>{{ post.title }}</h1>
+    <h1>{{ post.fields.title }}</h1>
     <figure>
-      <img v-if="post.featured_image" :src="post.featured_image" width="900" alt="">
-      <img v-else src="http://via.placeholder.com/250x250" width="900" alt="">
+      <img v-if="post.fields.heroImage.fields.file.fileName" :src="post.fields.heroImage.fields.file.url" width="900" alt="">
     </figure>
-    <small>{{ post.published | formatDate }}</small>
+    <small>{{ post.sys.updatedAt | formatDate }}</small>
 
-    <vue-markdown :source="post.body"></vue-markdown>
-
-    <router-link
-      v-if="postMeta.previous_post"
-      :to="/blog/ + postMeta.previous_post.slug"
-      class="button"
-    >
-      {{ postMeta.previous_post.title }}
-    </router-link>
-    <router-link
-      v-if="postMeta.next_post"
-      :to="/blog/ + postMeta.next_post.slug"
-      class="button"
-    >
-      {{ postMeta.next_post.title }}
-    </router-link>
+    <vue-markdown>{{post.fields.body}}</vue-markdown>
   </div>
 </template>
 
 <script>
-import { butter } from '@/butter'
+import store from '../store'
 import VueMarkdown from 'vue-markdown'
 import Prism from 'prismjs'
 
 export default {
   name: 'Post',
+  metaInfo () {
+    return {
+      title: this.post.fields.title,
+      titleTemplate: null
+    }
+  },
   components: {
     VueMarkdown
   },
   data () {
     return {
-      post: {},
-      postMeta: {},
-      postCategories: []
+      post: {}
     }
   },
   methods: {
     getPost () {
-      butter.post
-        .retrieve(this.$route.params.slug)
-        .then(res => {
-          this.post = res.data.data
-          this.postMeta = res.data.meta
+      store.getEntries({
+        limit: 1,
+        content_type: 'blogPost',
+        'fields.slug': this.$route.params.slug
+      })
+        .then(entry => {
+          this.post = entry.items[0]
+          console.log(this.post)
         })
         .catch(res => {})
     }
