@@ -40,6 +40,22 @@ export default {
   },
   head () {
     return {
+      title: this.post.fields.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.post.fields.title },
+        { hid: 'ip:name', itemprop: 'name', content: this.post.fields.title },
+        { hid: 'ip:headline', itemprop: 'headline', content: this.post.fields.title },
+        { hid: 'ip:description', itemprop: 'description', content: this.post.fields.title },
+        { hid: 'ip:image', itemprop: 'image', content: `https:${this.post.fields.heroImage.fields.file.url}` },
+        { hid: 'og:url', property: 'og:url', content: '' },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:title', property: 'og:title', content: '' },
+        { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}${this.$route.fullPath}` },
+        { hid: 'og:site_name', property: 'og:site_name', content: '' },
+        { hid: 'og:image', property: 'og:image', content: '' },
+        { hid: 'og:description', property: 'og:description', content: '' },
+        { hid: 'og:locale', property: 'og:locale', content: 'default' }
+      ],
       link: [
         { rel: 'stylesheet', href: 'https://atelierbram.github.io/syntax-highlighting/prism/demo/assets/css/prism-base16-ateliercave.light.css' }
       ]

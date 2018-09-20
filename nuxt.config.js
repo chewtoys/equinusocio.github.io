@@ -28,7 +28,7 @@ const config = {
   ** Customize the progress-bar color
   */
   loading: { color: '#2199e8' },
-
+  mode: 'spa',
   /*
   ** Build configuration
   */
@@ -71,7 +71,6 @@ const config = {
   },
 
   /*
-  ** ᕕ( ᐛ )ᕗ CTF-BLOG-IN-5-MINUTES
   ** Make client available everywhere via Nuxt plugins
   */
   plugins: [
@@ -79,7 +78,6 @@ const config = {
   ],
 
   /*
-  ** ᕕ( ᐛ )ᕗ CTF-BLOG-IN-5-MINUTES
   ** Get all blog posts from Contentful
   ** and generate the needed files upfront
   **
@@ -114,6 +112,7 @@ const config = {
   ** in generate and browser context
   */
   env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
