@@ -42,18 +42,16 @@ export default {
     return {
       title: this.post.fields.title,
       meta: [
-        { hid: 'description', name: 'description', content: this.post.fields.title },
+        { hid: 'description', name: 'description', content: this.post.fields.description },
         { hid: 'ip:name', itemprop: 'name', content: this.post.fields.title },
         { hid: 'ip:headline', itemprop: 'headline', content: this.post.fields.title },
-        { hid: 'ip:description', itemprop: 'description', content: this.post.fields.title },
+        { hid: 'ip:description', itemprop: 'description', content: this.post.fields.description },
         { hid: 'ip:image', itemprop: 'image', content: `https:${this.post.fields.heroImage.fields.file.url}` },
-        { hid: 'og:url', property: 'og:url', content: '' },
         { hid: 'og:type', property: 'og:type', content: 'article' },
-        { hid: 'og:title', property: 'og:title', content: '' },
+        { hid: 'og:title', property: 'og:title', content: this.post.fields.title },
         { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}${this.$route.fullPath}` },
-        { hid: 'og:site_name', property: 'og:site_name', content: '' },
-        { hid: 'og:image', property: 'og:image', content: '' },
-        { hid: 'og:description', property: 'og:description', content: '' },
+        { hid: 'og:image', property: 'og:image', content: `https:${this.post.fields.heroImage.fields.file.url}` },
+        { hid: 'og:description', property: 'og:description', content: this.post.fields.description },
         { hid: 'og:locale', property: 'og:locale', content: 'default' }
       ],
       link: [
