@@ -1,7 +1,6 @@
 <template>
   <div>
     <header>
-      <a href="/">John Doe</a>
       <Navigation></Navigation>
       <img
         :src="post.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"

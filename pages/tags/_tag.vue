@@ -1,7 +1,6 @@
 <template>
   <div>
     <header >
-      <a href="/">John Doe</a>
       <Navigation></Navigation>
       <h2>#{{ tag }}</h2>
     </header>
