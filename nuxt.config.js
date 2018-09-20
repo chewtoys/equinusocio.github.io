@@ -1,4 +1,5 @@
 const {getConfigForKeys} = require('./lib/config.js')
+const headConfig = require('./lib/headConfig.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
   'CTF_SPACE_ID',
@@ -18,18 +19,9 @@ const config = {
   ** Headers of the page
   */
   head: {
-    title: 'Custom app with Contentful',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover' },
-      { hid: 'description', name: 'description', content: 'Custom app in under 5 minutes' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/minireset.css/0.0.2/minireset.min.css' },
-      { rel: 'stylesheet', href: 'https://atelierbram.github.io/syntax-highlighting/prism/demo/assets/css/prism-base16-ateliercave.light.css'
-      }
-    ]
+    title: headConfig.TITLE,
+    meta: headConfig.COMMON_META,
+    link: headConfig.COMMON_LINKS
   },
 
   /*
@@ -56,9 +48,25 @@ const config = {
     },
 
     postcss: [
-      require('autoprefixer')({
-        browsers: ['> 5%']
-      })
+      require('stylelint')({
+        options: {
+          configFile: './.stylelintrc'
+        }
+      }),
+      require('postcss-easy-import')({
+        extensions: '.pcss'
+      }),
+      require('postcss-preset-env')({
+        stage: 0,
+        autoprefixer: {
+          grid: true
+        },
+        insertBefore: {
+          'nesting-rules': require('postcss-mixins')()
+        }
+      }),
+      require('cssnano')({ preset: 'advanced' }),
+      require('postcss-reporter')({ clearReportedMessages: true })
     ]
   },
 

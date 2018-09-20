@@ -1,28 +1,10 @@
 <template>
   <div>
-    <header class="blog header">
-      <div class="foreground">
-        <div class="page-bar wrapper">
-          <a href="/" class="person-name">John Doe</a>
-          <Navigation></Navigation>
-        </div>
-        <div class="page-info wrapper">
-          <h2>Blog</h2>
-        </div>
-      </div>
-    </header>
+    <a href="/">John Doe</a>
+    <Navigation></Navigation>
 
-    <section class="body-container">
-      <div class="items-bar wrapper">
-        <h2>All articles ({{ posts.length }})</h2>
-      </div>
-      <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
-          <article-preview :post="post"></article-preview>
-        </li>
-      </ul>
-    </section>
-
+    <h2>All articles ({{ posts.length }})</h2>
+    <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
   </div>
 </template>
 

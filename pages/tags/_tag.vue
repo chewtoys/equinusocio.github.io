@@ -1,26 +1,14 @@
 <template>
   <div>
-    <header class="tag-page header">
-      <div class="foreground">
-        <div class="page-bar wrapper">
-          <a href="/" class="person-name">John Doe</a>
-          <Navigation></Navigation>
-        </div>
-        <div class="page-info wrapper">
-          <h2>#{{ tag }}</h2>
-        </div>
-      </div>
+    <header >
+      <a href="/">John Doe</a>
+      <Navigation></Navigation>
+      <h2>#{{ tag }}</h2>
     </header>
 
-    <section class="body-container">
-      <div class="items-bar wrapper">
-        <h2>All articles tagged #{{ tag }} ({{ posts.length }})</h2>
-      </div>
-      <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
-          <article-preview :post="post"></article-preview>
-        </li>
-      </ul>
+    <section>
+      <h2>All articles tagged #{{ tag }} ({{ posts.length }})</h2>
+      <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
     </section>
   </div>
 </template>
