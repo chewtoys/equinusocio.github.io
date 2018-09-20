@@ -52,7 +52,10 @@ export default {
         { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}${this.$route.fullPath}` },
         { hid: 'og:image', property: 'og:image', content: `https:${this.post.fields.heroImage.fields.file.url}` },
         { hid: 'og:description', property: 'og:description', content: this.post.fields.description },
-        { hid: 'og:locale', property: 'og:locale', content: 'default' }
+        { hid: 'og:locale', property: 'og:locale', content: 'default' },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.post.fields.title },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.post.fields.description },
+        { hid: 'twitter:creator', name: 'twitter:creator', content: '@equinusocio' }
       ],
       link: [
         { rel: 'stylesheet', href: 'https://atelierbram.github.io/syntax-highlighting/prism/demo/assets/css/prism-base16-ateliercave.light.css' }
