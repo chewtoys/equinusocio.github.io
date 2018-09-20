@@ -1,6 +1,5 @@
 <template>
   <div>
-    <a href="/">John Doe</a>
     <Navigation></Navigation>
 
     <h2>All articles ({{ posts.length }})</h2>

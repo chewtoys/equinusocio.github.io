@@ -52,10 +52,11 @@ export default {
   head () {
     return {
       meta: [
-        { itemprop: 'name', content: this.person.fields.name },
-        { itemprop: 'headline', content: this.person.fields.title },
-        { itemprop: 'description', content: this.person.fields.shortBio },
-        { itemprop: 'image', content: this.person.fields.image.fields.file.url }
+        { hid: 'name', itemprop: 'name', content: this.person.fields.name },
+        { hid: 'headline', itemprop: 'headline', content: this.person.fields.title },
+        { hid: 'descriptiom', itemprop: 'description', content: this.person.fields.shortBio },
+        { hid: 'image', itemprop: 'image', content: `https:${this.person.fields.image.fields.file.url}` },
+        { hid: 'og:url', property: 'og:url', content: `https://equinsuocha.io${this.$route.fullPath}` }
       ]
     }
   },
