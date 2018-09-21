@@ -4,7 +4,7 @@
       <!--img :src="person.fields.image.fields.file.url + '?w=900&h=300'"-->
       <a href="/" >{{ person.fields.name }}</a>
       <Navigation></Navigation>
-      <h2>{{ person.fields.title }}</h2>
+      <h2>{{ person.fields.name }}</h2>
       <p>{{ person.fields.shortBio }}</p>
       <nav>
         <a v-if='person.fields.facebook' :href="person.fields.facebook" :aria-label="`${ person.fields.name } on Facebook`" target="_blank">

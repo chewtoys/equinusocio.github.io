@@ -48,6 +48,7 @@ const config = {
     },
 
     postcss: [
+      require('postcss-normalize'),
       require('stylelint')({
         options: {
           configFile: './.stylelintrc'
