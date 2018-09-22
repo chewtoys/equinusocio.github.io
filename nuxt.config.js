@@ -1,4 +1,4 @@
-const {getConfigForKeys} = require('./lib/config.js')
+const { getConfigForKeys } = require('./lib/config.js')
 const headConfig = require('./lib/headConfig.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
@@ -7,7 +7,7 @@ const ctfConfig = getConfigForKeys([
   'CTF_CMA_ACCESS_TOKEN',
   'CTF_PERSON_ID'
 ])
-const {createClient} = require('./plugins/contentful')
+const { createClient } = require('./plugins/contentful')
 const cdaClient = createClient(ctfConfig)
 const cmaContentful = require('contentful-management')
 const cmaClient = cmaContentful.createClient({
