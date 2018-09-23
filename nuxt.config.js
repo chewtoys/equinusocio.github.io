@@ -28,6 +28,9 @@ const config = {
   ** Customize the progress-bar color
   */
   loading: { color: '#2199e8' },
+  /**
+  ** Define the destination mode when building
+  */
   mode: 'spa',
   /*
   ** Build configuration
@@ -48,12 +51,12 @@ const config = {
     },
 
     postcss: [
-      require('postcss-normalize'),
       require('stylelint')({
         options: {
           configFile: './.stylelintrc'
         }
       }),
+      require('postcss-normalize'),
       require('postcss-easy-import')({
         extensions: '.pcss'
       }),
@@ -97,14 +100,14 @@ const config = {
         cmaClient.getSpace(ctfConfig.CTF_SPACE_ID)
           .then(space => space.getContentType(ctfConfig.CTF_BLOG_POST_TYPE_ID))
       ])
-      .then(([entries, postType]) => {
-        return [
-          // map entries to URLs
-          ...entries.items.map(entry => `/blog/${entry.fields.slug}`),
-          // map all possible tags to URLs
-          ...postType.fields.find(field => field.id === 'tags').items.validations[0].in.map(tag => `/tags/${tag}`)
-        ]
-      })
+        .then(([entries, postType]) => {
+          return [
+            // map entries to URLs
+            ...entries.items.map(entry => `/blog/${entry.fields.slug}`),
+            // map all possible tags to URLs
+            ...postType.fields.find(field => field.id === 'tags').items.validations[0].in.map(tag => `/tags/${tag}`)
+          ]
+        })
     }
   },
 
