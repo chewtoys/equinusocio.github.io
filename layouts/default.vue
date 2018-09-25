@@ -10,7 +10,6 @@
     --backgroundColor: #FFF;
     --foregroundColor: #000;
     --callToActionColor: #00E2BC;
-    --activeColor: #D480AA;
 
     /* Unit Colors */
     --grayColor: #969FA9;

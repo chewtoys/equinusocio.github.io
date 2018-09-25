@@ -43,7 +43,7 @@
 <style lang="postcss" scoped>
   .ThemeSwitcher {
     display: flex;
-    place-items: center;
+    align-items: center;
     justify-content: flex-end;
   }
 

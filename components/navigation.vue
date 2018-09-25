@@ -13,7 +13,6 @@
     display: inline-flex;
     justify-content: space-between;
     font-weight: 700;
-
   }
 
   .NagivationItem {
@@ -21,7 +20,7 @@
     color: inherit;
 
     &.nuxt-link-active {
-      color: #D480AA;
+      color: var(--callToActionColor, #00E2BC);
     }
   }
 

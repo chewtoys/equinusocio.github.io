@@ -2,7 +2,7 @@
   <header class="Header">
     <div class="BackLink">
       <nuxt-link v-if="this.$route.name !== 'index'" :to="{ name: 'index' }">
-        <svg class="BackArrow" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4.667h8a4 4 0 0 1 4 4v6" stroke="#00E2BC" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path class="ArrowAngle" d="M5.333 8L2 4.667l3.333-3.334" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="BackArrow" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="ArrowTrack" d="M2 4.667h8a4 4 0 0 1 4 4v6" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path stroke="#00E2BC" d="M5.333 8L2 4.667l3.333-3.334" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to home
       </nuxt-link>
     </div>
@@ -36,7 +36,6 @@ export default {
   }
 
   .BackLink {
-    text-transform: uppercase;
     color: #969FA9;
     font-weight: 700;
     pointer-events: visible;
@@ -54,7 +53,7 @@ export default {
     margin-right: 8px;
 
 
-    & .ArrowAngle {
+    & .ArrowTrack {
       stroke: var(--foregroundColor, #000);
     }
   }

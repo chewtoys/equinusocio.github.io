@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navigation></Navigation>
+    <Header />
 
     <h2>All articles ({{ posts.length }})</h2>
     <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
@@ -9,7 +9,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
+import Header from '~/components/header.vue'
 import ArticlePreview from '~/components/article-preview.vue'
 
 const client = createClient()
@@ -27,7 +27,7 @@ export default {
   },
   components: {
     ArticlePreview,
-    Navigation
+    Header
   }
 }
 </script>
