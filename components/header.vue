@@ -31,8 +31,15 @@ export default {
 <style scoped lang="postcss">
   .Header {
     display: grid;
-    grid-template-columns: 200px auto 200px;
-    padding: 40px 48px;
+    grid-template-areas: '- back navigation theme -';
+    grid-template-columns: 140px auto 140px;
+    padding: 24px 32px;
+  }
+
+  @media (min-width: 60em) {
+    .Header {
+      padding: 40px 48px;
+    }
   }
 
   .BackLink {
