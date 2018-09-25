@@ -27,7 +27,7 @@ const config = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#2199e8' },
+  loading: { color: '#D480AA' },
   /**
   ** Define the destination mode when building
   */
@@ -48,30 +48,7 @@ const config = {
           exclude: /(node_modules)/
         })
       }
-    },
-
-    postcss: [
-      require('stylelint')({
-        options: {
-          configFile: './.stylelintrc'
-        }
-      }),
-      require('postcss-normalize'),
-      require('postcss-easy-import')({
-        extensions: '.pcss'
-      }),
-      require('postcss-preset-env')({
-        stage: 0,
-        autoprefixer: {
-          grid: true
-        },
-        insertBefore: {
-          'nesting-rules': require('postcss-mixins')()
-        }
-      }),
-      require('cssnano')({ preset: 'advanced' }),
-      require('postcss-reporter')({ clearReportedMessages: true })
-    ]
+    }
   },
 
   /*

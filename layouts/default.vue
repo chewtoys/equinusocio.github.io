@@ -7,16 +7,17 @@
 <style lang="postcss">
   @import-normalize;
 
-  body {
-    background: #E1E7EA;
-    max-width: 1180px;
-    margin: 0 auto;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-    font-size: 16px;
-    line-height: 1.65;
-    color: #373F49;
+  html {
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
+  body {
+    background: #FFF;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: #000;
+  }
 
   img {
     display: block;

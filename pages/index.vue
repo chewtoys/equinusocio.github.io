@@ -21,7 +21,6 @@
 
     <h2>Recent articles</h2>
     <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
-    <meta itemprop="datePublished" content="<%= date(page.date, config.date_format || config.date_format) %>">
   </div>
 </template>
 
