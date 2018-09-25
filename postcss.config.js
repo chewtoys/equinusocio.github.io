@@ -5,6 +5,7 @@ module.exports = {
         configFile: './stylelint.config.js'
       }
     },
+    'postcss-normalize': {},
     'postcss-easy-import': {
       extensions: '.pcss'
     },
