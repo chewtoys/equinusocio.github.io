@@ -14,7 +14,6 @@
             stroke-linejoin="round" />
       <path d="M9 13.364a4.364 4.364 0 1 0 0-8.727 4.364 4.364 0 0 0 0 8.727z" /></svg>
 
-
     <svg v-on:click="setDarkTheme"
          aria-label="Set the dark theme"
          class="Icon"
