@@ -1,7 +1,8 @@
 <template>
   <div class="ThemeSwitcher">
     <svg v-on:click="setLightTheme"
-         aria-label="Set the light theme"
+         v-bind:aria-active="isDayMode"
+         aria-label="Switch to day mode"
          class="Icon"
          width="18"
          height="18"
@@ -15,7 +16,8 @@
       <path d="M9 13.364a4.364 4.364 0 1 0 0-8.727 4.364 4.364 0 0 0 0 8.727z" /></svg>
 
     <svg v-on:click="setDarkTheme"
-         aria-label="Set the dark theme"
+         v-bind:aria-active="isNightMode"
+         aria-label="Switch to night mode"
          class="Icon"
          width="14"
          height="14"
@@ -27,13 +29,26 @@
 </template>
 
 <script>
+  let rootElement = document.querySelector('html')
+  let themeClass = 'DarkTheme'
+
   export default {
+    data () {
+      return {
+        isDayMode: true,
+        isNightMode: false
+      }
+    },
     methods: {
       setLightTheme () {
-        document.querySelector('html').classList.remove('DarkTheme')
+        rootElement.removeAttribute('class')
+        this.isNightMode = false
+        this.isDayMode = true
       },
       setDarkTheme () {
-        document.querySelector('html').classList.add('DarkTheme')
+        rootElement.classList.add(themeClass)
+        this.isDayMode = false
+        this.isNightMode = true
       }
     }
   }
@@ -51,6 +66,16 @@
     pointer-events: visiblePainted;
     fill: var(--foregroundColor, #000);
     stroke: var(--foregroundColor, #000);
+    transition: all 200ms ease-out;
+
+    &:active {
+      transform: scale(1.2);
+    }
+
+    &[aria-active] {
+      fill: var(--callToActionColor, #00E2BC);
+      stroke: var(--callToActionColor, #00E2BC);
+    }
   }
 
   .Icon + .Icon {

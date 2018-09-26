@@ -29,47 +29,49 @@ export default {
 </script>
 
 <style scoped lang="postcss">
+@import '../assets/media.pcss';
+
+.Header {
+  display: grid;
+  grid-template-areas: '- back navigation theme -';
+  grid-template-columns: 140px auto 140px;
+  padding: 24px 32px;
+  transition: padding 200ms ease-out;
+}
+
+@media (--medium) {
   .Header {
-    display: grid;
-    grid-template-areas: '- back navigation theme -';
-    grid-template-columns: 140px auto 140px;
-    padding: 24px 32px;
-    transition: padding 200ms ease-out;
+    padding: 40px 48px;
   }
+}
 
-  @media (min-width: 60em) {
-    .Header {
-      padding: 40px 48px;
-    }
+.BackLink {
+  color: #969FA9;
+  font-weight: 700;
+  pointer-events: visible;
+
+  & a {
+    display: inline-flex;
+    text-decoration: inherit;
+    color: inherit;
   }
+}
 
-  .BackLink {
-    color: #969FA9;
-    font-weight: 700;
-    pointer-events: visible;
+.BackArrow {
+  width: 16px;
+  display: block;
+  margin-right: 8px;
 
-    & a {
-      display: inline-flex;
-      text-decoration: inherit;
-      color: inherit;
-    }
+
+  & path {
+    stroke: var(--callToActionColor, #00E2BC);
   }
+}
 
-  .BackArrow {
-    width: 16px;
-    display: block;
-    margin-right: 8px;
-
-
-    & path {
-      stroke: var(--callToActionColor, #00E2BC);
-    }
-  }
-
-  .NavContainer {
-    display: flex;
-    align-items: center;
-    place-content: center;
-  }
+.NavContainer {
+  display: flex;
+  align-items: center;
+  place-content: center;
+}
 </style>
 
