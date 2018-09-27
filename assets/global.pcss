@@ -13,6 +13,11 @@
   /* Semantic Colors */
   --backgroundColor: #000;
   --foregroundColor: #FFF;
+  --callToActionColor: #3b7f5d;
+}
+
+* {
+  outline-color: var(--callToActionColor, #00E2BC);
 }
 
 body {
@@ -28,7 +33,15 @@ body {
 
 img {
   display: block;
-  width: 100%;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: responsive 22px 42px;
+  font-range: 320px 1920px;
+  letter-spacing: 0.04em;
+  margin: 0 0 24px 0;
+  word-wrap: break-word;
 }
 
 h1.DisplayTitle {
@@ -40,6 +53,13 @@ h1.DisplayTitle {
   text-align: center;
   max-width: 70%;
   word-wrap: break-word;
+}
+
+p.SmallBody {
+  font-size: responsive 17px 20px;
+  font-range: 320px 1920px;
+  line-height: responsive 25px 30px;
+  line-height-range: 420px 1280px;
 }
 
 .SubTitle {
@@ -57,4 +77,8 @@ a {
   &:hover {
     text-decoration-color: var(--foregroundColor, #FFF);
   }
+}
+
+figure {
+  margin: 0;
 }

@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "0.2.0",
+    "@native-elements/ne-button": "0.1.8",
     "babel-eslint": "^7.1.1",
     "contentful-import": "7.4.0",
     "cssnano": "4.1.0",

@@ -16,6 +16,7 @@
     place-items: center;
     justify-content: center;
     height: calc(100vh - 200px);
-    min-height: 200px;
+    min-height: 400px;
+    margin-bottom: 40px;
   }
 </style>
