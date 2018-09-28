@@ -47,7 +47,7 @@ export default {
   methods: {
     FormatDate,
     directionChecker (index) {
-      if (!index % 2) {
+      if (index % 2 === 0) {
         return null
       } else {
         return 'rtl'

@@ -45,6 +45,7 @@ export default {
       }),
       client.getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
+        limit: 5,
         order: '-sys.createdAt'
       })
     ]).then(([entries, posts]) => {
