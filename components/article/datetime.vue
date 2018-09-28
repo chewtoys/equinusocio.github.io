@@ -1,6 +1,6 @@
 <template>
   <time class="DateTime" :datetime="( new Date(date) )">
-    {{ FormatDate(date) }}
+    {{ FormatDate(date, options) }}
   </time>
 </template>
 
@@ -12,7 +12,8 @@ export default {
     date: {
       type: Date,
       required: true
-    }
+    },
+    options: Object
   },
   methods: {
     FormatDate
@@ -28,7 +29,6 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
   color: var(--grayColor, #969FA9);
-  margin-right: 16px;
   letter-spacing: 0.11em;
 }
 </style>

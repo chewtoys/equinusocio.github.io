@@ -27,12 +27,11 @@
         <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
       </ArticlesList>
     </section>
-    <Footer>Copyright © {{ FormatDate(new Date(), { year: 'numeric' }) }} Mattia Astorino</Footer>
+    <Footer>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</Footer>
   </main>
 </template>
 
 <script>
-import FormatDate from '../plugins/formatDate'
 import {createClient} from '~/plugins/contentful.js'
 import VueMarkdown from 'vue-markdown'
 import Header from '~/components/header.vue'
@@ -40,6 +39,7 @@ import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import ArticlePreview from '~/components/article/article-preview.vue'
 import Footer from '~/components/footer.vue'
+import Datetime from '~/components/article/datetime.vue'
 
 const client = createClient()
 
@@ -73,15 +73,13 @@ export default {
       ]
     }
   },
-  methods: {
-    FormatDate
-  },
   components: {
     Header,
     HeroBanner,
     ArticlesList,
     ArticlePreview,
     Footer,
+    Datetime,
     VueMarkdown
   }
 }

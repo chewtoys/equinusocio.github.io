@@ -11,7 +11,7 @@
     <div class="ArticleContent">
       <header>
         <aside class="MetaContainer">
-          <Datetime :date="post.fields.publishDate"></Datetime>
+          <Datetime :date="post.fields.publishDate" />
           <TagList class="TagsContainer">
             <Tag :tag="tag" :key="tag" v-for="tag in post.fields.tags">{{tag}}</Tag>
           </TagList>
@@ -138,6 +138,7 @@ export default {
 @media (--small) {
   .TagsContainer {
     margin-top: 0;
+    margin-left: 16px;
   }
 }
 
