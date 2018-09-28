@@ -6,7 +6,9 @@
     </HeroBanner>
 
     <h2>All articles ({{ posts.length }})</h2>
-    <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
+    <ArticlesList>
+      <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
+    </ArticlesList>
   </main>
 </template>
 
@@ -14,6 +16,7 @@
 import {createClient} from '~/plugins/contentful.js'
 import Header from '~/components/header.vue'
 import HeroBanner from '~/components/herobanner.vue'
+import ArticlesList from '~/components/articles-list.vue'
 import ArticlePreview from '~/components/article-preview.vue'
 
 const client = createClient()
@@ -30,6 +33,7 @@ export default {
     })
   },
   components: {
+    ArticlesList,
     ArticlePreview,
     Header,
     HeroBanner
