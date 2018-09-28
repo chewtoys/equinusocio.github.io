@@ -41,14 +41,27 @@
     },
     methods: {
       setLightTheme () {
-        rootElement.removeAttribute('class')
-        this.isNightMode = false
-        this.isDayMode = true
+        if (rootElement.classList.contains(themeClass)) {
+          rootElement.removeAttribute('class')
+          this.isNightMode = false
+          this.isDayMode = true
+        }
       },
       setDarkTheme () {
-        rootElement.classList.add(themeClass)
+        if (!rootElement.classList.contains(themeClass)) {
+          rootElement.classList.add(themeClass)
+          this.isDayMode = false
+          this.isNightMode = true
+        }
+      }
+    },
+    mounted () {
+      if (rootElement.classList.contains(themeClass)) {
         this.isDayMode = false
         this.isNightMode = true
+      } else {
+        this.isDayMode = true
+        this.isNightMode = false
       }
     }
   }

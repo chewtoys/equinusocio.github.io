@@ -27,7 +27,7 @@ const config = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#D480AA' },
+  loading: { color: 'var(--callToActionColor, #2b7f55)' },
   /**
   ** Define the destination mode when building
   */
