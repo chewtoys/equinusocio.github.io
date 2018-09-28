@@ -1,15 +1,14 @@
 <template>
-  <article class="ArticlePreview" :dir="directionChecker(index)">
-    <figure>
+  <article :class="`ArticlePreview ${directionChecker(index)}`" >
+    <figure class="ArtigleImage">
       <img
-        class="ArtigleImage"
         draggable="false"
         v-if="post.fields.heroImage.fields.file"
         :src="`${post.fields.heroImage.fields.file.url}`"
         width="408"
       >
     </figure>
-    <div class="ArticleContent" dir="ltr">
+    <div class="ArticleContent">
       <header>
         <aside class="MetaContainer">
           <time class="DateTime" :datetime="( new Date(post.fields.publishDate) )">
@@ -19,7 +18,7 @@
             <Tag :tag="tag" :key="tag" v-for="tag in post.fields.tags">{{tag}}</Tag>
           </div>
         </aside>
-        <h1>{{ post.fields.title }}</h1>
+        <h1 class="PostTitle"><nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">{{ post.fields.title }}</nuxt-link></h1>
       </header>
       <p class="SmallBody">{{ post.fields.description }}</p>
       <nuxt-link tag="button" ne-button :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">Read this story</nuxt-link>
@@ -48,9 +47,9 @@ export default {
     FormatDate,
     directionChecker (index) {
       if (index % 2 === 0) {
-        return null
+        return ''
       } else {
-        return 'rtl'
+        return 'Alt'
       }
     }
   }
@@ -58,20 +57,45 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+@import '../assets/media.pcss';
 @import '@native-elements/ne-button/src/ne-button.pcss';
 
 .ArticlePreview {
   display: grid;
-  grid-gap: 56px;
-  grid-template-columns: 408px auto;
+  grid-gap: 0;
+  grid-template-columns: auto;
+}
+
+@media (--small) {
+  .ArticlePreview {
+    grid-gap: 56px;
+    grid-template-columns: 408px auto;
+
+    &.Alt {
+      grid-template-columns: auto 408px;
+    }
+  }
 }
 
 .ArticlePreview + .ArticlePreview {
   margin-top: 170px;
 }
 
-.DarkTheme .ArtigleImage {
-  filter: invert(100%);
+.ArtigleImage {
+
+  & img {
+    margin: 0 auto;
+  }
+
+  @nest .DarkTheme & {
+    filter: invert(100%);
+  }
+}
+
+@media (--small) {
+  .Alt .ArtigleImage {
+    order: 2;
+  }
 }
 
 .ArticleContent {
@@ -81,16 +105,44 @@ export default {
   justify-content: center;
   padding-top: calc(90px);
   padding-right: 56px;
+  padding-left: 46px;
+}
 
-  @nest [dir='rtl'] & {
-    padding-left: 56px;
-    padding-right: 0;
+@media (--small) {
+  .ArticleContent {
+    padding-left: 0;
+
+    @nest .Alt & {
+      padding-left: 56px;
+      padding-right: 0;
+    }
   }
 }
 
 .MetaContainer {
   display: flex;
+  flex-direction: column;
   margin-bottom: 32px;
+}
+
+@media (--small) {
+  .MetaContainer {
+    flex-direction: row;
+  }
+}
+
+.TagsContainer {
+  margin-top: 16px;
+}
+
+@media (--small) {
+  .TagsContainer {
+    margin-top: 0;
+  }
+}
+
+.PostTitle a {
+  text-decoration: inherit;
 }
 
 .DateTime {
