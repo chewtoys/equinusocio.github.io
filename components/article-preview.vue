@@ -1,5 +1,5 @@
 <template>
-  <article class="ArticlePreview">
+  <article class="ArticlePreview" :dir="directionChecker(index)">
     <figure>
       <img
         class="ArtigleImage"
@@ -9,7 +9,7 @@
         width="408"
       >
     </figure>
-    <div class="ArticleContent">
+    <div class="ArticleContent" dir="ltr">
       <header>
         <aside class="MetaContainer">
           <time class="DateTime" :datetime="( new Date(post.fields.publishDate) )">
@@ -22,14 +22,9 @@
         <h1>{{ post.fields.title }}</h1>
       </header>
       <p class="SmallBody">{{ post.fields.description }}</p>
-      <nuxt-link tag="button" :ne-button="true" :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">Read this story</nuxt-link>
+      <nuxt-link tag="button" ne-button :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">Read this story</nuxt-link>
     </div>
   </article>
-  <!-- <article>
-    <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">{{ post.fields.title }}</nuxt-link>
-
-
-  </article> -->
 </template>
 
 <script>
@@ -37,12 +32,27 @@ import FormatDate from '../plugins/formatDate'
 import Tag from './tag.vue'
 
 export default {
-  props: ['post'],
+  props: {
+    post: Object,
+    index: Number
+  },
+  data () {
+    return {
+      dir: 'ltr'
+    }
+  },
   components: {
     Tag
   },
   methods: {
-    FormatDate
+    FormatDate,
+    directionChecker (index) {
+      if (!index % 2) {
+        return null
+      } else {
+        return 'rtl'
+      }
+    }
   }
 }
 </script>
@@ -53,11 +63,15 @@ export default {
 .ArticlePreview {
   display: grid;
   grid-gap: 56px;
-  grid-template-columns: auto auto;
+  grid-template-columns: 408px auto;
+}
+
+.ArticlePreview + .ArticlePreview {
+  margin-top: 170px;
 }
 
 .DarkTheme .ArtigleImage {
-  filter: invert(90%);
+  filter: invert(100%);
 }
 
 .ArticleContent {
@@ -65,7 +79,13 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-top: calc(140px);
+  padding-top: calc(90px);
+  padding-right: 56px;
+
+  @nest [dir='rtl'] & {
+    padding-left: 56px;
+    padding-right: 0;
+  }
 }
 
 .MetaContainer {
@@ -84,7 +104,7 @@ export default {
 }
 
 p.SmallBody {
-  max-width: 80%;
+  max-width: 95%;
 }
 
 [ne-button] {
@@ -94,5 +114,7 @@ p.SmallBody {
   --ne-button-outline-color: none;
   --ne-button-radius: 200px;
   --ne-button-shadow: none;
+
+  margin-top: 48px;
 }
 </style>

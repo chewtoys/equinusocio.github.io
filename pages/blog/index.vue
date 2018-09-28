@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main role="main">
     <Header />
     <HeroBanner class="BlogHero">
       <h1 class="DisplayTitle">Just some story and tips for developers</h1>
@@ -7,7 +7,7 @@
 
     <h2>All articles ({{ posts.length }})</h2>
     <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
-  </div>
+  </main>
 </template>
 
 <script>

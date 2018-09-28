@@ -36,7 +36,6 @@ export default {
   grid-template-areas: '- back navigation theme -';
   grid-template-columns: 140px auto 140px;
   padding: 24px 32px;
-  transition: padding 200ms ease-out;
 }
 
 @media (--medium) {

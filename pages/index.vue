@@ -1,6 +1,5 @@
 <template>
   <main role="main">
-    <!--img :src="person.fields.image.fields.file.url + '?w=900&h=300'"-->
     <Header />
     <HeroBanner>
       <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
@@ -24,7 +23,7 @@
       </nav>
     </HeroBanner>
     <section class="ArticlesList">
-      <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
+      <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </section>
   </main>
 </template>

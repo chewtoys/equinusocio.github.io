@@ -1,19 +1,12 @@
-:root {
-  /* Semantic Colors */
-  --backgroundColor: #FFF;
-  --foregroundColor: #000;
-  --callToActionColor: #00E2BC;
+@import "./light-theme.pcss";
+@import "./dark-theme.pcss";
 
-  /* Unit Colors */
-  --grayColor: #969FA9;
-  --lightGrayColor: #F3F6F9;
+:root {
+  @mixin light-theme;
 }
 
 :root.DarkTheme {
-  /* Semantic Colors */
-  --backgroundColor: #000;
-  --foregroundColor: #FFF;
-  --callToActionColor: #3b7f5d;
+  @mixin dark-theme;
 }
 
 * {
@@ -29,6 +22,8 @@ body {
   transition-property: background;
   transition-duration: 200ms;
   transition-timing-function: linear;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -38,8 +33,8 @@ img {
 h1 {
   font-weight: 800;
   font-size: responsive 22px 42px;
-  font-range: 320px 1920px;
-  letter-spacing: 0.04em;
+  font-range: 320px 1440px;
+  letter-spacing: -0.03em;
   margin: 0 0 24px 0;
   word-wrap: break-word;
 }
@@ -47,7 +42,7 @@ h1 {
 h1.DisplayTitle {
   font-weight: 900;
   font-size: responsive 42px 72px;
-  font-range: 320px 1920px;
+  font-range: 320px 1440px;
   letter-spacing: 0.02em;
   margin: 0 0 24px 0;
   text-align: center;
@@ -57,14 +52,14 @@ h1.DisplayTitle {
 
 p.SmallBody {
   font-size: responsive 17px 20px;
-  font-range: 320px 1920px;
+  font-range: 320px 1440px;
   line-height: responsive 25px 30px;
   line-height-range: 420px 1280px;
 }
 
 .SubTitle {
   font-size: responsive 18px 22px;
-  font-range: 320px 1920px;
+  font-range: 320px 1440px;
   letter-spacing: 0.02em;
   line-height: 1.2;
 }
