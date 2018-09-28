@@ -38,7 +38,7 @@ import VueMarkdown from 'vue-markdown'
 import Header from '~/components/header.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
-import ArticlePreview from '~/components/article-preview.vue'
+import ArticlePreview from '~/components/article/article-preview.vue'
 import Footer from '~/components/footer.vue'
 
 const client = createClient()

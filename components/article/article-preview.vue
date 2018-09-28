@@ -11,12 +11,10 @@
     <div class="ArticleContent">
       <header>
         <aside class="MetaContainer">
-          <time class="DateTime" :datetime="( new Date(post.fields.publishDate) )">
-            {{ FormatDate(post.fields.publishDate) }}
-          </time>
-          <div class="TagsContainer">
+          <Datetime :date="post.fields.publishDate"></Datetime>
+          <TagList class="TagsContainer">
             <Tag :tag="tag" :key="tag" v-for="tag in post.fields.tags">{{tag}}</Tag>
-          </div>
+          </TagList>
         </aside>
         <h1 class="PostTitle"><nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">{{ post.fields.title }}</nuxt-link></h1>
       </header>
@@ -27,8 +25,9 @@
 </template>
 
 <script>
-import FormatDate from '../plugins/formatDate'
-import Tag from './tag.vue'
+import Tag from '~/components/tag.vue'
+import TagList from '~/components/article/taglist.vue'
+import Datetime from '~/components/article/datetime.vue'
 
 export default {
   props: {
@@ -41,10 +40,11 @@ export default {
     }
   },
   components: {
-    Tag
+    Tag,
+    TagList,
+    Datetime
   },
   methods: {
-    FormatDate,
     directionChecker (index) {
       if (index % 2 === 0) {
         return ''
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-@import '../assets/media.pcss';
+@import '../../assets/media.pcss';
 @import '@native-elements/ne-button/src/ne-button.pcss';
 
 .ArticlePreview {
@@ -143,16 +143,6 @@ export default {
 
 .PostTitle a {
   text-decoration: inherit;
-}
-
-.DateTime {
-  text-transform: uppercase;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  color: var(--grayColor, #969FA9);
-  margin-right: 16px;
-  letter-spacing: 0.11em;
 }
 
 p.SmallBody {
