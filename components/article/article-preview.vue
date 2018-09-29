@@ -5,7 +5,6 @@
         draggable="false"
         v-if="post.fields.heroImage.fields.file"
         :src="`${post.fields.heroImage.fields.file.url}`"
-        width="408"
       >
     </figure>
     <div class="ArticleContent">
@@ -69,10 +68,10 @@ export default {
 @media (--small) {
   .ArticlePreview {
     grid-gap: 56px;
-    grid-template-columns: 408px auto;
+    grid-template-columns: minmax(408px, 100%) auto;
 
     &.Alt {
-      grid-template-columns: auto 408px;
+      grid-template-columns: auto minmax(408px, 100%);
     }
   }
 }
@@ -82,9 +81,13 @@ export default {
 }
 
 .ArtigleImage {
+  pointer-events: none;
+  transition: filter 200ms;
+  width: 100%;
 
   & img {
     margin: 0 auto;
+    width: 100%;
   }
 
   @nest .DarkTheme & {
@@ -103,7 +106,6 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-top: calc(90px);
   padding-right: 56px;
   padding-left: 46px;
 }
@@ -111,6 +113,7 @@ export default {
 @media (--small) {
   .ArticleContent {
     padding-left: 0;
+    padding-top: 90px;
 
     @nest .Alt & {
       padding-left: 56px;
@@ -125,7 +128,7 @@ export default {
   margin-bottom: 32px;
 }
 
-@media (--small) {
+@media (--medium) {
   .MetaContainer {
     flex-direction: row;
   }
@@ -135,7 +138,7 @@ export default {
   margin-top: 16px;
 }
 
-@media (--small) {
+@media (--medium) {
   .TagsContainer {
     margin-top: 0;
     margin-left: 16px;

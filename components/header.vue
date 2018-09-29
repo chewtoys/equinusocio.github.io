@@ -6,22 +6,28 @@
         Back to home
       </nuxt-link>
     </div>
-    <div class="NavContainer">
-      <Navigation class="Navigation" />
-    </div>
-    <ThemeSwitcher />
+    <Media :query="{minWidth: 768}">
+      <div class="NavContainer">
+        <Navigation class="Navigation" />
+      </div>
+    </Media>
+    <Media :query="{minWidth: 768}">
+      <ThemeSwitcher />
+    </Media>
   </header>
 </template>
 
 <script>
 import Navigation from '~/components/navigation.vue'
 import ThemeSwitcher from '~/components/theme-switcher.vue'
+import Media from 'vue-media'
 
 export default {
   props: {
     showBack: { type: Boolean, value: false }
   },
   components: {
+    Media,
     Navigation,
     ThemeSwitcher
   }
@@ -34,8 +40,16 @@ export default {
 .Header {
   display: grid;
   grid-template-areas: '- back navigation theme -';
-  grid-template-columns: 140px auto 140px;
   padding: 24px 32px;
+  grid-template-columns: auto;
+  text-align: center;
+}
+
+@media (--small) {
+  .Header {
+    grid-template-columns: 140px auto 140px;
+    text-align: left;
+  }
 }
 
 @media (--medium) {
@@ -45,7 +59,7 @@ export default {
 }
 
 .BackLink {
-  color: #969FA9;
+  color: var(--grayColor, rgba(119, 133, 149, 0.5));
   font-weight: 700;
   pointer-events: visible;
 
@@ -60,6 +74,7 @@ export default {
   width: 16px;
   display: block;
   margin-right: 8px;
+
 
 
   & path {

@@ -9,7 +9,7 @@
   font-size: 14px;
   margin: 0 auto;
   text-align: center;
-  color: var(--grayColor, #969FA9);
+  color: var(--grayColor, rgba(119, 133, 149, 0.5));
   margin-top: 216px;
   margin-bottom: 16px;
 }
