@@ -8,7 +8,7 @@
     </div>
     <Media :query="{minWidth: 768}">
       <div class="NavContainer">
-        <Navigation class="Navigation" />
+        <Navigation />
       </div>
     </Media>
     <Media :query="{minWidth: 768}">
