@@ -1,5 +1,13 @@
 <template>
-  <div>
+  <main role="main">
+    <Media :query="{maxWidth: 768}">
+      <MobileHeader />
+    </Media>
+
+    <Media :query="{minWidth: 768}">
+      <Header />
+    </Media>
+
     <HeroBanner>
       <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
     </HeroBanner>
@@ -8,14 +16,17 @@
       <time>{{ ( new Date(post.fields.publishDate)).toDateString() }}</time>
       <vue-markdown>{{post.fields.body}}</vue-markdown>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown'
+import Prism from 'prismjs'
 import {createClient} from '~/plugins/contentful.js'
 import HeroBanner from '~/components/herobanner.vue'
-import Prism from 'prismjs'
+import MobileHeader from '~/components/mobile-header.vue'
+import Header from '~/components/header.vue'
+import Media from 'vue-media'
 
 const client = createClient()
 
@@ -57,7 +68,10 @@ export default {
   },
   components: {
     HeroBanner,
-    VueMarkdown
+    VueMarkdown,
+    MobileHeader,
+    Header,
+    Media
   },
   mounted () {
     Prism.highlightAll()

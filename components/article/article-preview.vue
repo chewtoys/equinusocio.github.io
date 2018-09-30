@@ -10,7 +10,7 @@
     <div class="ArticleContent">
       <header>
         <aside class="MetaContainer">
-          <Datetime :date="post.fields.publishDate" />
+          <Datetime :date="new Date(post.fields.publishDate)" />
           <TagList class="TagsContainer">
             <Tag :tag="tag" :key="tag" v-for="tag in post.fields.tags">{{tag}}</Tag>
           </TagList>

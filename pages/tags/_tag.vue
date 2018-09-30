@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <main role="main">
     <section>
       <h2>All articles tagged #{{ tag }} ({{ posts.length }})</h2>
       <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>

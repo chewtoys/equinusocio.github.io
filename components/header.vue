@@ -15,7 +15,7 @@ import BackLink from '~/components/backlink.vue'
 
 export default {
   props: {
-    showBack: { type: Boolean, value: false }
+    showBack: { type: Boolean, default: false }
   },
   components: {
     Navigation,
@@ -34,6 +34,13 @@ export default {
   padding: 24px 32px;
   grid-template-columns: auto;
   text-align: center;
+}
+
+@supports (padding-left: env(safe-area-inset-left)) {
+  .Header {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 }
 
 @media (--small) {
