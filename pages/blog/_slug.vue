@@ -1,6 +1,5 @@
 <template>
-  <main role="main">
-    <Header />
+  <div>
     <HeroBanner>
       <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
     </HeroBanner>
@@ -9,13 +8,12 @@
       <time>{{ ( new Date(post.fields.publishDate)).toDateString() }}</time>
       <vue-markdown>{{post.fields.body}}</vue-markdown>
     </section>
-  </main>
+  </div>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown'
 import {createClient} from '~/plugins/contentful.js'
-import Header from '~/components/header.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import Prism from 'prismjs'
 
@@ -58,7 +56,6 @@ export default {
     }
   },
   components: {
-    Header,
     HeroBanner,
     VueMarkdown
   },

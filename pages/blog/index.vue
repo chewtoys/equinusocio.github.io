@@ -1,6 +1,5 @@
 <template>
-  <main role="main">
-    <Header />
+  <div>
     <HeroBanner class="BlogHero">
       <h1 class="DisplayTitle">Just some story and tips for developers</h1>
     </HeroBanner>
@@ -9,12 +8,11 @@
     <ArticlesList>
       <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </ArticlesList>
-  </main>
+  </div>
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Header from '~/components/header.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import ArticlePreview from '~/components/article/article-preview.vue'
@@ -35,7 +33,6 @@ export default {
   components: {
     ArticlesList,
     ArticlePreview,
-    Header,
     HeroBanner
   }
 }

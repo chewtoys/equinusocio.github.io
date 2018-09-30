@@ -68,10 +68,10 @@ export default {
 @media (--small) {
   .ArticlePreview {
     grid-gap: 56px;
-    grid-template-columns: minmax(408px, 100%) auto;
+    grid-template-columns: 408px auto;
 
     &.Alt {
-      grid-template-columns: auto minmax(408px, 100%);
+      grid-template-columns: auto 408px;
     }
   }
 }
@@ -84,6 +84,7 @@ export default {
   pointer-events: none;
   transition: filter 200ms;
   width: 100%;
+  max-width: 408px;
 
   & img {
     margin: 0 auto;
