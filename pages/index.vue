@@ -74,10 +74,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.DisplayTitle {
-  margin-bottom: 0;
-}
-
 .SubTitle {
   margin-top: 0;
   max-width: 700px;

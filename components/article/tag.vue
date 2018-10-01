@@ -19,7 +19,7 @@
 .Tag {
   text-transform: uppercase;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
   padding: 7px 10px;
   line-height: 1;
   font-size: 12px;
