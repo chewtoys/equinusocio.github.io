@@ -71,7 +71,6 @@
   .ThemeSwitcher {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
   }
 
   .Icon {

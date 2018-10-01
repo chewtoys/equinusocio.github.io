@@ -1,41 +1,37 @@
 <template>
-  <header class="MobileHeader" :aria-expanded="isExpanded">
-    <div class="Panel">
-      <ThemeSwitcher />
-      <div class="NavContainer">
-        <Navigation />
+  <Media :query="{maxWidth: 768}" @media-leave="mediaLeave">
+    <header class="MobileHeader" :aria-expanded="isExpanded">
+      <div class="Panel">
+        <ThemeSwitcher />
+        <Navigation direction="column" />
       </div>
-      <Socials :person="person"></Socials>
-    </div>
-    <div class="Bar">
-      <BackLink />
-      <svg v-if="!isExpanded" @click="openClose" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-        <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-          <line fill="none" stroke-miterlimit="10" x1="2" y1="16" x2="30" y2="16"></line>
-          <line fill="none" stroke-miterlimit="10" x1="2" y1="7" x2="30" y2="7"></line>
-          <line fill="none" stroke-miterlimit="10" x1="2" y1="25" x2="30" y2="25"></line>
-        </g>
-      </svg>
-      <svg v-if="isExpanded" @click="openClose" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-        <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-miterlimit="10" stroke-width="2">
-          <path d="M27 5L5 27M27 27L5 5"/>
-        </g>
-      </svg>
-    </div>
-  </header>
+      <div class="Bar">
+        <BackLink />
+        <svg v-if="!isExpanded" @click="openClose" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <line fill="none" stroke-miterlimit="10" x1="2" y1="16" x2="30" y2="16"></line>
+            <line fill="none" stroke-miterlimit="10" x1="2" y1="7" x2="30" y2="7"></line>
+            <line fill="none" stroke-miterlimit="10" x1="2" y1="25" x2="30" y2="25"></line>
+          </g>
+        </svg>
+        <svg v-if="isExpanded" @click="openClose" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-miterlimit="10" stroke-width="2">
+            <path d="M27 5L5 27M27 27L5 5"/>
+          </g>
+        </svg>
+      </div>
+    </header>
+  </Media>
 </template>
 
 <script>
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import BackLink from '~/components/backlink.vue'
-import Navigation from '~/components/navigation.vue'
 import ThemeSwitcher from '~/components/theme-switcher.vue'
-import Socials from '~/components/socials.vue'
+import Navigation from '~/components/navigation.vue'
+import Media from 'vue-media'
 
 export default {
-  props: {
-    person: Object
-  },
   data () {
     return {
       isExpanded: false
@@ -43,9 +39,9 @@ export default {
   },
   components: {
     BackLink,
-    Navigation,
-    Socials,
-    ThemeSwitcher
+    Media,
+    ThemeSwitcher,
+    Navigation
   },
   methods: {
     openClose () {
@@ -56,6 +52,10 @@ export default {
         clearAllBodyScrollLocks()
         this.isExpanded = false
       }
+    },
+    mediaLeave () {
+      this.isExpanded = false
+      clearAllBodyScrollLocks()
     }
   }
 }
@@ -72,6 +72,11 @@ export default {
   right: 0;
   z-index: 1;
   background-color: var(--backgroundColor, #FFF);
+  transition: all 300ms;
+
+  &[aria-expanded] {
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.4);
+  }
 }
 
 @supports (backdrop-filter: blur(10px)) {
@@ -83,10 +88,10 @@ export default {
 
 .Bar {
   display: grid;
-  align-items: center;
   grid-template-columns: auto 32px;
   padding: 24px 32px;
   box-sizing: border-box;
+  align-items: center;
 }
 
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
@@ -113,7 +118,7 @@ export default {
 .Panel {
   display: none;
   grid-template-columns: auto;
-  grid-template-rows: 32px 1fr 100px;
+  grid-template-rows: 32px 1fr;
 
   @nest .MobileHeader[aria-expanded] & {
     display: grid;

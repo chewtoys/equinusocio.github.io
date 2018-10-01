@@ -28,13 +28,21 @@ export default {
 
 
 <style lang="postcss" scoped>
+@import '../assets/media.pcss';
+
 .Socials {
   display: grid;
   grid-template-columns: repeat(5, 32px);
-  grid-gap: 40px;
+  grid-gap: 32px;
   margin-top: 60px;
   grid-template-rows: 32px;
   align-items: center;
+}
+
+@media (--small) {
+  .Socials {
+    grid-gap: 40px;
+  }
 }
 
 .SocialIcon {

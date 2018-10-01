@@ -1,20 +1,12 @@
 <template>
   <main role="main">
 
-    <Media :query="{maxWidth: 768}">
-      <MobileHeader :person="person" />
-    </Media>
-
-    <Media :query="{minWidth: 768}">
-      <Header />
-    </Media>
+    <Header />
 
     <HeroBanner>
       <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
       <p class="SubTitle"><vue-markdown>{{ person.fields.shortBio }}</vue-markdown></p>
-      <Media :query="{minWidth: 768}">
-        <Socials :person="person" />
-      </Media>
+      <Socials :person="person" />
     </HeroBanner>
 
     <ArticlesList>
@@ -32,10 +24,8 @@ import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import Socials from '~/components/socials.vue'
 import ArticlePreview from '~/components/article/article-preview.vue'
-import Media from 'vue-media'
 import Header from '~/components/header.vue'
 import Footer from '~/components/footer.vue'
-import MobileHeader from '~/components/mobile-header.vue'
 import Datetime from '~/components/article/datetime.vue'
 
 const client = createClient()
@@ -75,11 +65,9 @@ export default {
     ArticlesList,
     ArticlePreview,
     Socials,
-    Media,
     VueMarkdown,
     Header,
     Footer,
-    MobileHeader,
     Datetime
   }
 }

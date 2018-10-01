@@ -1,6 +1,6 @@
 <template>
   <article :class="`ArticlePreview ${directionChecker(index)}`" >
-    <figure class="ArtigleImage">
+    <figure class="ArticleImage">
       <img
         draggable="false"
         v-if="post.fields.heroImage.fields.file"
@@ -56,8 +56,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-@import '../../assets/media.pcss';
 @import '@native-elements/ne-button/src/ne-button.pcss';
+@import '../../assets/media.pcss';
 
 .ArticlePreview {
   display: grid;
@@ -80,15 +80,17 @@ export default {
   margin-top: 170px;
 }
 
-.ArtigleImage {
+.ArticleImage {
   pointer-events: none;
   transition: filter 200ms;
   width: 100%;
+  margin: 0 auto;
   max-width: 408px;
+  margin-bottom: 32px;
 
   & img {
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
   }
 
   @nest .DarkTheme & {
@@ -97,7 +99,14 @@ export default {
 }
 
 @media (--small) {
-  .Alt .ArtigleImage {
+  .ArticleImage {
+    margin-bottom: 0;
+
+    & img {
+      width: 100%;
+    }
+  }
+  .Alt .ArticleImage {
     order: 2;
   }
 }
