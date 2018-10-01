@@ -2,12 +2,17 @@
   <main role="main">
     <Header />
 
-    <HeroBanner>
+    <HeroBanner height="calc(100vh - 600px)">
+      <TagList>
+        <Tag :tag="tag" :key="tag" v-for="(tag) in post.fields.tags">{{tag}}</Tag>
+      </TagList>
       <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
+
+      <Datetime class="PublishDate" :date="new Date(post.fields.publishDate)" />
+      <ShareWidget :post="post" />
     </HeroBanner>
 
     <section>
-      <time>{{ ( new Date(post.fields.publishDate)).toDateString() }}</time>
       <vue-markdown>{{post.fields.body}}</vue-markdown>
     </section>
   </main>
@@ -19,6 +24,10 @@ import Prism from 'prismjs'
 import {createClient} from '~/plugins/contentful.js'
 import HeroBanner from '~/components/herobanner.vue'
 import Header from '~/components/header.vue'
+import TagList from '~/components/article/taglist.vue'
+import Datetime from '~/components/article/datetime.vue'
+import ShareWidget from '~/components/article/share-widget.vue'
+import Tag from '~/components/article/tag.vue'
 
 const client = createClient()
 
@@ -61,7 +70,11 @@ export default {
   components: {
     HeroBanner,
     VueMarkdown,
-    Header
+    Header,
+    TagList,
+    ShareWidget,
+    Datetime,
+    Tag
   },
   mounted () {
     Prism.highlightAll()
@@ -69,4 +82,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="postcss" scoped>
+.DisplayTitle {
+  margin-top: 24px;
+}
+
+.PublishDate {
+  margin-top: 80px;
+}
+</style>

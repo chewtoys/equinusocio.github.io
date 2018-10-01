@@ -3,7 +3,7 @@
     <Header />
     <HeroBanner height="calc(100vh - 400px)">
       <h1 class="DisplayTitle">#{{ tag }}</h1>
-      <p class="SmallBody"><strong>{{ posts.length }}</strong> stories published</p>
+      <p class="SubTitle"><strong>{{ posts.length }}</strong> stories published</p>
     </HeroBanner>
 
     <ArticlesList>
