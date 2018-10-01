@@ -4,3 +4,8 @@
   </nav>
 </template>
 
+<style lang="postcss" scoped>
+.TagsList {
+  display: inline-flex;
+}
+</style>

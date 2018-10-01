@@ -1,11 +1,18 @@
 <template>
-  <section class="HeroBanner">
+  <section class="HeroBanner" :style="`height: ${height}`">
     <slot></slot>
   </section>
 </template>
 
 <script>
-
+  export default {
+    props: {
+      height: {
+        type: String,
+        default: 'calc(100vh - 200px)'
+      }
+    }
+  }
 </script>
 
 <style lang="postcss" scoped>
@@ -15,7 +22,6 @@
     flex-direction: column;
     place-items: center;
     justify-content: center;
-    height: calc(100vh - 200px);
     min-height: 400px;
     margin-bottom: 40px;
   }

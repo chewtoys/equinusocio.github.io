@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Tag from '~/components/tag.vue'
+import Tag from '~/components/article/tag.vue'
 import TagList from '~/components/article/taglist.vue'
 import Datetime from '~/components/article/datetime.vue'
 
@@ -116,7 +116,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-right: 56px;
+  padding-right: 40px;
   padding-left: 46px;
 }
 
@@ -126,7 +126,7 @@ export default {
     padding-top: 90px;
 
     @nest .Alt & {
-      padding-left: 56px;
+      padding-left: 40px;
       padding-right: 0;
     }
   }
@@ -140,6 +140,7 @@ export default {
 
 @media (--medium) {
   .MetaContainer {
+    align-items: center;
     flex-direction: row;
   }
 }
