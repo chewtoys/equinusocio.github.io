@@ -1,12 +1,6 @@
 <template>
   <main role="main">
-    <Media :query="{maxWidth: 768}">
-      <MobileHeader :person="person" />
-    </Media>
-
-    <Media :query="{minWidth: 768}">
-      <Header />
-    </Media>
+    <Header />
 
     <HeroBanner class="BlogHero">
       <h1 class="DisplayTitle">Just some story and tips for developers</h1>
@@ -22,11 +16,9 @@
 <script>
 import {createClient} from '~/plugins/contentful.js'
 import HeroBanner from '~/components/herobanner.vue'
-import MobileHeader from '~/components/mobile-header.vue'
 import Header from '~/components/header.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import ArticlePreview from '~/components/article/article-preview.vue'
-import Media from 'vue-media'
 
 const client = createClient()
 
@@ -51,8 +43,6 @@ export default {
     ArticlesList,
     ArticlePreview,
     HeroBanner,
-    MobileHeader,
-    Media,
     Header
   }
 }

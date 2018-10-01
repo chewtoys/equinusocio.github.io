@@ -1,12 +1,6 @@
 <template>
   <main role="main">
-    <Media :query="{maxWidth: 768}">
-      <MobileHeader />
-    </Media>
-
-    <Media :query="{minWidth: 768}">
-      <Header />
-    </Media>
+    <Header />
 
     <HeroBanner>
       <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
@@ -24,9 +18,7 @@ import VueMarkdown from 'vue-markdown'
 import Prism from 'prismjs'
 import {createClient} from '~/plugins/contentful.js'
 import HeroBanner from '~/components/herobanner.vue'
-import MobileHeader from '~/components/mobile-header.vue'
 import Header from '~/components/header.vue'
-import Media from 'vue-media'
 
 const client = createClient()
 
@@ -69,9 +61,7 @@ export default {
   components: {
     HeroBanner,
     VueMarkdown,
-    MobileHeader,
-    Header,
-    Media
+    Header
   },
   mounted () {
     Prism.highlightAll()

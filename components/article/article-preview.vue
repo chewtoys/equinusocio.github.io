@@ -90,7 +90,7 @@ export default {
 
   & img {
     margin: 0 auto;
-    width: 80%;
+    width: 92%;
   }
 
   @nest .DarkTheme & {

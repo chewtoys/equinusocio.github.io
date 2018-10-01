@@ -1,25 +1,28 @@
 <template>
-  <Media :query="{maxWidth: 768}" @media-leave="mediaLeave">
+  <Media :query="{maxWidth: 768}" @media-leave="unlockScroll">
     <header class="MobileHeader" :aria-expanded="isExpanded">
+
       <div class="Panel">
-        <ThemeSwitcher />
+        <ThemeSwitcher class="MobileThemeSwitcher" />
         <Navigation direction="column" />
       </div>
+
       <div class="Bar">
         <BackLink />
-        <svg v-if="!isExpanded" @click="openClose" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <svg v-if="!isExpanded" @click="openMenu" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
           <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <line fill="none" stroke-miterlimit="10" x1="2" y1="16" x2="30" y2="16"></line>
             <line fill="none" stroke-miterlimit="10" x1="2" y1="7" x2="30" y2="7"></line>
             <line fill="none" stroke-miterlimit="10" x1="2" y1="25" x2="30" y2="25"></line>
           </g>
         </svg>
-        <svg v-if="isExpanded" @click="openClose" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <svg v-if="isExpanded" @click="closeMenu" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
           <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-miterlimit="10" stroke-width="2">
             <path d="M27 5L5 27M27 27L5 5"/>
           </g>
         </svg>
       </div>
+
     </header>
   </Media>
 </template>
@@ -44,18 +47,17 @@ export default {
     Navigation
   },
   methods: {
-    openClose () {
-      if (!this.isExpanded) {
-        disableBodyScroll(document.querySelector('.Panel'))
-        this.isExpanded = true
-      } else {
-        clearAllBodyScrollLocks()
-        this.isExpanded = false
-      }
+    openMenu () {
+      disableBodyScroll(document.querySelector('.Panel'))
+      this.isExpanded = true
     },
-    mediaLeave () {
-      this.isExpanded = false
+    closeMenu () {
       clearAllBodyScrollLocks()
+      this.isExpanded = false
+    },
+    unlockScroll () {
+      clearAllBodyScrollLocks()
+      this.isExpanded = false
     }
   }
 }
@@ -118,11 +120,16 @@ export default {
 .Panel {
   display: none;
   grid-template-columns: auto;
-  grid-template-rows: 32px 1fr;
+  grid-template-rows: auto 1fr;
 
   @nest .MobileHeader[aria-expanded] & {
     display: grid;
   }
+}
+
+.MobileThemeSwitcher {
+  margin: 40px auto 60px auto;
+  box-sizing: border-box;
 }
 </style>
 

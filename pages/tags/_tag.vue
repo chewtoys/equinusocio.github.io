@@ -1,5 +1,6 @@
 <template>
   <main role="main">
+    <Header />
     <section>
       <h2>All articles tagged #{{ tag }} ({{ posts.length }})</h2>
       <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
@@ -10,6 +11,7 @@
 <script>
 import {createClient} from '~/plugins/contentful.js'
 import ArticlePreview from '~/components/article/article-preview.vue'
+import Header from '~/components/header.vue'
 
 const client = createClient()
 
@@ -27,7 +29,8 @@ export default {
     })
   },
   components: {
-    ArticlePreview
+    ArticlePreview,
+    Header
   }
 }
 </script>
