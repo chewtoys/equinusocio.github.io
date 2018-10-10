@@ -1,7 +1,7 @@
 <template>
   <main role="main">
     <Header />
-    <HeroBanner height="calc(100vh - 400px)">
+    <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">#{{ tag }}</h1>
       <p class="SubTitle"><strong>{{ posts.length }}</strong> stories published</p>
     </HeroBanner>

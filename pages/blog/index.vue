@@ -1,7 +1,7 @@
 <template>
   <main role="main">
     <Header />
-    <HeroBanner height="calc(100vh - 400px)">
+    <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">Just some story and tips for developers</h1>
 
       <TagList class="AllTags">
