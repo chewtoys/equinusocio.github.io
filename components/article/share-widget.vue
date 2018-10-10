@@ -1,6 +1,7 @@
 <template>
-  <nav>
+  <nav class="ShareWidget">
       <a
+      class="ShareWidget-Item"
       rel="noopener"
       :href="`http://www.facebook.com/sharer.php?u=${currentUrl}`"
       target="_blank"
@@ -13,6 +14,7 @@
       </a>
 
       <a
+      class="ShareWidget-Item"
         rel="noopener"
         :href="`https://twitter.com/intent/tweet?url=${currentUrl}&text=${postTitle} by @equinusocio \n`"
         target="_blank"
@@ -24,6 +26,7 @@
       </a>
 
       <a
+      class="ShareWidget-Item"
         rel="noopener"
         :href="`http://www.linkedin.com/shareArticle?url=${currentUrl}&title=${postTitle}`"
         onclick="window.open(this.href,'',' scrollbars=yes,menubar=no,width=555,height=600,resizable=yes,toolbar=no,location=no,status=no'); return false;">
@@ -52,6 +55,17 @@
 </script>
 
 <style lang="postcss" scoped>
+.ShareWidget {
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(auto, 32px));
+  grid-auto-flow: column;
+}
+
+.ShareWidget-Item {
+  display: block;
+}
+
 .SocialIcon {
   fill: var(--callToActionColor, #00E2BC);
   stroke: var(--callToActionColor, #00E2BC);

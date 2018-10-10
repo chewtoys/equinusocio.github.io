@@ -2,19 +2,22 @@
   <main role="main">
     <Header />
 
-    <HeroBanner height="calc(100vh - 600px)">
-      <TagList>
-        <Tag :tag="tag" :key="tag" v-for="(tag) in post.fields.tags">{{tag}}</Tag>
-      </TagList>
-      <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
+    <article>
+      <HeroBanner height="calc(100vh - 600px)">
+        <TagList>
+          <Tag :tag="tag" :key="tag" v-for="(tag) in post.fields.tags">{{tag}}</Tag>
+        </TagList>
+        <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
 
-      <Datetime class="PublishDate" :date="new Date(post.fields.publishDate)" />
-      <ShareWidget :postTitle="post.fields.title" />
-    </HeroBanner>
+        <Datetime class="PublishDate" :date="new Date(post.fields.publishDate)" />
+        <ShareWidget class="Socials" :postTitle="post.fields.title" />
+      </HeroBanner>
 
-    <section>
-      <vue-markdown>{{post.fields.body}}</vue-markdown>
-    </section>
+      <StoryContainer>
+        <hr>
+        <vue-markdown>{{post.fields.body}}</vue-markdown>
+      </StoryContainer>
+    </article>
   </main>
 </template>
 
@@ -28,6 +31,7 @@ import TagList from '~/components/article/taglist.vue'
 import Datetime from '~/components/article/datetime.vue'
 import ShareWidget from '~/components/article/share-widget.vue'
 import Tag from '~/components/article/tag.vue'
+import StoryContainer from '~/components/article/story-container.vue'
 
 const client = createClient()
 
@@ -74,6 +78,7 @@ export default {
     TagList,
     ShareWidget,
     Datetime,
+    StoryContainer,
     Tag
   },
   mounted () {
@@ -89,5 +94,9 @@ export default {
 
 .PublishDate {
   margin-top: 80px;
+}
+
+.Socials {
+  margin-top: 40px;
 }
 </style>
