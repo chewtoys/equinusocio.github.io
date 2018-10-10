@@ -9,7 +9,7 @@
       <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
 
       <Datetime class="PublishDate" :date="new Date(post.fields.publishDate)" />
-      <ShareWidget />
+      <ShareWidget :postTitle="post.fields.title" />
     </HeroBanner>
 
     <section>
