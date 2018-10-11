@@ -72,6 +72,9 @@ export default {
       ],
       link: [
         { rel: 'stylesheet', href: '/prism-theme.css' }
+      ],
+      script: [
+        { type: 'text/javascript', src: '//cdn.embedly.com/widgets/platform.js', charset: 'UTF-8', async: true, body: true }
       ]
     }
   },
