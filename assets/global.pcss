@@ -1,6 +1,7 @@
 @import "./light-theme.pcss";
 @import "./dark-theme.pcss";
 @import "./media.pcss";
+@import "./typography.pcss";
 
 :root {
   @mixin light-theme;
@@ -36,55 +37,8 @@ body {
 
 img {
   display: block;
-}
-
-h1 {
-  font-weight: 800;
-  font-size: responsive 22px 42px;
-  font-range: 320px 1440px;
-  letter-spacing: -0.03em;
-  margin: 0 0 24px 0;
-  word-wrap: break-word;
-}
-
-h1.DisplayTitle {
-  font-weight: 900;
-  font-size: responsive 32px 72px;
-  font-range: 320px 1440px;
-  letter-spacing: 0.02em;
-  margin: 0;
-  text-align: center;
-  word-wrap: break-word;
-}
-
-@media (--small) {
-  .DisplayTitle {
-    max-width: 70%;
-  }
-}
-
-p.SmallBody {
-  font-size: responsive 17px 20px;
-  font-range: 320px 1440px;
-  line-height: responsive 25px 30px;
-  line-height-range: 420px 1280px;
-}
-
-.SubTitle {
-  font-size: responsive 18px 22px;
-  font-range: 320px 1440px;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-}
-
-a {
-  color: inherit;
-  text-decoration-color: var(--callToActionColor, #00E2BC);
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration-color: var(--foregroundColor, #FFF);
-  }
+  max-width: 100%;
+  width: 100%;
 }
 
 figure {

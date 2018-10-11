@@ -55,7 +55,7 @@ export default {
 
 @media (--small) {
   .Header {
-    grid-template-columns: 140px auto 140px;
+    grid-template-columns: 140px auto minmax(auto, 140px);
   }
 }
 

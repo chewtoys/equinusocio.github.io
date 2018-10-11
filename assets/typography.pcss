@@ -1,0 +1,134 @@
+.StoryContainer {
+  & h1, & h2, & h3 {
+    margin: 120px 0 56px;
+    letter-spacing: -0.03em;
+  }
+}
+
+h1 {
+  font-weight: 800;
+  font-size: responsive 22px 42px;
+  font-range: 320px 1440px;
+}
+
+h2 {
+  font-size: responsive 18px 36px;
+  font-range: 320px 1440px;
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: responsive 16px 28px;
+  font-range: 320px 1440px;
+  font-weight: 500;
+}
+
+h1.DisplayTitle {
+  font-weight: 900;
+  font-size: responsive 32px 72px;
+  font-range: 320px 1440px;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+@media (--small) {
+  .DisplayTitle {
+    max-width: 70%;
+  }
+}
+
+p {
+  font-size: responsive 20px 22px;
+  font-range: 320px 1440px;
+  line-height: responsive 30px 40px;
+  line-height-range: 420px 1440px;
+}
+
+p + p {
+  margin-top: 48px;
+}
+
+p.SmallBody {
+  font-size: responsive 17px 20px;
+  font-range: 320px 1440px;
+  line-height: responsive 25px 30px;
+  line-height-range: 420px 1440px;
+}
+
+.SubTitle {
+  font-size: responsive 18px 22px;
+  font-range: 320px 1440px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--callToActionColor, #00E2BC);
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration-color: var(--foregroundColor, #FFF);
+  }
+}
+
+
+blockquote {
+  color: #969FA9;
+  font-size: responsive 20px 22px;
+  font-range: 320px 1440px;
+  line-height: responsive 35px 40px;
+  line-height-range: 420px 1440px;
+  font-style: italic;
+  margin: 56px 0;
+  padding-left: 40px;
+  padding-top: 40px;
+  position: relative;
+  letter-spacing: 0.7px;
+
+  & p {
+    margin: 0;
+
+    & strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--foregroundColor, #000);
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    & strong::before {
+      content: '—';
+      display: inline-block;
+      margin-right: 8px;
+      color: var(--callToActionColor, #00E2BC);
+    }
+  }
+
+  &::before {
+    content: '❝';
+    left: 0;
+    top: 0;
+    font-size: 42px;
+    position: absolute;
+  }
+}
+
+p code {
+  background-color: var(--lightGrayColor, #F3F6F9);
+  border-radius: 3px;
+  padding: 3px 2px;
+  margin: 0 8px;
+  border: 1px solid hsla(255, 0%, 50%, 0.2)
+}
+
+ul {
+  margin: 48px 0;
+
+  & li {
+    padding: 8px 0;
+  }
+}

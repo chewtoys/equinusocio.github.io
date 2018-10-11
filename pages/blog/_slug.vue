@@ -3,7 +3,7 @@
     <Header />
 
     <article>
-      <HeroBanner height="calc(100vh - 600px)">
+      <HeroBanner height="calc(100vh - 200px)">
         <TagList>
           <Tag :tag="tag" :key="tag" v-for="(tag) in post.fields.tags">{{tag}}</Tag>
         </TagList>
@@ -15,9 +15,12 @@
 
       <StoryContainer>
         <hr>
-        <vue-markdown>{{post.fields.body}}</vue-markdown>
+        <vue-markdown class="StoryBody">{{post.fields.body}}</vue-markdown>
       </StoryContainer>
     </article>
+
+    <Footer>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</Footer>
+
   </main>
 </template>
 
@@ -32,6 +35,7 @@ import Datetime from '~/components/article/datetime.vue'
 import ShareWidget from '~/components/article/share-widget.vue'
 import Tag from '~/components/article/tag.vue'
 import StoryContainer from '~/components/article/story-container.vue'
+import Footer from '~/components/footer.vue'
 
 const client = createClient()
 
@@ -67,7 +71,7 @@ export default {
         { hid: 'twitter:creator', name: 'twitter:creator', content: '@equinusocio' }
       ],
       link: [
-        { rel: 'stylesheet', href: 'https://atelierbram.github.io/syntax-highlighting/prism/demo/assets/css/prism-base16-ateliercave.light.css' }
+        { rel: 'stylesheet', href: '/prism-theme.css' }
       ]
     }
   },
@@ -75,6 +79,7 @@ export default {
     HeroBanner,
     VueMarkdown,
     Header,
+    Footer,
     TagList,
     ShareWidget,
     Datetime,
@@ -93,10 +98,14 @@ export default {
 }
 
 .PublishDate {
-  margin-top: 80px;
+  margin-top: 130px;
 }
 
 .Socials {
   margin-top: 40px;
+}
+
+.StoryBody {
+  margin-top: 72px;
 }
 </style>
