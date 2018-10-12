@@ -5,6 +5,7 @@
       <h1 class="DisplayTitle">{{page.fields.name}}</h1>
     </HeroBanner>
     <StoryContainer>
+      <hr>
       <vue-markdown>{{page.fields.content}}</vue-markdown>
     </StoryContainer>
 
@@ -45,5 +46,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
