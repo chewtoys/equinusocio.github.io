@@ -55,7 +55,7 @@ export default {
         { hid: 'ip:name', itemprop: 'name', content: this.person.fields.name },
         { hid: 'ip:headline', itemprop: 'headline', content: this.person.fields.title },
         { hid: 'ip:descriptiom', itemprop: 'description', content: this.person.fields.shortBio },
-        { hid: 'ip:image', itemprop: 'image', content: `https:${this.person.fields.image.fields.file.url}` },
+        { hid: 'ip:image', itemprop: 'image', content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9` },
         { hid: 'og:url', property: 'og:url', content: `https://equinsuocha.io${this.$route.fullPath}` }
       ]
     }
