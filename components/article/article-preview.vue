@@ -156,6 +156,10 @@ export default {
   }
 }
 
+.PostTitle {
+  margin: 32px 0;
+}
+
 .PostTitle a {
   text-decoration: inherit;
 }
