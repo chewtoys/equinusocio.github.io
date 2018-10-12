@@ -28,6 +28,7 @@
 import VueMarkdown from 'vue-markdown'
 import Prism from 'prismjs'
 import {createClient} from '~/plugins/contentful.js'
+import FormatDate from '~/plugins/formatDate'
 import HeroBanner from '~/components/herobanner.vue'
 import Header from '~/components/header.vue'
 import TagList from '~/components/article/taglist.vue'
@@ -60,6 +61,7 @@ export default {
         { hid: 'ip:headline', itemprop: 'headline', content: this.post.fields.title },
         { hid: 'ip:description', itemprop: 'description', content: this.post.fields.description },
         { hid: 'ip:image', itemprop: 'image', content: `https:${this.post.fields.heroImage.fields.file.url}` },
+        { itemprop: 'datePublished', content: `${FormatDate(new Date(this.post.fields.publishDate))}` },
         { hid: 'og:type', property: 'og:type', content: 'article' },
         { hid: 'og:title', property: 'og:title', content: this.post.fields.title },
         { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}${this.$route.fullPath}` },
