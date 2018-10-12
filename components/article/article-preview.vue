@@ -157,7 +157,7 @@ export default {
 }
 
 .PostTitle {
-  margin: 32px 0;
+  margin: 0;
 }
 
 .PostTitle a {
