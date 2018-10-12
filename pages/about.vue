@@ -26,20 +26,15 @@ const client = createClient()
 
 export default {
   asyncData ({ env, params }) {
-    return Promise.all([
-      client.getEntries({
-        'content_type': env.CTF_PAGE_TYPE_ID,
-        'fields.slug': params.slug
-      }),
-      client.getEntries({
-        'sys.id': env.CTF_PERSON_ID
-      })
-    ]).then(([entries, person]) => {
+    return client.getEntries({
+      'content_type': env.CTF_PAGE_TYPE_ID,
+      'fields.slug': params.slug
+    }).then(entries => {
       return {
-        page: entries.items[0],
-        person: person.items[0]
+        page: entries.items[0]
       }
-    }).catch(console.error)
+    })
+    .catch(console.error)
   },
   components: {
     Header,

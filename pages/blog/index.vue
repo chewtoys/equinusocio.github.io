@@ -42,6 +42,7 @@ export default {
       })
     ]).then(([entries, posts]) => {
       return {
+        person: entries.items[0],
         posts: posts.items
       }
     })
@@ -71,6 +72,18 @@ export default {
     Header,
     TagList,
     Tag
+  },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: this.person.fields.shortBio },
+        { hid: 'ip:name', itemprop: 'name', content: this.person.fields.name },
+        { hid: 'ip:headline', itemprop: 'headline', content: this.person.fields.title },
+        { hid: 'ip:descriptiom', itemprop: 'description', content: this.person.fields.shortBio },
+        { hid: 'ip:image', itemprop: 'image', content: `${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9` },
+        { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}${this.$route.fullPath}` }
+      ]
+    }
   }
 }
 </script>
