@@ -1,5 +1,5 @@
 <template>
-  <Media :query="{maxWidth: 768}" @media-leave="unlockScroll">
+  <Media :query="{maxWidth: 768}" @media-leave="unlockScroll" :visibleByDefault="true">
     <header class="MobileHeader" :aria-expanded="isExpanded">
 
       <div class="Panel">

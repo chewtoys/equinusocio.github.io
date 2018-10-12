@@ -3,17 +3,17 @@
 
     <MobileHeader />
 
-    <Media :query="{minWidth: 768}">
+    <Media :query="{minWidth: 768}" :visibleByDefault="true">
       <BackLink />
     </Media>
 
-    <Media :query="{minWidth: 768}">
+    <Media :query="{minWidth: 768}" :visibleByDefault="true">
       <div class="NavContainer">
         <Navigation />
       </div>
     </Media>
 
-    <Media :query="{minWidth: 768}">
+    <Media :query="{minWidth: 768}" :visibleByDefault="true">
       <div class="ThemeSwitcherContainer">
         <ThemeSwitcher />
       </div>
