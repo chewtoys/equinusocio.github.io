@@ -20,6 +20,9 @@ const config = {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns#'
+    },
     title: headConfig.TITLE,
     meta: headConfig.COMMON_META,
     link: headConfig.COMMON_LINKS
