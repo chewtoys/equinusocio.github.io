@@ -32,7 +32,7 @@
 </template>
 
 <script>
-  let rootElement = document.querySelector('html')
+  let rootElement = process.browser ? document.querySelector('html') : null
   let themeClass = 'DarkTheme'
 
   export default {
