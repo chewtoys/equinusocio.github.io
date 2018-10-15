@@ -78,7 +78,7 @@ export default {
 }
 
 .ArticlePreview + .ArticlePreview {
-  margin-top: 170px;
+  margin-top: 230px;
 }
 
 .ArticleImage {
