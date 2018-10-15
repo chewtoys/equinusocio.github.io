@@ -2,10 +2,11 @@
   <article :class="`ArticlePreview ${directionChecker(index)}`" >
     <figure class="ArticleImage">
       <img
+        :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467, ${post.fields.heroImage.fields.file.url} 2x`"
         draggable="false"
         :alt="post.fields.title"
         v-if="post.fields.heroImage.fields.file"
-        :src="`${post.fields.heroImage.fields.file.url}`"
+        :src="`${post.fields.heroImage.fields.file.url}?w=410&h=467`"
       >
     </figure>
     <div class="ArticleContent">
