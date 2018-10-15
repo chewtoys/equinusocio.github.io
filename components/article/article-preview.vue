@@ -3,6 +3,7 @@
     <figure class="ArticleImage">
       <img
         draggable="false"
+        :alt="post.fields.title"
         v-if="post.fields.heroImage.fields.file"
         :src="`${post.fields.heroImage.fields.file.url}`"
       >

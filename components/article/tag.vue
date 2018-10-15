@@ -39,7 +39,7 @@
     width: 100%;
     height: 100%;
     background-color: var(--callToActionColor, #00E2BC);
-    opacity: 0.13;
+    opacity: 0.09;
   }
 
   &:hover::before {
