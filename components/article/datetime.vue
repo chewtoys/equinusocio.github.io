@@ -28,7 +28,7 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  color: inherit;
+  color: var(--grayColor, rgba(119, 133, 149, 0.5));
   letter-spacing: 0.11em;
 }
 </style>
