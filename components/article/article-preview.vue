@@ -95,7 +95,7 @@ export default {
     width: 92%;
   }
 
-  @nest .DarkTheme & {
+  @nest [data-theme='dark-theme'] & {
     filter: invert(100%);
   }
 }

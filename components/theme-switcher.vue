@@ -1,7 +1,7 @@
 <template>
   <div class="ThemeSwitcher">
-    <svg v-on:click="setLightTheme"
-         v-bind:aria-active="isDayMode"
+    <svg v-on:click="setTheme(LightTheme)"
+         id="light-theme"
          aria-label="Switch to day mode"
          class="Icon"
          width="18"
@@ -17,9 +17,9 @@
           <path d="M9 13.364a4.364 4.364 0 1 0 0-8.727 4.364 4.364 0 0 0 0 8.727z" />
     </svg>
 
-    <svg v-on:click="setDarkTheme"
-         v-bind:aria-active="isNightMode"
+    <svg v-on:click="setTheme(DarkTheme)"
          aria-label="Switch to night mode"
+         id="dark-theme"
          class="Icon"
          width="14"
          height="14"
@@ -32,39 +32,30 @@
 </template>
 
 <script>
-  let rootElement = process.browser ? document.querySelector('html') : null
-  let themeClass = 'DarkTheme'
+  import LightTheme from '../lib/light-theme.js'
+  import DarkTheme from '../lib/dark-theme.js'
 
   export default {
     data () {
       return {
-        isDayMode: true,
-        isNightMode: false
+        LightTheme,
+        DarkTheme
       }
     },
     methods: {
-      setLightTheme () {
-        if (rootElement.classList.contains(themeClass)) {
-          rootElement.removeAttribute('class')
-          this.isNightMode = false
-          this.isDayMode = true
+      setTheme (theme) {
+        localStorage.setItem('themeName', theme.name)
+        process.browser ? document.documentElement.setAttribute('data-theme', theme.name) : null
+
+        for (let key of Object.keys(theme.tokens)) {
+          const property = key
+          const value = theme.tokens[key]
+
+          if (process.browser) {
+            document.documentElement.style.setProperty(`--${property}`, value)
+            localStorage.setItem('themeTokens', JSON.stringify(theme.tokens))
+          }
         }
-      },
-      setDarkTheme () {
-        if (!rootElement.classList.contains(themeClass)) {
-          rootElement.classList.add(themeClass)
-          this.isDayMode = false
-          this.isNightMode = true
-        }
-      }
-    },
-    mounted () {
-      if (rootElement.classList.contains(themeClass)) {
-        this.isDayMode = false
-        this.isNightMode = true
-      } else {
-        this.isDayMode = true
-        this.isNightMode = false
       }
     }
   }
@@ -87,7 +78,11 @@
       transform: scale(1.2);
     }
 
-    &[aria-active] {
+    @nest [data-theme='light-theme'] &#light-theme {
+      fill: var(--callToActionColor, #00E2BC);
+      stroke: var(--callToActionColor, #00E2BC);
+    }
+    @nest [data-theme='dark-theme'] &#dark-theme {
       fill: var(--callToActionColor, #00E2BC);
       stroke: var(--callToActionColor, #00E2BC);
     }
