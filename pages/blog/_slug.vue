@@ -104,6 +104,7 @@ export default {
 
 .PublishDate {
   margin-top: 130px;
+  color: var(--grayColor, rgba(119, 133, 149, 0.5));
 }
 
 .Socials {
