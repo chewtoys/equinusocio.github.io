@@ -138,6 +138,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 32px;
+  color: var(--grayColor, rgba(119, 133, 149, 0.5));
 }
 
 @media (--medium) {

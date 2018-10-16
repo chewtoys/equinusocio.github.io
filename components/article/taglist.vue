@@ -17,8 +17,8 @@
   }
 }
 
-@media (--small) {
-  .Taglist {
+@media (--medium) {
+  .TagsList {
     flex-wrap: nowrap;
   }
 }
