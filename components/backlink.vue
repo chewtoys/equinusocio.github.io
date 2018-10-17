@@ -9,7 +9,7 @@
 
 <style lang="postcss" scoped>
 .BackLink {
-  color: var(--grayColor, rgba(119, 133, 149, 0.5));
+  color: currentColor;
   font-weight: 700;
   pointer-events: visible;
 

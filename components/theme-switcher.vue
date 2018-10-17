@@ -70,8 +70,8 @@
   .Icon {
     cursor: pointer;
     pointer-events: visiblePainted;
-    fill: var(--foregroundColor, #000);
-    stroke: var(--foregroundColor, #000);
+    fill: currentColor;
+    stroke: currentColor;
     transition: all 200ms ease-out;
 
     &:active {

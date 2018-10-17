@@ -73,17 +73,17 @@ export default {
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: var(--backgroundColor, #FFF);
+  background-color: #000;
   transition: all 300ms;
 
   &[aria-expanded] {
-    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
   }
 }
 
 @supports (backdrop-filter: blur(10px)) {
   .MobileHeader {
-    background-color: var(--vibrantBackground, rgba(255, 255, 255, 0.7));
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
   }
 }
@@ -94,20 +94,21 @@ export default {
   padding: 24px 32px;
   box-sizing: border-box;
   align-items: center;
+  color: #D2D2D2;
 }
 
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .Bar {
     --safePaddingBottom: env(safe-area-inset-bottom);
 
-    padding-bottom: calc(8px + var(--safePaddingBottom));
+    padding-bottom: calc(24px - var(--safePaddingBottom));
   }
 }
 
 .MenuIcon {
   cursor: pointer;
   pointer-events: visiblePainted;
-  stroke: var(--foregroundColor, #000);
+  stroke: #D2D2D2;
 }
 
 .MenuTrigger {
@@ -121,6 +122,7 @@ export default {
   display: none;
   grid-template-columns: auto;
   grid-template-rows: auto 1fr;
+  color: #D2D2D2;
 
   @nest .MobileHeader[aria-expanded] & {
     display: grid;
