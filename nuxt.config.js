@@ -61,10 +61,7 @@ const config = {
   */
   plugins: [
     '~/plugins/contentful',
-    {
-      src: '~plugins/ga.js',
-      ssr: false
-    }
+    { src: '~/plugins/scroll-reveal', ssr: false }
   ],
 
   /*

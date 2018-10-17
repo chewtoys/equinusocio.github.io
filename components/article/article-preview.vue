@@ -1,5 +1,5 @@
 <template>
-  <article :class="`ArticlePreview ${directionChecker(index)}`" >
+  <article :class="`ArticlePreview ${directionChecker(index)}`" v-scroll-reveal="{ distance: '100px', viewFactor: 0.3 }">
     <figure class="ArticleImage">
       <img
         :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467, ${post.fields.heroImage.fields.file.url} 2x`"
@@ -9,7 +9,7 @@
         :src="`${post.fields.heroImage.fields.file.url}?w=410&h=467`"
       >
     </figure>
-    <div class="ArticleContent">
+    <div class="ArticleContent" >
       <header>
         <aside class="MetaContainer">
           <Datetime :date="new Date(post.fields.publishDate)" />

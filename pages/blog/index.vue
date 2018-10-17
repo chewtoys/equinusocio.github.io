@@ -73,6 +73,7 @@ export default {
     TagList,
     Tag
   },
+  transition: 'bounce',
   head () {
     return {
       meta: [

@@ -57,7 +57,8 @@
     "stylelint": "9.5.0",
     "stylelint-webpack-plugin": "0.10.5",
     "tar": "^4.0.1",
-    "vue-media": "1.1.1"
+    "vue-media": "1.1.1",
+    "vue-scroll-reveal": "1.0.11"
   },
   "config": {
     "commitizen": {
