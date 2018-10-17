@@ -1,24 +1,8 @@
 <template>
   <footer class="Footer">
-    <Socials :person="person" class="SocialsFooter" />
-    Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino
+    <slot></slot>
   </footer>
 </template>
-
-<script>
-  import Socials from '~/components/socials.vue'
-
-  export default {
-    props: {
-      person: {
-        type: Object
-      }
-    },
-    components: {
-      Socials
-    }
-  }
-</script>
 
 <style lang="postcss" scoped>
 @import '../assets/media.pcss';
@@ -36,10 +20,6 @@
   .Footer {
     margin-bottom: 16px;
   }
-}
-
-.SocialsFooter {
-  margin-bottom: 24px;
 }
 </style>
 

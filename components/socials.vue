@@ -17,7 +17,7 @@
     </a>
 
     <a href="https://www.eyeem.com/u/mattiaastorino" :title="`${ person.fields.name } on EyeEm`" :aria-label="`${ person.fields.name } on EyeEM`" target="_blank" style="text-decoration: none;" rel="noopener">
-      <strong>EyeEM</strong>
+      <small><strong>EyeEM</strong></small>
     </a>
   </nav>
 </template>
