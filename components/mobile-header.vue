@@ -83,7 +83,7 @@ export default {
 
 @supports (backdrop-filter: blur(10px)) {
   .MobileHeader {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
   }
 }
@@ -101,7 +101,7 @@ export default {
   .Bar {
     --safePaddingBottom: env(safe-area-inset-bottom);
 
-    padding-bottom: calc(24px - var(--safePaddingBottom));
+    padding-bottom: calc(24px + var(--safePaddingBottom));
   }
 }
 
