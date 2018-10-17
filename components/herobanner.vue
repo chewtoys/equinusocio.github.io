@@ -1,5 +1,5 @@
 <template>
-  <header class="HeroBanner" :style="`height: ${height}`">
+  <header class="HeroBanner" :style="`height: ${height}`" v-scroll-reveal="{ duration: 1500 }">
     <slot></slot>
   </header>
 </template>
@@ -23,5 +23,10 @@
     place-items: center;
     justify-content: center;
     min-height: 400px;
+    visibility: hidden;
+  }
+
+  @nest .sr & {
+    visibility: visible;
   }
 </style>

@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  background: var(--backgroundColor, #FFF);
+  background: var(--backgroundColor, #000);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   color: var(--foregroundColor, #000);
   transition-property: color;
@@ -50,4 +50,8 @@ hr {
   height: 1px;
   border: 0;
   background-color: var(--grayColor, rgba(119, 133, 149, 0.5));
+}
+
+[data-theme='dark-theme'] iframe {
+  filter: invert(100%);
 }

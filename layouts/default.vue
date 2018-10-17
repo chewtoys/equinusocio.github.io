@@ -4,6 +4,7 @@
 
 <script>
 import { clearAllBodyScrollLocks } from 'body-scroll-lock'
+import LightTheme from '../lib/light-theme.js'
 
 export default {
   watch: {
@@ -34,6 +35,7 @@ export default {
       this.setRootTheme(currentTheme)
     } else {
       this.setRootTheme('light-theme')
+      this.getThemeFromLocalStorage(LightTheme.tokens)
     }
   }
 }

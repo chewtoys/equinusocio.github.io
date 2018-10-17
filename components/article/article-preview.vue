@@ -1,5 +1,5 @@
 <template>
-  <article :class="`ArticlePreview ${directionChecker(index)}`" v-scroll-reveal="{ distance: '100px', viewFactor: 0.3 }">
+  <article :class="`ArticlePreview ${directionChecker(index)}`" v-scroll-reveal="{ duration: 800, viewFactor: 0.3 }">
     <figure class="ArticleImage">
       <img
         :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467, ${post.fields.heroImage.fields.file.url} 2x`"
