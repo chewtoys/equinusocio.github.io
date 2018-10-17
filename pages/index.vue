@@ -6,14 +6,13 @@
     <HeroBanner>
       <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
       <p class="SubTitle"><vue-markdown>{{ person.fields.shortBio }}</vue-markdown></p>
-      <Socials :person="person" />
     </HeroBanner>
 
     <ArticlesList>
       <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </ArticlesList>
 
-    <Footer>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</Footer>
+    <Footer :person="person"></Footer>
   </main>
 </template>
 
@@ -22,7 +21,6 @@ import {createClient} from '~/plugins/contentful.js'
 import VueMarkdown from 'vue-markdown'
 import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
-import Socials from '~/components/socials.vue'
 import ArticlePreview from '~/components/article/article-preview.vue'
 import Header from '~/components/header.vue'
 import Footer from '~/components/footer.vue'
@@ -64,7 +62,6 @@ export default {
     HeroBanner,
     ArticlesList,
     ArticlePreview,
-    Socials,
     VueMarkdown,
     Header,
     Footer,
