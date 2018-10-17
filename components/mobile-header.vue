@@ -101,7 +101,7 @@ export default {
   .Bar {
     --safePaddingBottom: env(safe-area-inset-bottom);
 
-    padding-bottom: calc(24px + var(--safePaddingBottom));
+    padding-bottom: calc(16px + var(--safePaddingBottom));
   }
 }
 
