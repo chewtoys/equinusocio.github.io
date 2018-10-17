@@ -135,8 +135,7 @@ export default {
 }
 
 .MetaContainer {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   margin-bottom: 32px;
   color: var(--grayColor, rgba(119, 133, 149, 0.5));
 }
@@ -150,13 +149,6 @@ export default {
 
 .TagsContainer {
   margin-top: 16px;
-}
-
-@media (--medium) {
-  .TagsContainer {
-    margin-top: 0;
-    margin-left: 16px;
-  }
 }
 
 .PostTitle {

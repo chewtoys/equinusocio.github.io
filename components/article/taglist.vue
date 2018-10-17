@@ -8,18 +8,8 @@
 @import '../../assets/media.pcss';
 
 .TagsList {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  & > .Tag {
-    margin-top: 8px;
-  }
-}
-
-@media (--medium) {
-  .TagsList {
-    flex-wrap: nowrap;
-  }
+  display: grid;
+  grid-auto-columns: minmax(auto, max-content);
+  grid-auto-flow: column;
 }
 </style>
