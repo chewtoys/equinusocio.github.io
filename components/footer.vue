@@ -13,7 +13,7 @@
   text-align: center;
   color: var(--foregroundColor, #000);
   margin-top: 216px;
-  margin-bottom: 100px;
+  margin-bottom: 126px;
 }
 
 @media (--medium) {
