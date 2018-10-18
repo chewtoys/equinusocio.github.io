@@ -29,6 +29,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   user-select: none;
+  margin: 4px;
 
   &::before {
     content: '';
