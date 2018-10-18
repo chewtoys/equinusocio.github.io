@@ -35,11 +35,6 @@ export default {
     post: Object,
     index: Number
   },
-  data () {
-    return {
-      dir: 'ltr'
-    }
-  },
   components: {
     Tag,
     TagList,
