@@ -1,8 +1,21 @@
 <template>
   <footer class="Footer">
-    <slot></slot>
+    <Socials />
+    Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino
   </footer>
 </template>
+
+<script>
+  import Socials from '~/components/socials.vue'
+  import Datetime from '~/components/article/datetime.vue'
+
+  export default {
+    components: {
+      Socials,
+      Datetime
+    }
+  }
+</script>
 
 <style lang="postcss" scoped>
 @import '../assets/media.pcss';

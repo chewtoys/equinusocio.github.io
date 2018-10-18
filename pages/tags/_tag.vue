@@ -10,19 +10,9 @@
       <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </ArticlesList>
 
-    <Footer>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</Footer>
+    <Footer />
   </main>
 </template>
-
-<!--template>
-  <main role="main">
-    <Header />
-    <section>
-      <h2>All articles tagged #{{ tag }} ({{ posts.length }})</h2>
-      <article-preview :post="post" v-for="post in posts" :key="post.sys.id"></article-preview>
-    </section>
-  </main>
-</template-->
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
@@ -30,7 +20,6 @@ import ArticlePreview from '~/components/article/article-preview.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import Footer from '~/components/footer.vue'
-import Datetime from '~/components/article/datetime.vue'
 import Header from '~/components/header.vue'
 
 const client = createClient()
@@ -53,7 +42,6 @@ export default {
     HeroBanner,
     Footer,
     ArticlesList,
-    Datetime,
     Header
   }
 }

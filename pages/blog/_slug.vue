@@ -21,7 +21,7 @@
       </StoryContainer>
     </article>
 
-    <Footer>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</Footer>
+    <Footer />
 
   </main>
 </template>
@@ -34,7 +34,6 @@ import FormatDate from '~/plugins/formatDate'
 import HeroBanner from '~/components/herobanner.vue'
 import Header from '~/components/header.vue'
 import TagList from '~/components/article/taglist.vue'
-import Datetime from '~/components/article/datetime.vue'
 import ShareWidget from '~/components/article/share-widget.vue'
 import Tag from '~/components/article/tag.vue'
 import StoryContainer from '~/components/article/story-container.vue'
@@ -89,7 +88,6 @@ export default {
     Footer,
     TagList,
     ShareWidget,
-    Datetime,
     StoryContainer,
     Tag
   },

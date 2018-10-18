@@ -1,7 +1,7 @@
 <template>
-  <header class="HeroBanner" :style="`height: ${height}`" v-scroll-reveal="{ duration: 1500 }">
+  <section class="HeroBanner" :style="`height: ${height}`">
     <slot></slot>
-  </header>
+  </section>
 </template>
 
 <script>
@@ -23,10 +23,5 @@
     place-items: center;
     justify-content: center;
     min-height: 400px;
-    visibility: hidden;
-  }
-
-  @nest .sr & {
-    visibility: visible;
   }
 </style>

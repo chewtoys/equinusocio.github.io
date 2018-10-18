@@ -46,8 +46,4 @@
     opacity: 0.2;
   }
 }
-
-.Tag + .Tag {
-  margin-left: 8px;
-}
 </style>

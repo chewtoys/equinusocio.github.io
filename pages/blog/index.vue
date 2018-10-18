@@ -1,7 +1,7 @@
 <template>
   <main role="main">
     <Header />
-    <HeroBanner height="calc(100vh - 200px)">
+    <HeroBanner height="100vh">
       <h1 class="DisplayTitle">Just some story and tips for developers</h1>
 
       <TagList class="AllTags">
@@ -13,7 +13,7 @@
       <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </ArticlesList>
 
-    <Footer>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</Footer>
+    <Footer />
   </main>
 </template>
 
@@ -23,7 +23,6 @@ import HeroBanner from '~/components/herobanner.vue'
 import Header from '~/components/header.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import ArticlePreview from '~/components/article/article-preview.vue'
-import Datetime from '~/components/article/datetime.vue'
 import Footer from '~/components/footer.vue'
 import TagList from '~/components/article/taglist.vue'
 import Tag from '~/components/article/tag.vue'
@@ -67,7 +66,6 @@ export default {
     ArticlesList,
     ArticlePreview,
     HeroBanner,
-    Datetime,
     Footer,
     Header,
     TagList,

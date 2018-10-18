@@ -9,7 +9,9 @@
 
 .TagsList {
   display: grid;
-  grid-auto-columns: minmax(auto, max-content);
   grid-auto-flow: column;
+  grid-gap: 8px;
+  /* grid-auto-columns: minmax(auto, max-content);
+  grid-auto-flow: column; */
 }
 </style>

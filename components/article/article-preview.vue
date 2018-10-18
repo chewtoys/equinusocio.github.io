@@ -65,6 +65,11 @@ export default {
   display: grid;
   grid-gap: 0;
   grid-template-columns: auto;
+  visibility: hidden;
+
+  @nest html[data-theme] & {
+    visibility: visible;
+  }
 }
 
 @media (--small) {

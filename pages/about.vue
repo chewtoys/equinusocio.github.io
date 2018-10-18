@@ -9,7 +9,7 @@
       <vue-markdown>{{page.fields.content}}</vue-markdown>
     </StoryContainer>
 
-    <Footer>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</Footer>
+    <Footer />
   </main>
 </template>
 
@@ -20,7 +20,6 @@ import Header from '~/components/header.vue'
 import StoryContainer from '~/components/article/story-container.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import Footer from '~/components/footer.vue'
-import Datetime from '~/components/article/datetime.vue'
 
 const client = createClient()
 
@@ -41,8 +40,7 @@ export default {
     HeroBanner,
     VueMarkdown,
     StoryContainer,
-    Footer,
-    Datetime
+    Footer
   }
 }
 </script>
