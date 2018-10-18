@@ -31,9 +31,9 @@
   grid-template-columns: repeat(6, minmax(32px, auto));
   grid-template-rows: 32px;
   grid-gap: 16px;
-  margin-bottom: 16px;
   align-items: center;
   justify-content: center;
+  color: var(--foregroundColor, #000);
 }
 
 @media (--small) {

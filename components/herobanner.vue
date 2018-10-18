@@ -9,7 +9,7 @@
     props: {
       height: {
         type: String,
-        default: 'calc(100vh - 200px)'
+        default: '100vh'
       }
     }
   }
@@ -22,6 +22,6 @@
     flex-direction: column;
     place-items: center;
     justify-content: center;
-    min-height: 400px;
+    min-height: 500px;
   }
 </style>

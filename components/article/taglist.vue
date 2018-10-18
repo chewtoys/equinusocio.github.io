@@ -11,9 +11,4 @@
   display: flex;
   flex-wrap: wrap;
 }
-
-@media (--small) {
-  .TagsList {
-  }
-}
 </style>

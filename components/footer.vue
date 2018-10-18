@@ -1,7 +1,7 @@
 <template>
   <footer class="Footer">
-    <Socials />
-    Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino
+    <span>Copyright © <Datetime :date="new Date()" :options="{ year: 'numeric' }" /> Mattia Astorino</span>
+    <Socials class="Socials" />
   </footer>
 </template>
 
@@ -24,7 +24,7 @@
   font-size: 14px;
   margin: 0 auto;
   text-align: center;
-  color: var(--foregroundColor, #000);
+  color: var(--grayColor, rgba(119, 133, 149, 0.5));
   margin-top: 216px;
   margin-bottom: 126px;
 }
@@ -32,6 +32,19 @@
 @media (--medium) {
   .Footer {
     margin-bottom: 16px;
+    display: flex;
+    padding: 0 32px;
+    justify-content: space-between;
+  }
+}
+
+.Socials {
+  margin-bottom: 16px;
+}
+
+@media (--medium) {
+  .Socials {
+    margin-bottom: 0;
   }
 }
 </style>
