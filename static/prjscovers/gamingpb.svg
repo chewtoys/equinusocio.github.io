@@ -1,0 +1,23 @@
+<svg width="282" height="152" viewBox="0 0 282 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="282" height="152" fill="black"/>
+<g clip-path="url(#clip0)">
+<rect x="8" y="56" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.9" x="75" y="56" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.8" x="142" y="56" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.7" x="209" y="56" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.6" x="8" y="97" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.5" x="75" y="97" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.4" x="142" y="97" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.3" x="209" y="97" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.2" x="8" y="138" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.1" x="75" y="138" width="66" height="40" fill="#3E3E3E"/>
+<rect opacity="0.05" x="142" y="138" width="66" height="40" fill="#3E3E3E"/>
+<path d="M73 20C73 17.7909 74.7909 16 77 16H205C207.209 16 209 17.7909 209 20V22C209 24.2091 207.209 26 205 26H77C74.7909 26 73 24.2091 73 22V20Z" fill="white"/>
+<path d="M94 37C94 35.3431 95.3431 34 97 34H185C186.657 34 188 35.3431 188 37V37C188 38.6569 186.657 40 185 40H97C95.3431 40 94 38.6569 94 37V37Z" fill="#969FA9"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="281" height="151" fill="white" transform="translate(1 1)"/>
+</clipPath>
+</defs>
+</svg>
