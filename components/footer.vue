@@ -27,12 +27,14 @@
   color: var(--grayColor, rgba(119, 133, 149, 0.5));
   margin-top: 216px;
   margin-bottom: 126px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
-@media (--medium) {
+@media (--small) {
   .Footer {
+    flex-direction: unset;
     margin-bottom: 16px;
-    display: flex;
     padding: 0 32px;
     justify-content: space-between;
   }

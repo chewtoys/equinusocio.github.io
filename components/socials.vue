@@ -17,7 +17,7 @@
     </a>
 
     <a href="https://www.eyeem.com/u/mattiaastorino" title="Mattia Astorino on EyeEm" aria-label="Mattia Astorino on EyeEM" target="_blank" style="text-decoration: none;" rel="noopener">
-      <small><strong>EyeEM</strong></small>
+      <small class="SocialIcon"><strong>EyeEM</strong></small>
     </a>
   </nav>
 </template>
@@ -43,9 +43,13 @@
 }
 
 .SocialIcon {
-  fill: var(--foregroundColor, #000);
+  fill: currentColor;
+  user-select: none;
   pointer-events: visiblePainted;
-  transition: all 200ms ease-out;
+
+  &:hover {
+    color: var(--callToActionColor, #00E2BC);
+  }
 
   &:active {
     transform: scale(1.2);

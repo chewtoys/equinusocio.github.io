@@ -93,6 +93,7 @@ export default {
   & img {
     margin: 0 auto;
     width: 92%;
+    image-rendering: crisp-edges;
   }
 
   @nest [data-theme='dark-theme'] & {
