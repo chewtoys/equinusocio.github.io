@@ -56,6 +56,10 @@
   }
 }
 
+[data-theme='dark-theme'] .ProjectImage {
+  filter: invert(100%);
+}
+
 
 .ProjectTitle {
   text-decoration: none;
