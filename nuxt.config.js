@@ -3,6 +3,7 @@ const headConfig = require('./lib/headConfig.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
   'CTF_PAGE_TYPE_ID',
+  'CTF_PROJECT_TYPE_ID',
   'CTF_SPACE_ID',
   'CTF_CDA_ACCESS_TOKEN',
   'CTF_CMA_ACCESS_TOKEN',
@@ -104,7 +105,8 @@ const config = {
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
-    CTF_PAGE_TYPE_ID: ctfConfig.CTF_PAGE_TYPE_ID
+    CTF_PAGE_TYPE_ID: ctfConfig.CTF_PAGE_TYPE_ID,
+    CTF_PROJECT_TYPE_ID: ctfConfig.CTF_PROJECT_TYPE_ID
   }
 }
 
