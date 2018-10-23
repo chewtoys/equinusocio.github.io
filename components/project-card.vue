@@ -45,6 +45,11 @@
 <style lang="postcss" scoped>
 .ProjectCard {
   position: relative;
+  visibility: hidden;
+
+  @nest html[data-theme] & {
+    visibility: visible;
+  }
 
   & > a {
     display: block;
