@@ -1,6 +1,5 @@
 <template>
   <main role="main">
-    <Header />
     <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">Welcome to my personal laboratory</h1>
     </HeroBanner>
@@ -23,7 +22,6 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Header from '~/components/header.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import ProjectCard from '~/components/project-card.vue'
 import Footer from '~/components/footer.vue'
@@ -31,6 +29,7 @@ import Footer from '~/components/footer.vue'
 const client = createClient()
 
 export default {
+  name: 'projects',
   asyncData ({ env, params }) {
     return client.getEntries({
       'content_type': env.CTF_PROJECT_TYPE_ID
@@ -47,7 +46,6 @@ export default {
     }
   },
   components: {
-    Header,
     HeroBanner,
     ProjectCard,
     Footer

@@ -1,6 +1,5 @@
 <template>
   <main role="main">
-    <Header />
     <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">#{{ tag }}</h1>
       <p class="SubTitle"><strong>{{ posts.length }}</strong> stories published</p>
@@ -20,7 +19,6 @@ import ArticlePreview from '~/components/article/article-preview.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import Footer from '~/components/footer.vue'
-import Header from '~/components/header.vue'
 
 const client = createClient()
 
@@ -41,8 +39,7 @@ export default {
     ArticlePreview,
     HeroBanner,
     Footer,
-    ArticlesList,
-    Header
+    ArticlesList
   }
 }
 </script>

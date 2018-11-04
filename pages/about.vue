@@ -1,11 +1,9 @@
 <template>
   <main role="main">
-    <Header />
     <HeroBanner height="calc(100vh - 600px)">
       <h1 class="DisplayTitle">{{page.fields.name}}</h1>
     </HeroBanner>
     <StoryContainer>
-      <hr>
       <vue-markdown>{{page.fields.content}}</vue-markdown>
     </StoryContainer>
 
@@ -16,7 +14,6 @@
 <script>
 import {createClient} from '~/plugins/contentful.js'
 import VueMarkdown from 'vue-markdown'
-import Header from '~/components/header.vue'
 import StoryContainer from '~/components/article/story-container.vue'
 import HeroBanner from '~/components/herobanner.vue'
 import Footer from '~/components/footer.vue'
@@ -36,7 +33,6 @@ export default {
     .catch(console.error)
   },
   components: {
-    Header,
     HeroBanner,
     VueMarkdown,
     StoryContainer,

@@ -1,8 +1,5 @@
 <template>
   <main role="main">
-
-    <Header />
-
     <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
       <p class="SubTitle"><vue-markdown>{{ person.fields.shortBio }}</vue-markdown></p>
@@ -22,7 +19,6 @@ import VueMarkdown from 'vue-markdown'
 import HeroBanner from '~/components/herobanner.vue'
 import ArticlesList from '~/components/articles-list.vue'
 import ArticlePreview from '~/components/article/article-preview.vue'
-import Header from '~/components/header.vue'
 import Footer from '~/components/footer.vue'
 import Datetime from '~/components/article/datetime.vue'
 
@@ -63,7 +59,6 @@ export default {
     ArticlesList,
     ArticlePreview,
     VueMarkdown,
-    Header,
     Footer,
     Datetime
   }

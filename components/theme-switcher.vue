@@ -1,7 +1,7 @@
 <template>
   <div class="ThemeSwitcher">
     <svg v-on:click="setTheme(LightTheme)"
-         id="light-theme"
+         data-theme-id="light-theme"
          aria-label="Switch to day mode"
          class="Icon"
          width="18"
@@ -19,7 +19,7 @@
 
     <svg v-on:click="setTheme(DarkTheme)"
          aria-label="Switch to night mode"
-         id="dark-theme"
+         data-theme-id="dark-theme"
          class="Icon"
          width="14"
          height="14"
@@ -42,7 +42,31 @@
         DarkTheme
       }
     },
+    mounted () {
+      let currentTheme = localStorage.getItem('themeName')
+      let currentThemeTokens = localStorage.getItem('themeTokens')
+
+      if (currentTheme) {
+        this.getThemeFromLocalStorage(JSON.parse(currentThemeTokens))
+        this.setRootTheme(currentTheme)
+      } else {
+        this.setRootTheme('light-theme')
+        this.getThemeFromLocalStorage(LightTheme.tokens)
+      }
+    },
     methods: {
+      getThemeFromLocalStorage (theme) {
+        for (let key of Object.keys(theme)) {
+          const value = theme[key]
+
+          if (process.browser) {
+            document.documentElement.style.setProperty(`--${key}`, value)
+          }
+        }
+      },
+      setRootTheme (themeName) {
+        process.browser ? document.documentElement.setAttribute('data-theme', themeName) : null
+      },
       setTheme (theme) {
         localStorage.setItem('themeName', theme.name)
         process.browser ? document.documentElement.setAttribute('data-theme', theme.name) : null
@@ -78,11 +102,11 @@
       transform: scale(1.2);
     }
 
-    @nest [data-theme='light-theme'] &#light-theme {
+    @nest [data-theme='light-theme'] &[data-theme-id='light-theme'] {
       fill: var(--callToActionColor, #00E2BC);
       stroke: var(--callToActionColor, #00E2BC);
     }
-    @nest [data-theme='dark-theme'] &#dark-theme {
+    @nest [data-theme='dark-theme'] &[data-theme-id='dark-theme'] {
       fill: var(--callToActionColor, #00E2BC);
       stroke: var(--callToActionColor, #00E2BC);
     }

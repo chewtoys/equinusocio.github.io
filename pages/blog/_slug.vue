@@ -1,7 +1,5 @@
 <template>
   <main role="main">
-    <Header />
-
     <article>
       <HeroBanner height="calc(100vh - 200px)">
         <TagList>
@@ -16,7 +14,6 @@
       </HeroBanner>
 
       <StoryContainer>
-        <hr>
         <vue-markdown class="StoryBody">{{post.fields.body}}</vue-markdown>
       </StoryContainer>
     </article>
@@ -32,7 +29,6 @@ import Prism from 'prismjs'
 import {createClient} from '~/plugins/contentful.js'
 import FormatDate from '~/plugins/formatDate'
 import HeroBanner from '~/components/herobanner.vue'
-import Header from '~/components/header.vue'
 import TagList from '~/components/article/taglist.vue'
 import ShareWidget from '~/components/article/share-widget.vue'
 import Tag from '~/components/article/tag.vue'
@@ -42,16 +38,23 @@ import Footer from '~/components/footer.vue'
 const client = createClient()
 
 export default {
-  asyncData ({ env, params }) {
+  asyncData ({ env, params, error }) {
     return client.getEntries({
       'content_type': env.CTF_BLOG_POST_TYPE_ID,
       'fields.slug': params.slug
     }).then(entries => {
-      return {
-        post: entries.items[0]
+      if (entries.items.length === 0) {
+        const status = { statusCode: 404, message: 'Post not found' }
+        throw (status)
+      } else {
+        return {
+          post: entries.items[0]
+        }
       }
     })
-    .catch(console.error)
+    .catch(e => {
+      error(e)
+    })
   },
   head () {
     return {
@@ -84,7 +87,6 @@ export default {
   components: {
     HeroBanner,
     VueMarkdown,
-    Header,
     Footer,
     TagList,
     ShareWidget,
