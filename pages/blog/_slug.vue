@@ -1,5 +1,5 @@
 <template>
-  <main role="main">
+  <main>
     <article>
       <HeroBanner height="calc(100vh - 200px)">
         <TagList>

@@ -1,5 +1,5 @@
 <template>
-  <main role="main">
+  <main>
     <h1>OOOPS</h1>
     <h3>{{error.message}}</h3>
     <nuxt-link to="/">Home page</nuxt-link>

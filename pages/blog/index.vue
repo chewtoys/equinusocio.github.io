@@ -1,5 +1,5 @@
 <template>
-  <main role="main">
+  <main>
     <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">Just some story and tips for developers</h1>
 

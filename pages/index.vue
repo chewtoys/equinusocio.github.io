@@ -1,5 +1,5 @@
 <template>
-  <main role="main">
+  <main>
     <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
       <p class="SubTitle"><vue-markdown>{{ person.fields.shortBio }}</vue-markdown></p>

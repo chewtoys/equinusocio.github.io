@@ -1,5 +1,5 @@
 <template>
-  <main role="main">
+  <main>
     <HeroBanner height="calc(100vh - 600px)">
       <h1 class="DisplayTitle">{{page.fields.name}}</h1>
     </HeroBanner>
