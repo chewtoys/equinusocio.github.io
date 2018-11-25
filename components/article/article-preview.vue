@@ -168,7 +168,7 @@ p.SmallBody {
   --ne-button-background: var(--callToActionColor, #00E2BC);
   --ne-button-hover-background: var(--callToActionColor, #00E2BC);
   --ne-button-active-background: var(--callToActionColor, #00E2BC);
-  --ne-button-outline-color: none;
+  --ne-button-outline-color: var(--callToActionColor, #00E2BC);
   --ne-button-radius: 200px;
   --ne-button-shadow: none;
 
