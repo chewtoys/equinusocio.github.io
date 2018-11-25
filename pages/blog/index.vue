@@ -1,7 +1,7 @@
 <template>
   <main>
     <HeroBanner height="calc(100vh - 200px)">
-      <h1 class="DisplayTitle">Just some story and tips for developers</h1>
+      <h1 class="DisplayTitle">Just some stories and tips for developers</h1>
 
       <TagList class="AllTags">
         <Tag :tag="tag" :key="tag" v-for="tag in tags">{{tag}}</Tag>
