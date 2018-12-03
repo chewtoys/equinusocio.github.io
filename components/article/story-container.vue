@@ -7,7 +7,7 @@
 <style lang="postcss" scoped>
   .StoryContainer {
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 800px;
     padding: 0 5vmax;
   }
 </style>
