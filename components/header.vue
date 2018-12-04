@@ -23,22 +23,16 @@
 </template>
 
 <script>
-import Navigation from '~/components/navigation.vue'
-import ThemeSwitcher from '~/components/theme-switcher.vue'
-import MobileHeader from '~/components/mobile-header.vue'
-import BackLink from '~/components/backlink.vue'
-import Media from 'vue-media'
-
 export default {
   props: {
     showBack: { type: Boolean, default: false }
   },
   components: {
-    Navigation,
-    MobileHeader,
-    BackLink,
-    Media,
-    ThemeSwitcher
+    Navigation: () => import('~/components/navigation.vue'),
+    ThemeSwitcher: () => import('~/components/theme-switcher.vue'),
+    MobileHeader: () => import('~/components/mobile-header.vue'),
+    BackLink: () => import('~/components/backlink.vue'),
+    Media: () => import('vue-media')
   }
 }
 </script>

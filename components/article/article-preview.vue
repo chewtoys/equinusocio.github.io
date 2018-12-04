@@ -26,30 +26,26 @@
 </template>
 
 <script>
-import Tag from '~/components/article/tag.vue'
-import TagList from '~/components/article/taglist.vue'
-import Datetime from '~/components/article/datetime.vue'
-
-export default {
-  props: {
-    post: Object,
-    index: Number
-  },
-  components: {
-    Tag,
-    TagList,
-    Datetime
-  },
-  methods: {
-    directionChecker (index) {
-      if (index % 2 === 0) {
-        return ''
-      } else {
-        return 'Alt'
+  export default {
+    props: {
+      post: Object,
+      index: Number
+    },
+    components: {
+      Tag: () => import('~/components/article/tag.vue'),
+      TagList: () => import('~/components/article/taglist.vue'),
+      Datetime: () => import('~/components/article/datetime.vue')
+    },
+    methods: {
+      directionChecker (index) {
+        if (index % 2 === 0) {
+          return ''
+        } else {
+          return 'Alt'
+        }
       }
     }
   }
-}
 </script>
 
 <style lang="postcss" scoped>

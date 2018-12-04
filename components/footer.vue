@@ -6,13 +6,10 @@
 </template>
 
 <script>
-  import Socials from '~/components/socials.vue'
-  import Datetime from '~/components/article/datetime.vue'
-
   export default {
     components: {
-      Socials,
-      Datetime
+      Socials: () => import('~/components/socials.vue'),
+      Datetime: () => import('~/components/article/datetime.vue')
     }
   }
 </script>

@@ -29,10 +29,6 @@
 
 <script>
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-import BackLink from '~/components/backlink.vue'
-import ThemeSwitcher from '~/components/theme-switcher.vue'
-import Navigation from '~/components/navigation.vue'
-import Media from 'vue-media'
 
 export default {
   data () {
@@ -41,10 +37,10 @@ export default {
     }
   },
   components: {
-    BackLink,
-    Media,
-    ThemeSwitcher,
-    Navigation
+    BackLink: () => import('~/components/backlink.vue'),
+    ThemeSwitcher: () => import('~/components/theme-switcher.vue'),
+    Navigation: () => import('~/components/navigation.vue'),
+    Media: () => import('vue-media')
   },
   methods: {
     openMenu () {

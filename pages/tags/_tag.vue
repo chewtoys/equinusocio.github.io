@@ -15,10 +15,6 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import ArticlePreview from '~/components/article/article-preview.vue'
-import HeroBanner from '~/components/herobanner.vue'
-import ArticlesList from '~/components/articles-list.vue'
-import Footer from '~/components/footer.vue'
 
 const client = createClient()
 
@@ -36,10 +32,10 @@ export default {
     })
   },
   components: {
-    ArticlePreview,
-    HeroBanner,
-    Footer,
-    ArticlesList
+    ArticlePreview: () => import('~/components/article/article-preview.vue'),
+    HeroBanner: () => import('~/components/herobanner.vue'),
+    ArticlesList: () => import('~/components/articles-list.vue'),
+    Footer: () => import('~/components/footer.vue')
   }
 }
 </script>

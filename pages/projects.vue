@@ -22,9 +22,6 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import HeroBanner from '~/components/herobanner.vue'
-import ProjectCard from '~/components/project-card.vue'
-import Footer from '~/components/footer.vue'
 
 const client = createClient()
 
@@ -46,9 +43,9 @@ export default {
     }
   },
   components: {
-    HeroBanner,
-    ProjectCard,
-    Footer
+    HeroBanner: () => import('~/components/herobanner.vue'),
+    ProjectCard: () => import('~/components/project-card.vue'),
+    Footer: () => import('~/components/footer.vue')
   }
 }
 </script>

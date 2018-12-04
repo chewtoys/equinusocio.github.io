@@ -2,7 +2,7 @@
   <main>
     <HeroBanner height="calc(100vh - 200px)">
       <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
-      <p class="SubTitle"><vue-markdown>{{ person.fields.shortBio }}</vue-markdown></p>
+      <vue-markdown class="SubTitle">{{ person.fields.shortBio }}</vue-markdown>
     </HeroBanner>
 
     <ArticlesList>
@@ -15,12 +15,6 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import VueMarkdown from 'vue-markdown'
-import HeroBanner from '~/components/herobanner.vue'
-import ArticlesList from '~/components/articles-list.vue'
-import ArticlePreview from '~/components/article/article-preview.vue'
-import Footer from '~/components/footer.vue'
-import Datetime from '~/components/article/datetime.vue'
 
 const client = createClient()
 
@@ -55,12 +49,12 @@ export default {
     }
   },
   components: {
-    HeroBanner,
-    ArticlesList,
-    ArticlePreview,
-    VueMarkdown,
-    Footer,
-    Datetime
+    HeroBanner: () => import('~/components/herobanner.vue'),
+    ArticlesList: () => import('~/components/articles-list.vue'),
+    ArticlePreview: () => import('~/components/article/article-preview.vue'),
+    VueMarkdown: () => import('vue-markdown'),
+    Footer: () => import('~/components/footer.vue'),
+    Datetime: () => import('~/components/article/datetime.vue')
   }
 }
 </script>

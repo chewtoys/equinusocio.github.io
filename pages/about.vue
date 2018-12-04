@@ -13,10 +13,6 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import VueMarkdown from 'vue-markdown'
-import StoryContainer from '~/components/article/story-container.vue'
-import HeroBanner from '~/components/herobanner.vue'
-import Footer from '~/components/footer.vue'
 
 const client = createClient()
 
@@ -33,10 +29,10 @@ export default {
     .catch(console.error)
   },
   components: {
-    HeroBanner,
-    VueMarkdown,
-    StoryContainer,
-    Footer
+    HeroBanner: () => import('~/components/herobanner.vue'),
+    VueMarkdown: () => import('vue-markdown'),
+    Footer: () => import('~/components/footer.vue'),
+    StoryContainer: () => import('~/components/article/story-container.vue')
   }
 }
 </script>

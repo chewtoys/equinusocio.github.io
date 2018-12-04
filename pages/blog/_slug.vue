@@ -24,16 +24,9 @@
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown'
 import Prism from 'prismjs'
 import {createClient} from '~/plugins/contentful.js'
 import FormatDate from '~/plugins/formatDate'
-import HeroBanner from '~/components/herobanner.vue'
-import TagList from '~/components/article/taglist.vue'
-import ShareWidget from '~/components/article/share-widget.vue'
-import Tag from '~/components/article/tag.vue'
-import StoryContainer from '~/components/article/story-container.vue'
-import Footer from '~/components/footer.vue'
 
 const client = createClient()
 
@@ -85,13 +78,14 @@ export default {
     }
   },
   components: {
-    HeroBanner,
-    VueMarkdown,
-    Footer,
-    TagList,
-    ShareWidget,
-    StoryContainer,
-    Tag
+    HeroBanner: () => import('~/components/herobanner.vue'),
+    TagList: () => import('~/components/article/taglist.vue'),
+    ShareWidget: () => import('~/components/article/share-widget.vue'),
+    Tag: () => import('~/components/article/tag.vue'),
+    StoryContainer: () => import('~/components/article/story-container.vue'),
+    Footer: () => import('~/components/footer.vue'),
+    Datetime: () => import('~/components/article/datetime.vue'),
+    VueMarkdown: () => import('vue-markdown')
   },
   mounted () {
     Prism.highlightAll()
