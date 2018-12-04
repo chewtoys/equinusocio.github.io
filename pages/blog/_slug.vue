@@ -27,6 +27,8 @@
 import Prism from 'prismjs'
 import {createClient} from '~/plugins/contentful.js'
 import FormatDate from '~/plugins/formatDate'
+import StoryContainer from '~/components/article/story-container.vue'
+import VueMarkdown from 'vue-markdown'
 
 const client = createClient()
 
@@ -82,10 +84,10 @@ export default {
     TagList: () => import('~/components/article/taglist.vue'),
     ShareWidget: () => import('~/components/article/share-widget.vue'),
     Tag: () => import('~/components/article/tag.vue'),
-    StoryContainer: () => import('~/components/article/story-container.vue'),
     Footer: () => import('~/components/footer.vue'),
     Datetime: () => import('~/components/article/datetime.vue'),
-    VueMarkdown: () => import('vue-markdown')
+    StoryContainer,
+    VueMarkdown
   },
   mounted () {
     Prism.highlightAll()
