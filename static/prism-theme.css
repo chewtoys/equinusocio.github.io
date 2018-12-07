@@ -16,6 +16,7 @@ pre[class*="language-"] {
   hyphens: none;
   background: var(--lightGrayColor, #F3F6F9);
   color: var(--foregroundColor, #000);
+  border-radius: 8px;
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
