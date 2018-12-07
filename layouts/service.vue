@@ -43,6 +43,6 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style>
   @import '../assets/global.pcss';
 </style>

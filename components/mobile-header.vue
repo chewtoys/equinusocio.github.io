@@ -60,7 +60,7 @@ export default {
 </script>
 
 
-<style lang="postcss" scoped>
+<style scoped>
 .MobileHeader {
   display: grid;
   grid-template-columns: auto;

@@ -4,7 +4,7 @@
   </section>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
   .StoryContainer {
     margin: 0 auto;
     max-width: 800px;

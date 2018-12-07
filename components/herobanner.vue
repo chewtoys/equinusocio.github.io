@@ -15,7 +15,7 @@
   }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
   .HeroBanner {
     display: flex;
     padding: 0 32px;

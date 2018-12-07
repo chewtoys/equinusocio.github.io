@@ -95,7 +95,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 .DisplayTitle {
   margin-top: 24px;
 }

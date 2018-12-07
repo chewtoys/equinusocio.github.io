@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .BackLink {
   color: currentColor;
   font-weight: 700;

@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style scoped lang="postcss">
+<style scoped>
 @import '../assets/media.pcss';
 
 .Header {

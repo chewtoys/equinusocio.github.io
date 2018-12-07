@@ -54,7 +54,7 @@
   }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 .ShareWidget {
   display: grid;
   grid-gap: 32px;

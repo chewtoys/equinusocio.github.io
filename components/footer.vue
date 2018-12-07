@@ -14,7 +14,7 @@
   }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 @import '../assets/media.pcss';
 
 .Footer {

@@ -1,4 +1,6 @@
-const { getConfigForKeys } = require('./lib/config.js')
+const {
+  getConfigForKeys
+} = require('./lib/config.js')
 const headConfig = require('./lib/headConfig.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
@@ -9,7 +11,9 @@ const ctfConfig = getConfigForKeys([
   'CTF_CMA_ACCESS_TOKEN',
   'CTF_PERSON_ID'
 ])
-const { createClient } = require('./plugins/contentful')
+const {
+  createClient
+} = require('./plugins/contentful')
 const cdaClient = createClient(ctfConfig)
 const cmaContentful = require('contentful-management')
 const cmaClient = cmaContentful.createClient({
@@ -18,8 +22,8 @@ const cmaClient = cmaContentful.createClient({
 
 const config = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#',
@@ -32,27 +36,32 @@ const config = {
 
   router: {
     scrollBehavior: function (to, from, savedPosition) {
-      return { x: 0, y: 0 }
+      return {
+        x: 0,
+        y: 0
+      }
     }
   },
 
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: 'var(--callToActionColor, #2b7f55)' },
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: 'var(--callToActionColor, #2b7f55)'
+  },
   /**
-  ** Define the destination mode when building
-  */
+   ** Define the destination mode when building
+   */
   mode: 'universal',
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** Run ESLINT on save
-    */
-    extend (config, ctx) {
-      if (ctx.isClient) {
+     ** Run ESLINT on save
+     */
+    extend(config, ctx) {
+      if (process.client) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -61,35 +70,41 @@ const config = {
         })
       }
     }
+    /*
+     ** Configure Postcss Plugins
+     */
   },
 
   /*
-  ** Make client available everywhere via Nuxt plugins
-  */
+   ** Make client available everywhere via Nuxt plugins
+   */
   plugins: [
     '~/plugins/contentful',
-    { src: '~/plugins/scroll-reveal', ssr: false }
+    {
+      src: '~/plugins/scroll-reveal',
+      ssr: false
+    }
   ],
 
   /*
-  ** Get all blog posts from Contentful
-  ** and generate the needed files upfront
-  **
-  ** Included:
-  ** - blog posts
-  ** - available blog post tags
-  */
+   ** Get all blog posts from Contentful
+   ** and generate the needed files upfront
+   **
+   ** Included:
+   ** - blog posts
+   ** - available blog post tags
+   */
   generate: {
-    routes () {
+    routes() {
       return Promise.all([
-        // get all blog posts
-        cdaClient.getEntries({
-          'content_type': ctfConfig.CTF_BLOG_POST_TYPE_ID
-        }),
-        // get the blog post content type
-        cmaClient.getSpace(ctfConfig.CTF_SPACE_ID)
+          // get all blog posts
+          cdaClient.getEntries({
+            'content_type': ctfConfig.CTF_BLOG_POST_TYPE_ID
+          }),
+          // get the blog post content type
+          cmaClient.getSpace(ctfConfig.CTF_SPACE_ID)
           .then(space => space.getContentType(ctfConfig.CTF_BLOG_POST_TYPE_ID))
-      ])
+        ])
         .then(([entries, postType]) => {
           return [
             // map entries to URLs
@@ -102,9 +117,9 @@ const config = {
   },
 
   /*
-  ** Define environment variables being available
-  ** in generate and browser context
-  */
+   ** Define environment variables being available
+   ** in generate and browser context
+   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
