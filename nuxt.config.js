@@ -128,7 +128,14 @@ const config = {
     CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
     CTF_PAGE_TYPE_ID: ctfConfig.CTF_PAGE_TYPE_ID,
     CTF_PROJECT_TYPE_ID: ctfConfig.CTF_PROJECT_TYPE_ID
-  }
+  },
+
+  modules: [
+    // Simple usage
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-117081439-1'
+    }]
+  ]
 }
 
 module.exports = config
