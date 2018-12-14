@@ -10,6 +10,7 @@
       >
     </figure>
     <div class="ArticleContent" >
+
       <header>
         <aside class="MetaContainer">
           <Datetime :date="new Date(post.fields.publishDate)" />
@@ -17,10 +18,20 @@
             <Tag :tag="tag" :key="tag" v-for="tag in post.fields.tags">{{tag}}</Tag>
           </TagList>
         </aside>
-        <h1 class="PostTitle"><nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">{{ post.fields.title }}</nuxt-link></h1>
+
+        <h1 class="PostTitle">
+          <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
+              {{ post.fields.title }}
+          </nuxt-link>
+        </h1>
       </header>
+
       <p class="SmallBody">{{ post.fields.description }}</p>
-      <nuxt-link tag="button" ne-button :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}" class="title">Read this story</nuxt-link>
+
+      <nuxt-link tag="button" ne-button :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
+        Read this story
+      </nuxt-link>
+
     </div>
   </article>
 </template>
