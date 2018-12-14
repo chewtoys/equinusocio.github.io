@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     openMenu () {
-      disableBodyScroll(document.querySelector('.Panel'))
+      disableBodyScroll(this.$el.querySelector('.Panel'))
       this.isExpanded = true
     },
     closeMenu () {
