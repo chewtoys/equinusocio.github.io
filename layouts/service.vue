@@ -42,7 +42,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  @import '../assets/global.pcss';
-</style>

@@ -21,7 +21,6 @@
     "generate": "BASE_URL=https://equinsuocha.io nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "import-data": "node ./bin/download-content-model.js && contentful-import --content-file ./data/blog/contentful-export.json",
     "deploy": "./node_modules/.bin/push-dir --dir=dist --branch=master --cleanup",
     "release": "npm run build && npm run generate && npm run deploy"
   },
