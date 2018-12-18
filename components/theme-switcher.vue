@@ -1,6 +1,8 @@
 <template>
   <div class="ThemeSwitcher">
     <svg v-on:click="setTheme(LightTheme)"
+         v-on:keydown.enter="setTheme(LightTheme)"
+         tabindex="0"
          data-theme-id="light-theme"
          aria-label="Switch to day mode"
          class="Icon"
@@ -18,6 +20,8 @@
     </svg>
 
     <svg v-on:click="setTheme(DarkTheme)"
+         v-on:keydown.enter="setTheme(DarkTheme)"
+         tabindex="0"
          aria-label="Switch to night mode"
          data-theme-id="dark-theme"
          class="Icon"
