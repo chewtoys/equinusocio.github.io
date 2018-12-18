@@ -1,8 +1,10 @@
 <template>
-  <div class="ThemeSwitcher">
+  <div class="ThemeSwitcher" role="radiogroup">
     <svg v-on:click="setTheme(LightTheme)"
          v-on:keydown.enter="setTheme(LightTheme)"
          tabindex="0"
+         role="radio"
+         :aria-checked="activeTheme('light-theme')"
          data-theme-id="light-theme"
          aria-label="Switch to day mode"
          class="Icon"
@@ -22,6 +24,8 @@
     <svg v-on:click="setTheme(DarkTheme)"
          v-on:keydown.enter="setTheme(DarkTheme)"
          tabindex="0"
+         role="radio"
+         :aria-checked="activeTheme('dark-theme')"
          aria-label="Switch to night mode"
          data-theme-id="dark-theme"
          class="Icon"
@@ -43,7 +47,11 @@
     data () {
       return {
         LightTheme,
-        DarkTheme
+        DarkTheme,
+        currentTheme: {
+          type: String,
+          default: 'light-theme'
+        }
       }
     },
     mounted () {
@@ -51,14 +59,19 @@
       let currentThemeTokens = localStorage.getItem('themeTokens')
 
       if (currentTheme) {
+        this.currentTheme = currentTheme
         this.getThemeFromLocalStorage(JSON.parse(currentThemeTokens))
         this.setRootTheme(currentTheme)
       } else {
+        this.currentTheme = 'light-theme'
         this.setRootTheme('light-theme')
         this.getThemeFromLocalStorage(LightTheme.tokens)
       }
     },
     methods: {
+      activeTheme (theme) {
+        return theme === this.currentTheme ? 'true' : 'false'
+      },
       getThemeFromLocalStorage (theme) {
         for (let key of Object.keys(theme)) {
           const value = theme[key]
@@ -74,6 +87,8 @@
       setTheme (theme) {
         localStorage.setItem('themeName', theme.name)
         process.browser ? document.documentElement.setAttribute('data-theme', theme.name) : null
+
+        this.currentTheme = theme.name
 
         for (let key of Object.keys(theme.tokens)) {
           const property = key

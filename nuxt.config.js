@@ -60,7 +60,7 @@ const config = {
     /*
      ** Run ESLINT on save
      */
-    extend(config, ctx) {
+    extend (config, ctx) {
       if (process.client) {
         config.module.rules.push({
           enforce: 'pre',
@@ -70,9 +70,6 @@ const config = {
         })
       }
     }
-    /*
-     ** Configure Postcss Plugins
-     */
   },
 
   /*
