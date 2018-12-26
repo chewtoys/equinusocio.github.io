@@ -84,10 +84,6 @@ const config = {
     {
       src: '~/plugins/lazy-load',
       ssr: false
-    },
-    {
-      src: '~plugins/ga.js',
-      ssr: false
     }
   ],
 
