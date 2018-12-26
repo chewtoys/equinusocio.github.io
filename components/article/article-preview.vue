@@ -78,7 +78,6 @@
       },
       onScreen() {
         this.visible = true
-        console.log(this.visible)
       }
     }
   }
