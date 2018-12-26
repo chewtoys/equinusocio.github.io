@@ -84,10 +84,6 @@ const config = {
     {
       src: '~/plugins/lazy-load',
       ssr: false
-    },
-    {
-      src: '~plugins/ga.js',
-      ssr: false
     }
   ],
 
@@ -135,7 +131,12 @@ const config = {
     CTF_PROJECT_TYPE_ID: ctfConfig.CTF_PROJECT_TYPE_ID
   },
 
-  modules: []
+  modules: [
+    // Simple usage
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-117081439-1'
+    }]
+  ]
 }
 
 module.exports = config
