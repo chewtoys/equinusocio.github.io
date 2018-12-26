@@ -6,7 +6,7 @@
     </HeroBanner>
 
     <ArticlesList>
-      <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
+      <article-preview class="ArticleCard" :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </ArticlesList>
 
     <Footer />
@@ -15,6 +15,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
+import VueMarkdown from 'vue-markdown'
 
 const client = createClient()
 
@@ -52,7 +53,7 @@ export default {
     HeroBanner: () => import('~/components/herobanner.vue'),
     ArticlesList: () => import('~/components/articles-list.vue'),
     ArticlePreview: () => import('~/components/article/article-preview.vue'),
-    VueMarkdown: () => import('vue-markdown'),
+    VueMarkdown,
     Footer: () => import('~/components/footer.vue'),
     Datetime: () => import('~/components/article/datetime.vue')
   }

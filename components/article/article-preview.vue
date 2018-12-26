@@ -1,14 +1,30 @@
 <template>
   <article :class="`ArticlePreview ${directionChecker(index)}`" v-scroll-reveal="{ duration: 800, viewFactor: 0.3 }">
-    <figure class="ArticleImage">
-      <img
-        :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467, ${post.fields.heroImage.fields.file.url} 2x`"
-        draggable="false"
-        :alt="post.fields.title"
-        v-if="post.fields.heroImage.fields.file"
-        :src="`${post.fields.heroImage.fields.file.url}?w=410&h=467`"
-      >
-    </figure>
+    <lazy-component @show="onScreen" class="ArticleImage">
+      <figure v-if="visible">
+        <picture v-if="post.fields.heroImage.fields.file">
+          <source
+            type="image/webp"
+            :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=webp, ${post.fields.heroImage.fields.file.url}?fm=webp 2x`"
+            draggable="false"
+            :alt="post.fields.title"
+          >
+          <source
+            type="image/png"
+            :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=png, ${post.fields.heroImage.fields.file.url}?fm=jpg 2x`"
+            draggable="false"
+            :alt="post.fields.title"
+          >
+          <img
+            :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=jpg, ${post.fields.heroImage.fields.file.url}?fm=jpg 2x`"
+            draggable="false"
+            :alt="post.fields.title"
+            :src="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=webp`"
+          >
+        </picture>
+      </figure>
+    </lazy-component>
+
     <div class="ArticleContent" >
 
       <header>
@@ -42,6 +58,11 @@
       post: Object,
       index: Number
     },
+    data() {
+      return {
+        visible: false
+      }
+    },
     components: {
       Tag: () => import('~/components/article/tag.vue'),
       TagList: () => import('~/components/article/taglist.vue'),
@@ -54,6 +75,10 @@
         } else {
           return 'Alt'
         }
+      },
+      onScreen() {
+        this.visible = true
+        console.log(this.visible)
       }
     }
   }
@@ -85,10 +110,6 @@
   }
 }
 
-.ArticlePreview + .ArticlePreview {
-  margin-top: 230px;
-}
-
 .ArticleImage {
   pointer-events: none;
   transition: filter 200ms;
@@ -100,7 +121,6 @@
   & img {
     margin: 0 auto;
     width: 92%;
-    image-rendering: crisp-edges;
   }
 
   @nest [data-theme='dark-theme'] & {

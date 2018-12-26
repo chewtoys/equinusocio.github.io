@@ -80,6 +80,10 @@ const config = {
     {
       src: '~/plugins/scroll-reveal',
       ssr: false
+    },
+    {
+      src: '~/plugins/lazy-load',
+      ssr: false
     }
   ],
 
