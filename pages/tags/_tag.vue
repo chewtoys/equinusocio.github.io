@@ -6,7 +6,7 @@
     </HeroBanner>
 
     <ArticlesList>
-      <article-preview :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
+      <article-preview class="ArticleCard" :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </ArticlesList>
 
     <Footer />
