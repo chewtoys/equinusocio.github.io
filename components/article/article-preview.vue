@@ -1,7 +1,7 @@
 <template>
   <article :class="`ArticlePreview ${directionChecker(index)}`" v-scroll-reveal="{ duration: 800, viewFactor: 0.3 }">
     <lazy-component @show="onScreen" class="ArticleImage">
-      <figure v-if="visible">
+      <figure>
         <picture v-if="post.fields.heroImage.fields.file">
           <source
             type="image/webp"
