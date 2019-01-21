@@ -1,5 +1,5 @@
 <template>
-  <article :class="`ArticlePreview ${directionChecker(index)}`">
+  <article :class="`ArticlePreview ${direction}`">
     <lazy-component @show="onScreen" class="ArticleImage">
       <figure v-if="visible">
         <picture v-if="post.fields.heroImage.fields.file">
@@ -63,19 +63,21 @@
         visible: false
       }
     },
+    computed: {
+      direction() {
+        if (this.index % 2 === 0) {
+          return ''
+        } else {
+          return 'Alt'
+        }
+      }
+    },
     components: {
       Tag: () => import('~/components/article/tag.vue'),
       TagList: () => import('~/components/article/taglist.vue'),
       Datetime: () => import('~/components/article/datetime.vue')
     },
     methods: {
-      directionChecker (index) {
-        if (index % 2 === 0) {
-          return ''
-        } else {
-          return 'Alt'
-        }
-      },
       onScreen() {
         this.visible = true
       }
