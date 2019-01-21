@@ -16,7 +16,7 @@
       <a
       class="ShareWidget-Item"
         rel="noopener"
-        :href="`https://twitter.com/intent/tweet?url=${currentUrl}&text=''${postTitle}'' by @equinusocio \n`"
+        :href="`https://twitter.com/intent/tweet?url=${currentUrl}&text=''${postTitle}'' by Mattia Astorino (@equinusocio) \n`"
         target="_blank"
         aria-label="Share on Twitter"
         onclick="window.open(this.href,'',' scrollbars=yes,menubar=no,width=555,height=300,resizable=yes,toolbar=no,location=no,status=no'); return false;">
