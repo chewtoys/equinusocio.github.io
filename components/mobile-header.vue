@@ -2,7 +2,7 @@
   <Media :query="{maxWidth: 768}" @media-leave="unlockScroll">
     <header class="MobileHeader" :aria-expanded="isExpanded">
 
-      <div class="Panel">
+      <div class="Panel" ref="panel">
         <ThemeSwitcher class="MobileThemeSwitcher" />
         <Navigation direction="column" />
       </div>
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     openMenu () {
-      disableBodyScroll(this.$el.querySelector('.Panel'))
+      disableBodyScroll(this.$refs.panel)
       this.isExpanded = true
     },
     closeMenu () {
