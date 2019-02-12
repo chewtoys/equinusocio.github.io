@@ -193,7 +193,7 @@ p.SmallBody {
 }
 
 [ne-button] {
-  --ne-button-background: var(--callToActionColor, #00E2BC);
+  --ne-button-background: linear-gradient(158.2deg, var(--callToActionColor, #00E2BC) 30.76%, var(--callToActionColorDark, #08D8B5) 59.54%);
   --ne-button-hover-background: var(--callToActionColor, #00E2BC);
   --ne-button-active-background: var(--callToActionColor, #00E2BC);
   --ne-button-outline-color: var(--callToActionColor, #00E2BC);
