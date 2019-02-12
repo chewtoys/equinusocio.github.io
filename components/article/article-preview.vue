@@ -201,5 +201,9 @@ p.SmallBody {
   --ne-button-shadow: none;
 
   margin-top: 48px;
+
+  &:hover {
+    --ne-button-background: linear-gradient(158.2deg, var(--callToActionColor, #00E2BC) 30.76%, var(--callToActionColorDark, #08D8B5) 59.54%);
+  }
 }
 </style>
