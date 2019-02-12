@@ -57,6 +57,7 @@ const config = {
    ** Build configuration
    */
   build: {
+    extractCSS: true,
     /*
      ** Run ESLINT on save
      */
@@ -79,11 +80,11 @@ const config = {
     '~/plugins/contentful',
     {
       src: '~/plugins/scroll-reveal',
-      ssr: false
+      mode: 'client'
     },
     {
       src: '~/plugins/lazy-load',
-      ssr: false
+      mode: 'client'
     }
   ],
 

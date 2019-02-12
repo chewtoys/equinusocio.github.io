@@ -22,7 +22,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style scoped lang="postcss">
 .DateTime {
   text-transform: uppercase;
   white-space: nowrap;

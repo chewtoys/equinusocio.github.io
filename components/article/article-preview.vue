@@ -85,7 +85,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 @import '@native-elements/ne-button/src/ne-button.pcss';
 @import '../../assets/media.pcss';
 

@@ -4,7 +4,7 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .ArticlesList {
   max-width: 953px;
   margin: 0 auto;

@@ -7,7 +7,7 @@
   "dependencies": {
     "contentful": "7.0.5",
     "contentful-management": "5.4.0",
-    "nuxt": "2.3.4",
+    "nuxt": "2.4.3",
     "prismjs": "1.15.0",
     "remove": "0.1.5",
     "stylelint-config-standard": "^18.2.0",

@@ -104,7 +104,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
   .ThemeSwitcher {
     display: flex;
     align-items: center;

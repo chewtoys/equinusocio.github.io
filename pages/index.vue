@@ -60,7 +60,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 .SubTitle {
   margin-top: 0;
   max-width: 700px;
