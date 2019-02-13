@@ -135,7 +135,7 @@ const config = {
   modules: [
     // Simple usage
     ['@nuxtjs/google-analytics', {
-      id: 'UA-117081439-1'
+      id: 'UA-134447939-1'
     }]
   ]
 }
