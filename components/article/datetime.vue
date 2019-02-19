@@ -1,5 +1,9 @@
 <template>
-  <time class="DateTime" :datetime="( new Date(date) )">
+  <time class="DateTime" :datetime="FormatDate(date, {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  })">
     {{ FormatDate(date, options) }}
   </time>
 </template>
