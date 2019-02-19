@@ -31,7 +31,8 @@ const config = {
     },
     title: headConfig.TITLE,
     meta: headConfig.COMMON_META,
-    link: headConfig.COMMON_LINKS
+    link: headConfig.COMMON_LINKS,
+    script: headConfig.COMMON_SCRIPTS
   },
 
   router: {
