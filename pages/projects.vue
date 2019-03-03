@@ -51,7 +51,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style scoped lang="postcss">
 .ProjectList {
   display: grid;
   max-width: 900px;

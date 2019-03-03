@@ -42,7 +42,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 .ProjectCard {
   position: relative;
   visibility: hidden;

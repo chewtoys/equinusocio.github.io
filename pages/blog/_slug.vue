@@ -1,20 +1,20 @@
 <template>
   <main>
-    <article>
+    <article itemscope itemtype="http://schema.org/NewsArticle">
       <HeroBanner height="calc(100vh - 200px)">
         <TagList>
           <Tag :tag="tag" :key="tag" v-for="(tag) in post.fields.tags">{{tag}}</Tag>
         </TagList>
-        <h1 class="DisplayTitle">{{ post.fields.title }}</h1>
+        <h1 class="DisplayTitle" itemprop="headline">{{ post.fields.title }}</h1>
 
         <div class="PublishDate">
-          <Datetime :date="new Date(post.fields.publishDate)" />
+          <Datetime itemprop="datePublished" :content="shortDate" :date="new Date(post.fields.publishDate)" />
         </div>
         <ShareWidget class="Socials" :postTitle="post.fields.title" />
       </HeroBanner>
 
       <StoryContainer>
-        <vue-markdown class="StoryBody">{{post.fields.body}}</vue-markdown>
+        <vue-markdown class="StoryBody" itemprop="articleBody">{{post.fields.body}}</vue-markdown>
       </StoryContainer>
     </article>
 
@@ -91,11 +91,20 @@ export default {
   },
   mounted () {
     Prism.highlightAll()
+  },
+  computed: {
+    shortDate() {
+      return FormatDate(this.post.fields.publishDate, {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      })
+    }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 .DisplayTitle {
   margin-top: 24px;
 }

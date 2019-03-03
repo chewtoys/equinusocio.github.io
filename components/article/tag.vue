@@ -15,7 +15,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 .Tag {
   text-transform: uppercase;
   text-decoration: none;

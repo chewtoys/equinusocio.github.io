@@ -1,8 +1,8 @@
 <template>
-  <article :class="`ArticlePreview ${direction}`">
+  <article :class="`ArticlePreview ${direction}`" itemscope itemtype="http://schema.org/NewsArticle">
     <lazy-component @show="onScreen" class="ArticleImage">
       <figure v-if="visible">
-        <picture v-if="post.fields.heroImage.fields.file">
+        <picture v-if="post.fields.heroImage.fields.file" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
           <source
             type="image/webp"
             :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=webp, ${post.fields.heroImage.fields.file.url}?fm=webp 2x`"
@@ -29,20 +29,20 @@
 
       <header>
         <aside class="MetaContainer">
-          <Datetime :date="new Date(post.fields.publishDate)" />
+          <Datetime itemprop="datePublished" :content="shortDate" :date="new Date(post.fields.publishDate)" />
           <TagList class="TagsContainer">
             <Tag :tag="tag" :key="tag" v-for="tag in post.fields.tags">{{tag}}</Tag>
           </TagList>
         </aside>
 
-        <h1 class="PostTitle">
+        <h1 class="PostTitle" itemprop="headline">
           <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
               {{ post.fields.title }}
           </nuxt-link>
         </h1>
       </header>
 
-      <p class="SmallBody">{{ post.fields.description }}</p>
+      <p class="SmallBody" itemprop="description">{{ post.fields.description }}</p>
 
       <nuxt-link tag="button" ne-button :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
         Read this story
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+  import FormatDate from '~/plugins/formatDate'
+
   export default {
     props: {
       post: Object,
@@ -70,6 +72,13 @@
         } else {
           return 'Alt'
         }
+      },
+      shortDate() {
+        return FormatDate(this.post.fields.publishDate, {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        })
       }
     },
     components: {
@@ -85,7 +94,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 @import '@native-elements/ne-button/src/ne-button.pcss';
 @import '../../assets/media.pcss';
 
@@ -193,8 +202,8 @@ p.SmallBody {
 }
 
 [ne-button] {
-  --ne-button-background: var(--callToActionColor, #00E2BC);
-  --ne-button-hover-background: var(--callToActionColor, #00E2BC);
+  --ne-button-background: linear-gradient(158.2deg, var(--callToActionColor, #00E2BC) 30.76%, var(--callToActionColorDark, #08D8B5) 59.54%);
+  --ne-button-hover-background: linear-gradient(158.2deg, var(--callToActionColor, #00E2BC) 30.76%, var(--callToActionColorDark, #08D8B5) 59.54%);
   --ne-button-active-background: var(--callToActionColor, #00E2BC);
   --ne-button-outline-color: var(--callToActionColor, #00E2BC);
   --ne-button-radius: 200px;

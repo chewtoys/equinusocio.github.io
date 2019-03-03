@@ -19,7 +19,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 @import '../assets/media.pcss';
 
 .MainNavigation {

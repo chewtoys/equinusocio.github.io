@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
   main {
     margin: 0 auto;
     max-width: 953px;

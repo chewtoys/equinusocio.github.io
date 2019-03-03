@@ -4,7 +4,7 @@
   </nav>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 @import '../../assets/media.pcss';
 
 .TagsList {

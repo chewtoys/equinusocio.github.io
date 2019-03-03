@@ -31,7 +31,8 @@ const config = {
     },
     title: headConfig.TITLE,
     meta: headConfig.COMMON_META,
-    link: headConfig.COMMON_LINKS
+    link: headConfig.COMMON_LINKS,
+    script: headConfig.COMMON_SCRIPTS
   },
 
   router: {
@@ -57,6 +58,7 @@ const config = {
    ** Build configuration
    */
   build: {
+    extractCSS: true,
     /*
      ** Run ESLINT on save
      */
@@ -79,11 +81,11 @@ const config = {
     '~/plugins/contentful',
     {
       src: '~/plugins/scroll-reveal',
-      ssr: false
+      mode: 'client'
     },
     {
       src: '~/plugins/lazy-load',
-      ssr: false
+      mode: 'client'
     }
   ],
 
@@ -134,7 +136,7 @@ const config = {
   modules: [
     // Simple usage
     ['@nuxtjs/google-analytics', {
-      id: 'UA-117081439-1'
+      id: 'UA-134447939-1'
     }]
   ]
 }
