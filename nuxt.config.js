@@ -138,10 +138,6 @@ const config = {
     ['@nuxtjs/google-analytics', {
       id: 'UA-134447939-1'
     }]
-  ],
-
-  serverMiddleware: [
-    '~/lib/url-rewrite.js'
   ]
 };
 
