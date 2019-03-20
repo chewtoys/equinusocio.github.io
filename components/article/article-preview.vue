@@ -1,5 +1,5 @@
 <template>
-  <article :class="`ArticlePreview ${direction}`" itemscope itemtype="http://schema.org/NewsArticle">
+  <article :class="`ArticlePreview ${direction}`" itemscope itemtype="http://schema.org/NewsArticle" author="Mattia Astorino">
     <lazy-component @show="onScreen" class="ArticleImage">
       <figure v-if="visible">
         <picture v-if="post.fields.heroImage.fields.file" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
