@@ -9,6 +9,12 @@
       <article-preview class="ArticleCard" :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
     </ArticlesList>
 
+    <div class="LoadMore">
+      <nuxt-link :to="{ name: 'blog' }">
+        More stories →
+      </nuxt-link>
+    </div>
+
     <Footer />
   </main>
 </template>
@@ -27,7 +33,7 @@ export default {
       }),
       client.getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        limit: 5,
+        limit: 3,
         order: '-sys.createdAt'
       })
     ]).then(([entries, posts]) => {
@@ -61,9 +67,23 @@ export default {
 </script>
 
 <style scoped lang="postcss">
+@import '@native-elements/ne-button/src/ne-button.pcss';
+
 .SubTitle {
   margin-top: 0;
   max-width: 700px;
   text-align: center;
+}
+
+.LoadMore {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+  & a {
+    font-size: 2rem;
+    color: var(--callToActionColor);
+  }
 }
 </style>
