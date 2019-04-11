@@ -137,7 +137,8 @@ const config = {
     // Simple usage
     ['@nuxtjs/google-analytics', {
       id: 'UA-134447939-1'
-    }]
+    }],
+    '@nuxtjs/pwa'
   ]
 };
 
