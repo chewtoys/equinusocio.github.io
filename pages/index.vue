@@ -26,7 +26,7 @@ import VueMarkdown from 'vue-markdown'
 const client = createClient()
 
 export default {
-  asyncData ({env}) {
+  async asyncData ({env}) {
     return Promise.all([
       client.getEntries({
         'sys.id': env.CTF_PERSON_ID

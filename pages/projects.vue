@@ -27,7 +27,7 @@ const client = createClient()
 
 export default {
   name: 'projects',
-  asyncData ({ env, params }) {
+  async asyncData ({ env, params }) {
     return client.getEntries({
       'content_type': env.CTF_PROJECT_TYPE_ID
     }).then(entries => {

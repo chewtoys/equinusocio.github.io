@@ -22,7 +22,7 @@ import {createClient} from '~/plugins/contentful.js'
 const client = createClient()
 
 export default {
-  asyncData ({ env, params }) {
+  async asyncData ({ env, params }) {
     return Promise.all([
       client.getEntries({
         'sys.id': env.CTF_PERSON_ID
