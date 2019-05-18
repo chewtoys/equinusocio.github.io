@@ -36,8 +36,11 @@
         </aside>
 
         <h1 class="PostTitle" itemprop="headline">
-          <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
-              {{ post.fields.title }}
+          <a v-if="post.fields.externalUrl" target="_blank" :href="post.fields.externalUrl">
+            {{ post.fields.title }}
+          </a>
+          <nuxt-link v-else :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
+            {{ post.fields.title }}
           </nuxt-link>
         </h1>
       </header>
