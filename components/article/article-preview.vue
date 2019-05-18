@@ -36,7 +36,7 @@
         </aside>
 
         <h1 class="PostTitle" itemprop="headline">
-          <a v-if="post.fields.externalUrl" target="_blank" :href="post.fields.externalUrl">
+          <a rel="noopener noreferrer" v-if="post.fields.externalUrl" target="_blank" :href="post.fields.externalUrl">
             {{ post.fields.title }}
           </a>
           <nuxt-link v-else :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
@@ -47,7 +47,7 @@
 
       <p class="SmallBody" itemprop="description">{{ post.fields.description }}</p>
 
-      <a rel="noopener" v-if="post.fields.externalUrl" ne-button target="_blank" :href="post.fields.externalUrl">
+      <a rel="noopener noreferrer" v-if="post.fields.externalUrl" ne-button target="_blank" :href="post.fields.externalUrl">
         Read this story ↗️
       </a>
       <nuxt-link v-else tag="button" ne-button :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
