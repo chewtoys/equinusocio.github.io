@@ -26,22 +26,27 @@ import VueMarkdown from 'vue-markdown'
 const client = createClient()
 
 export default {
-  async asyncData ({env}) {
-    return Promise.all([
-      client.getEntries({
-        'sys.id': env.CTF_PERSON_ID
-      }),
-      client.getEntries({
-        'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        limit: 3,
-        order: '-sys.createdAt'
-      })
-    ]).then(([entries, posts]) => {
+  async asyncData({ env }) {
+    try {
+      let person = await Promise.all([
+        client.getEntries({
+          'sys.id': env.CTF_PERSON_ID
+        })
+      ]);
+      let posts = await Promise.all([
+        client.getEntries({
+          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          limit: 3,
+          order: '-sys.createdAt'
+        })
+      ])
       return {
-        person: entries.items[0],
-        posts: posts.items
-      }
-    }).catch(console.error)
+        person: person[0].items[0],
+        posts: posts[0].items
+      };
+    } catch (e) {
+      console.log(e)
+    }
   },
   head () {
     return {

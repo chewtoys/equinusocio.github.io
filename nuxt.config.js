@@ -1,24 +1,5 @@
-const {
-  getConfigForKeys
-} = require('./lib/config.js')
 const headConfig = require('./lib/headConfig.js')
-const ctfConfig = getConfigForKeys([
-  'CTF_BLOG_POST_TYPE_ID',
-  'CTF_PAGE_TYPE_ID',
-  'CTF_PROJECT_TYPE_ID',
-  'CTF_SPACE_ID',
-  'CTF_CDA_ACCESS_TOKEN',
-  'CTF_CMA_ACCESS_TOKEN',
-  'CTF_PERSON_ID'
-])
-const {
-  createClient
-} = require('./plugins/contentful')
-const cdaClient = createClient(ctfConfig)
-const cmaContentful = require('contentful-management')
-const cmaClient = cmaContentful.createClient({
-  accessToken: ctfConfig.CTF_CMA_ACCESS_TOKEN
-})
+const ctfConfig = require('./.contentful.json')
 
 const config = {
   /*
@@ -33,6 +14,23 @@ const config = {
     meta: headConfig.COMMON_META,
     link: headConfig.COMMON_LINKS,
     script: headConfig.COMMON_SCRIPTS
+  },
+
+  /**
+   * PWA Manifest file generation
+   */
+  manifest: {
+    "short_name": "Mattia Astorino",
+    "name": "Mattia Astorino",
+    "icons": [{
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }],
+    "start_url": "/?utm_source=homescreen",
+    "background_color": "#FFFFFF",
+    "theme_color": "#ffffff",
+    "display": "standalone"
   },
 
   router: {
@@ -88,36 +86,6 @@ const config = {
       mode: 'client'
     }
   ],
-
-  /*
-   ** Get all blog posts from Contentful
-   ** and generate the needed files upfront
-   **
-   ** Included:
-   ** - blog posts
-   ** - available blog post tags
-   */
-  generate: {
-    routes () {
-      return Promise.all([
-        // get all blog posts
-        cdaClient.getEntries({
-          'content_type': ctfConfig.CTF_BLOG_POST_TYPE_ID
-        }),
-        // get the blog post content type
-        cmaClient.getSpace(ctfConfig.CTF_SPACE_ID)
-        .then(space => space.getContentType(ctfConfig.CTF_BLOG_POST_TYPE_ID))
-      ])
-      .then(([entries, postType]) => {
-        return [
-          // map entries to URLs
-          ...entries.items.map(entry => `/blog/${entry.fields.slug}`),
-          // map all possible tags to URLs
-          ...postType.fields.find(field => field.id === 'tags').items.validations[0].in.map(tag => `/tags/${tag}`)
-        ]
-      })
-    }
-  },
 
   /*
    ** Define environment variables being available

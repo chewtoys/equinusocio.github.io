@@ -22,21 +22,26 @@ import {createClient} from '~/plugins/contentful.js'
 const client = createClient()
 
 export default {
-  async asyncData ({ env, params }) {
-    return Promise.all([
-      client.getEntries({
-        'sys.id': env.CTF_PERSON_ID
-      }),
-      client.getEntries({
-        'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt'
-      })
-    ]).then(([entries, posts]) => {
+  async asyncData({ env, params }) {
+    try {
+      let person = await Promise.all([
+        client.getEntries({
+          'sys.id': env.CTF_PERSON_ID
+        }),
+      ]);
+      let posts = await Promise.all([
+        client.getEntries({
+          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          order: '-sys.createdAt'
+        })
+      ])
       return {
-        person: entries.items[0],
-        posts: posts.items
-      }
-    })
+        person: person[0].items[0],
+        posts: posts[0].items
+      };
+    } catch (e) {
+      console.log(e)
+    }
   },
   computed: {
     tags: function () {
