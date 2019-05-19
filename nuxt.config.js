@@ -1,5 +1,16 @@
+const {
+  getConfigForKeys
+} = require('./lib/config.js')
 const headConfig = require('./lib/headConfig.js')
-const ctfConfig = require('./.contentful.json')
+const ctfConfig = getConfigForKeys([
+  'CTF_BLOG_POST_TYPE_ID',
+  'CTF_PAGE_TYPE_ID',
+  'CTF_PROJECT_TYPE_ID',
+  'CTF_SPACE_ID',
+  'CTF_CDA_ACCESS_TOKEN',
+  'CTF_CMA_ACCESS_TOKEN',
+  'CTF_PERSON_ID'
+])
 
 const config = {
   /*
