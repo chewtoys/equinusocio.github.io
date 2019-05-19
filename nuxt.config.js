@@ -118,7 +118,13 @@ const config = {
       id: 'UA-134447939-1'
     }],
     '@nuxtjs/pwa'
-  ]
+  ],
+
+  render: {
+    http2: {
+      push: true
+    }
+  }
 };
 
 module.exports = config;
