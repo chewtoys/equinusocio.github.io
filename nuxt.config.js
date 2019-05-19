@@ -34,7 +34,7 @@ const config = {
     "short_name": "Mattia Astorino",
     "name": "Mattia Astorino",
     "icons": [{
-      "src": "apple-touch-icon.png",
+      "src": "../apple-touch-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }],
