@@ -5,21 +5,21 @@
         <picture v-if="post.fields.heroImage.fields.file" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
           <source
             type="image/webp"
-            :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=webp, ${post.fields.heroImage.fields.file.url}?fm=webp 2x`"
+            :srcset="`https:${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=webp, https:${post.fields.heroImage.fields.file.url}?fm=webp 2x`"
             draggable="false"
             :alt="post.fields.title"
           >
           <source
             type="image/png"
-            :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=png, ${post.fields.heroImage.fields.file.url}?fm=jpg 2x`"
+            :srcset="`https:${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=png, https:${post.fields.heroImage.fields.file.url}?fm=jpg 2x`"
             draggable="false"
             :alt="post.fields.title"
           >
           <img
-            :srcset="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=jpg, ${post.fields.heroImage.fields.file.url}?fm=jpg 2x`"
+            :srcset="`https:${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=jpg, https:${post.fields.heroImage.fields.file.url}?fm=jpg 2x`"
             draggable="false"
             :alt="post.fields.title"
-            :src="`${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=webp`"
+            :src="`https:${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=webp`"
           >
         </picture>
       </figure>

@@ -124,6 +124,30 @@ const config = {
     http2: {
       push: true
     }
+  },
+
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: 'https://cdn.contentful.com/spaces/gz0sygvqczyz/.*',
+        handler: 'cacheFirst',
+        method: 'GET'
+      },
+      {
+        urlPattern: 'https://images.ctfassets.net/gz0sygvqczyz/.*',
+        handler: 'cacheFirst',
+        method: 'GET'
+      },
+      {
+        urlPattern: 'https://images.ctfassets.net/gz0sygvqczyz/.*',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheName: 'images',
+          cacheableResponse: { statuses: [0, 200] }
+        }
+      }
+    ]
   }
 };
 
