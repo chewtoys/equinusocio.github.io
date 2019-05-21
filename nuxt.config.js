@@ -87,7 +87,10 @@ const config = {
    ** Make client available everywhere via Nuxt plugins
    */
   plugins: [
-    '~/plugins/contentful',
+    {
+      src: '~/plugins/contentful',
+      mode: 'client'
+    },
     {
       src: '~/plugins/scroll-reveal',
       mode: 'client'
