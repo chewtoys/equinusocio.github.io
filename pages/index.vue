@@ -1,6 +1,6 @@
 <template>
   <main>
-    <HeroBanner height="calc(100vh - 200px)">
+    <HeroBanner height="calc(100vh - 200px)" v-if="person">
       <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
       <vue-markdown class="SubTitle">{{ person.fields.shortBio }}</vue-markdown>
     </HeroBanner>
@@ -26,26 +26,20 @@ import VueMarkdown from 'vue-markdown'
 const client = createClient()
 
 export default {
-  async asyncData({ env }) {
-    try {
-      let person = await Promise.all([
-        client.getEntries({
-          'sys.id': env.CTF_PERSON_ID
-        })
-      ]);
-      let posts = await Promise.all([
-        client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          limit: 3,
-          order: '-sys.createdAt'
-        })
-      ])
-      return {
-        person: person[0].items[0],
-        posts: posts[0].items
-      };
-    } catch (e) {
-      console.log(e)
+  async asyncData (context) {
+    const posts = await client.getEntries({
+      'content_type': process.env.CTF_BLOG_POST_TYPE_ID,
+      limit: 3,
+      order: '-sys.createdAt'
+    })
+
+    const person = await client.getEntries({
+      'sys.id': process.env.CTF_PERSON_ID
+    })
+
+    return {
+      posts: posts.items,
+      person: person.items[0]
     }
   },
   head () {
@@ -61,10 +55,10 @@ export default {
     }
   },
   components: {
+    VueMarkdown,
     HeroBanner: () => import('~/components/herobanner.vue'),
     ArticlesList: () => import('~/components/articles-list.vue'),
     ArticlePreview: () => import('~/components/article/article-preview.vue'),
-    VueMarkdown,
     Footer: () => import('~/components/footer.vue'),
     Datetime: () => import('~/components/article/datetime.vue')
   }
