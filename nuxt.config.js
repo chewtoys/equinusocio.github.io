@@ -62,7 +62,7 @@ const config = {
   /**
    ** Define the destination mode when building
    */
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Build configuration
    */
