@@ -11,13 +11,13 @@ import { headConfig } from './lib/headConfig.js'
  */
 const env = {
   baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-  CTF_SPACE_ID: cmsConfig.CTF_SPACE_ID,
-  CTF_BLOG_AT: cmsConfig.CTF_BLOG_AT,
-  CTF_CDA_ACCESS_TOKEN: cmsConfig.CTF_CDA_ACCESS_TOKEN,
-  CTF_PERSON_ID: cmsConfig.CTF_PERSON_ID,
-  CTF_BLOG_POST_TYPE_ID: cmsConfig.CTF_BLOG_POST_TYPE_ID,
-  CTF_PAGE_TYPE_ID: cmsConfig.CTF_PAGE_TYPE_ID,
-  CTF_PROJECT_TYPE_ID: cmsConfig.CTF_PROJECT_TYPE_ID
+  CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+  CTF_BLOG_AT: process.env.CTF_BLOG_AT,
+  CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+  CTF_PERSON_ID: process.env.CTF_PERSON_ID,
+  CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
+  CTF_PAGE_TYPE_ID: process.env.CTF_PAGE_TYPE_ID,
+  CTF_PROJECT_TYPE_ID: process.env.CTF_PROJECT_TYPE_ID
 }
 
 export default {
