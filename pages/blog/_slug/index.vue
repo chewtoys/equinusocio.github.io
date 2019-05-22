@@ -39,10 +39,10 @@ import createClient from '~/plugins/contentful.js'
 const client = createClient()
 
 export default {
-  asyncData ({ params, error }) {
+  asyncData ({ error, route }) {
     return client.getEntries({
       'content_type': process.env.CTF_BLOG_POST_TYPE_ID,
-      'fields.slug': params.slug
+      'fields.slug': route.path.split("/").pop()
     }).then(entries => {
       if (entries.items.length === 0) {
         const status = { statusCode: 404, message: 'Post not found' }
