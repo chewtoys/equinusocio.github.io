@@ -1,4 +1,4 @@
-let formatDate = (date, options) => {
+const formatDate = (date, options) => {
   const dateOptions = {
     year: 'numeric',
     month: 'long',

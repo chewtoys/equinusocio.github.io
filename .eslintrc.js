@@ -1,16 +1,23 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   env: {
     browser: true,
     node: true
   },
-  extends: 'standard',
-  plugins: [
-    'html'
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  extends: [
+    '@nuxtjs',
+    'plugin:nuxt/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/vue'
   ],
+  plugins: ['prettier'],
+  // add your custom rules here
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
-};
+}

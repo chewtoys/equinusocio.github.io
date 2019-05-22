@@ -25,17 +25,23 @@
 
 <script>
 import Prism from 'prismjs'
-import {createClient} from '~/plugins/contentful.js'
 import FormatDate from '~/plugins/formatDate'
 import StoryContainer from '~/components/article/story-container.vue'
 import VueMarkdown from 'vue-markdown'
+import HeroBanner from '~/components/herobanner.vue'
+import TagList from '~/components/article/taglist.vue'
+import ShareWidget from '~/components/article/share-widget.vue'
+import Tag from '~/components/article/tag.vue'
+import Footer from '~/components/footer.vue'
+import Datetime from '~/components/article/datetime.vue'
+import createClient from '~/plugins/contentful.js'
 
 const client = createClient()
 
 export default {
-  asyncData ({ env, params, error }) {
+  asyncData ({ params, error }) {
     return client.getEntries({
-      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      'content_type': process.env.CTF_BLOG_POST_TYPE_ID,
       'fields.slug': params.slug
     }).then(entries => {
       if (entries.items.length === 0) {
@@ -80,16 +86,16 @@ export default {
     }
   },
   components: {
-    HeroBanner: () => import('~/components/herobanner.vue'),
-    TagList: () => import('~/components/article/taglist.vue'),
-    ShareWidget: () => import('~/components/article/share-widget.vue'),
-    Tag: () => import('~/components/article/tag.vue'),
-    Footer: () => import('~/components/footer.vue'),
-    Datetime: () => import('~/components/article/datetime.vue'),
+    HeroBanner,
+    TagList,
+    ShareWidget,
+    Tag,
+    Footer,
+    Datetime,
     StoryContainer,
     VueMarkdown
   },
-  mounted () {
+  beforeMount () {
     Prism.highlightAll()
   },
   computed: {

@@ -1,20 +1,53 @@
-const {
-  getConfigForKeys
-} = require('./lib/config.js')
-const headConfig = require('./lib/headConfig.js')
-const ctfConfig = getConfigForKeys([
-  'CTF_BLOG_POST_TYPE_ID',
-  'CTF_PAGE_TYPE_ID',
-  'CTF_PROJECT_TYPE_ID',
-  'CTF_SPACE_ID',
-  'CTF_CDA_ACCESS_TOKEN',
-  'CTF_CMA_ACCESS_TOKEN',
-  'CTF_PERSON_ID'
-])
+/**
+ * Import package.json to get
+ * basic package informations
+ * */
+import cmsConfig from './.contentful.json'
+import { headConfig } from './lib/headConfig.js'
 
-const config = {
+/**
+ * Configure contentful info as env variable
+ * to access them inside vue components
+ */
+const env = {
+  baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  CTF_SPACE_ID: cmsConfig.CTF_SPACE_ID,
+  CTF_BLOG_AT: cmsConfig.CTF_BLOG_AT,
+  CTF_CDA_ACCESS_TOKEN: cmsConfig.CTF_CDA_ACCESS_TOKEN,
+  CTF_PERSON_ID: cmsConfig.CTF_PERSON_ID,
+  CTF_BLOG_POST_TYPE_ID: cmsConfig.CTF_BLOG_POST_TYPE_ID,
+  CTF_PAGE_TYPE_ID: cmsConfig.CTF_PAGE_TYPE_ID,
+  CTF_PROJECT_TYPE_ID: cmsConfig.CTF_PROJECT_TYPE_ID
+}
+
+export default {
+  // Define the project ENV variables
+  env,
+
+  // Set the build mode
+  mode: 'universal',
+
+  /**
+   * PWA Manifest file generation
+   */
+  manifest: {
+    short_name: 'Mattia Astorino',
+    name: 'Mattia Astorino',
+    icons: [
+      {
+        src: '../apple-touch-icon.png',
+        type: 'image/png',
+        sizes: '512x512'
+      }
+    ],
+    start_url: '/?utm_source=homescreen',
+    background_color: '#FFFFFF',
+    theme_color: '#ffffff',
+    display: 'standalone'
+  },
+
   /*
-   ** Headers of the page
+   ** Default header tags for pages
    */
   head: {
     htmlAttrs: {
@@ -27,51 +60,111 @@ const config = {
     script: headConfig.COMMON_SCRIPTS
   },
 
-  /**
-   * PWA Manifest file generation
-   */
-  manifest: {
-    "short_name": "Mattia Astorino",
-    "name": "Mattia Astorino",
-    "icons": [{
-      "src": "../apple-touch-icon.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }],
-    "start_url": "/?utm_source=homescreen",
-    "background_color": "#FFFFFF",
-    "theme_color": "#ffffff",
-    "display": "standalone"
-  },
-
-  router: {
-    scrollBehavior: function (to, from, savedPosition) {
-      return {
-        x: 0,
-        y: 0
-      }
-    }
-  },
-
   /*
    ** Customize the progress-bar color
    */
   loading: {
     color: 'var(--callToActionColor, #2b7f55)'
   },
-  /**
-   ** Define the destination mode when building
+
+  /*
+   ** Global CSS
    */
-  mode: 'universal',
+  css: ['modern-normalize/modern-normalize.css'],
+
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: [
+    '~/plugins/contentful',
+    {
+      src: '~/plugins/lazy-load',
+      mode: 'client'
+    }
+  ],
+
+  /*
+   ** Nuxt.js modules
+   */
+  modules: [
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-134447939-1'
+      }
+    ],
+    '@nuxtjs/pwa'
+  ],
+
+  /* Force scroll-top when route change */
+  router: {
+    scrollBehavior() {
+      return { x: 0, y: 0 }
+    }
+  },
+
+  /**
+   * Set HTTP2 headers
+   */
+  render: {
+    http2: {
+      push: true
+    }
+  },
+
   /*
    ** Build configuration
    */
   build: {
-    extractCSS: true,
-    /*
-     ** Run ESLINT on save
+    /**
+     * Extract CSS chunks instead to embed them inside
+     * the document. Set false to avoid HTTP requests.
      */
-    extend (config, ctx) {
+    extractCSS: true,
+    /**
+     * Configure PostCSS plugins
+     */
+    postcss: {
+      // Add plugin names as key and arguments as value
+      // Install them before as dependencies with npm or yarn
+      plugins: {
+        /* More info at https://github.com/TrySound/postcss-easy-import */
+        'postcss-easy-import': {
+          extensions: '.pcss'
+        },
+        /* More info at https://github.com/seaneking/postcss-responsive-type */
+        'postcss-responsive-type': {},
+        /* More info at https://cssnano.co/ */
+        cssnano: {
+          preset: [
+            'advanced',
+            {
+              autoprefixer: false
+            },
+            {
+              discardComments: {
+                removeAll: true
+              }
+            }
+          ]
+        },
+        /* More info at https://github.com/postcss/postcss-reporter */
+        'postcss-reporter': {
+          clearReportedMessages: true
+        }
+      },
+      // Change the postcss-preset-env settings
+      preset: {
+        stage: 0,
+        insertBefore: {
+          'nesting-rules': require('postcss-mixins')()
+        }
+      }
+    },
+    /**
+     * Extend webpack configuration
+     */
+    extend(config) {
       if (process.client) {
         config.module.rules.push({
           enforce: 'pre',
@@ -81,53 +174,5 @@ const config = {
         })
       }
     }
-  },
-
-  /*
-   ** Make client available everywhere via Nuxt plugins
-   */
-  plugins: [
-    {
-      src: '~/plugins/contentful',
-      mode: 'client'
-    },
-    {
-      src: '~/plugins/scroll-reveal',
-      mode: 'client'
-    },
-    {
-      src: '~/plugins/lazy-load',
-      mode: 'client'
-    }
-  ],
-
-  /*
-   ** Define environment variables being available
-   ** in generate and browser context
-   */
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
-    CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
-    CTF_PAGE_TYPE_ID: ctfConfig.CTF_PAGE_TYPE_ID,
-    CTF_PROJECT_TYPE_ID: ctfConfig.CTF_PROJECT_TYPE_ID
-  },
-
-  modules: [
-    // Simple usage
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-134447939-1'
-    }],
-    '@nuxtjs/pwa'
-  ],
-
-  render: {
-    http2: {
-      push: true
-    }
   }
-};
-
-module.exports = config;
+}

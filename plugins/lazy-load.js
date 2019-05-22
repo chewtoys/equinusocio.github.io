@@ -4,4 +4,4 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
   lazyComponent: true,
   observer: true
-});
+})

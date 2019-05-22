@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {createClient} from '~/plugins/contentful.js'
+import createClient from '~/plugins/contentful.js'
 import VueMarkdown from 'vue-markdown'
 
 const client = createClient()
