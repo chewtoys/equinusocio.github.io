@@ -2,8 +2,17 @@
  * Import package.json to get
  * basic package informations
  * */
-import cmsConfig from './.contentful.json'
 import { headConfig } from './lib/headConfig.js'
+import getConfigForKeys from './lib/configs.js'
+
+const ctfConfig = getConfigForKeys([
+  'CTF_SPACE_ID',
+  'CTF_CDA_ACCESS_TOKEN',
+  'CTF_PERSON_ID',
+  'CTF_BLOG_POST_TYPE_ID',
+  'CTF_PAGE_TYPE_ID',
+  'CTF_PROJECT_TYPE_ID'
+])
 
 /**
  * Configure contentful info as env variable
@@ -11,12 +20,12 @@ import { headConfig } from './lib/headConfig.js'
  */
 const env = {
   baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-  CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-  CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
-  CTF_PERSON_ID: process.env.CTF_PERSON_ID,
-  CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
-  CTF_PAGE_TYPE_ID: process.env.CTF_PAGE_TYPE_ID,
-  CTF_PROJECT_TYPE_ID: process.env.CTF_PROJECT_TYPE_ID
+  CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
+  CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
+  CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
+  CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
+  CTF_PAGE_TYPE_ID: ctfConfig.CTF_PAGE_TYPE_ID,
+  CTF_PROJECT_TYPE_ID: ctfConfig.CTF_PROJECT_TYPE_ID
 }
 
 export default {
