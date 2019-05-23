@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped lang="postcss">
-@import '@native-elements/ne-button/src/ne-button.pcss';
+@import '@native-elements/ne-button/dist/ne-button.css';
 
 .DisplayTitle {
   position: relative;
