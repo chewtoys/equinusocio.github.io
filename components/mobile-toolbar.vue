@@ -113,6 +113,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 0;
+  font-weight: bold;
 }
 
 .MenuIcon {
