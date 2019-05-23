@@ -10,7 +10,7 @@
       <div class="Bar">
         <BackLink />
         <button class="MenuButton" v-if="!isExpanded" @click="openMenu">
-          MENU
+          Menu
           <svg class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
             <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
               <line fill="none" stroke-miterlimit="10" x1="2" y1="16" x2="30" y2="16"></line>
