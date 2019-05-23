@@ -92,7 +92,7 @@ export default {
 .Bar {
   display: grid;
   grid-template-columns: auto max-content;
-  padding: 24px 32px;
+  padding: 24px;
   box-sizing: border-box;
   align-items: center;
   color: #D2D2D2;
@@ -112,6 +112,7 @@ export default {
   color: inherit;
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
 .MenuIcon {
