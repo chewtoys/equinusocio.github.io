@@ -40,19 +40,6 @@ const client = createClient()
 
 
 export default {
-  async beforeMount() {
-    if( this.$root.$options.context.isStatic
-        && typeof this.$root.$options.context.from == 'undefined'
-        && this.$router.history.current.path != '/'
-        && typeof this.$options.asyncData == "function") {
-
-        const data = await this.$options.asyncData(this.$root.$options.context);
-
-        for(let k in data) {
-            this[k] = data[k];
-        }
-    }
-  },
   asyncData ({ error, params }) {
     return client.getEntries({
       'content_type': 'blogPost',
