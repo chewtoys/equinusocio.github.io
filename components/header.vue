@@ -1,7 +1,7 @@
 <template>
   <header class="Header">
 
-    <MobileHeader />
+    <MobileToolbar />
 
     <Media :query="{minWidth: 768}">
       <BackLink />
@@ -30,7 +30,7 @@ export default {
   components: {
     Navigation: () => import('~/components/navigation.vue'),
     ThemeSwitcher: () => import('~/components/theme-switcher.vue'),
-    MobileHeader: () => import('~/components/mobile-header.vue'),
+    MobileToolbar: () => import('~/components/mobile-toolbar.vue'),
     BackLink: () => import('~/components/backlink.vue'),
     Media: () => import('vue-media')
   }

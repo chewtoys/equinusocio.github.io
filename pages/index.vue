@@ -1,7 +1,7 @@
 <template>
   <main>
     <HeroBanner height="calc(100vh - 200px)" v-if="person">
-      <h1 class="DisplayTitle">{{ person.fields.name }}</h1>
+      <h1 class="DisplayTitle">Hello.</h1>
       <vue-markdown class="SubTitle">{{ person.fields.shortBio }}</vue-markdown>
     </HeroBanner>
 
@@ -68,6 +68,45 @@ export default {
 <style scoped lang="postcss">
 @import '@native-elements/ne-button/src/ne-button.pcss';
 
+.DisplayTitle {
+  position: relative;
+  animation-name: clip-text;
+  cursor: default;
+  font-size: responsive 60px 90px;
+  font-range: 320px 1440px;
+
+  &,
+  &::after {
+    animation-delay: 500ms;
+    animation-iteration-count: 1;
+    animation-duration: 800ms;
+    animation-fill-mode: both;
+    animation-timing-function: easeOutQuint;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--callToActionColor);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation-name: text-revealer;
+  }
+}
+
+@media (max-width: 48em) {
+  .DisplayTitle {
+    font-size: 70px;
+  }
+}
+
+
 .SubTitle {
   margin-top: 0;
   max-width: 700px;
@@ -83,6 +122,36 @@ export default {
   & a {
     font-size: 2rem;
     color: var(--callToActionColor);
+  }
+}
+
+
+@keyframes clip-text {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes text-revealer {
+  0%,
+  50% {
+    transform-origin: 0 50%;
+  }
+
+  60%,
+  100% {
+    transform-origin: 100% 50%;
+  }
+
+  60% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
   }
 }
 </style>

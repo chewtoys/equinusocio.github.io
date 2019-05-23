@@ -1,6 +1,6 @@
 <template>
   <Media :query="{maxWidth: 768}" @media-leave="unlockScroll">
-    <header class="MobileHeader" :aria-expanded="isExpanded">
+    <header class="MobileToolbar" :aria-expanded="isExpanded">
 
       <div class="Panel" ref="panel">
         <ThemeSwitcher class="MobileThemeSwitcher" />
@@ -9,18 +9,23 @@
 
       <div class="Bar">
         <BackLink />
-        <svg v-if="!isExpanded" @click="openMenu" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-          <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-            <line fill="none" stroke-miterlimit="10" x1="2" y1="16" x2="30" y2="16"></line>
-            <line fill="none" stroke-miterlimit="10" x1="2" y1="7" x2="30" y2="7"></line>
-            <line fill="none" stroke-miterlimit="10" x1="2" y1="25" x2="30" y2="25"></line>
-          </g>
-        </svg>
-        <svg v-if="isExpanded" @click="closeMenu" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-          <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-miterlimit="10" stroke-width="2">
-            <path d="M27 5L5 27M27 27L5 5"/>
-          </g>
-        </svg>
+        <button class="MenuButton" v-if="!isExpanded" @click="openMenu">
+          MENU
+          <svg class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+              <line fill="none" stroke-miterlimit="10" x1="2" y1="16" x2="30" y2="16"></line>
+              <line fill="none" stroke-miterlimit="10" x1="2" y1="7" x2="30" y2="7"></line>
+              <line fill="none" stroke-miterlimit="10" x1="2" y1="25" x2="30" y2="25"></line>
+            </g>
+          </svg>
+        </button>
+        <button class="MenuButton" v-if="isExpanded" @click="closeMenu">
+          <svg role="button" aria-label="Close menu" class="MenuIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-miterlimit="10" stroke-width="2">
+              <path d="M27 5L5 27M27 27L5 5"/>
+            </g>
+          </svg>
+        </button>
       </div>
 
     </header>
@@ -61,7 +66,7 @@ export default {
 
 
 <style scoped lang="postcss">
-.MobileHeader {
+.MobileToolbar {
   display: grid;
   grid-template-columns: auto;
   position: fixed;
@@ -78,7 +83,7 @@ export default {
 }
 
 @supports (backdrop-filter: blur(10px)) {
-  .MobileHeader {
+  .MobileToolbar {
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
   }
@@ -86,7 +91,7 @@ export default {
 
 .Bar {
   display: grid;
-  grid-template-columns: auto 32px;
+  grid-template-columns: auto max-content;
   padding: 24px 32px;
   box-sizing: border-box;
   align-items: center;
@@ -101,11 +106,21 @@ export default {
   }
 }
 
+.MenuButton {
+  border: 0;
+  background: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
 .MenuIcon {
   cursor: pointer;
   pointer-events: visiblePainted;
   stroke: #D2D2D2;
+  margin-left: 16px;
 }
+
 
 .MenuTrigger {
   height: 0;
@@ -120,7 +135,7 @@ export default {
   grid-template-rows: auto 1fr;
   color: #D2D2D2;
 
-  @nest .MobileHeader[aria-expanded] & {
+  @nest .MobileToolbar[aria-expanded] & {
     display: grid;
   }
 }

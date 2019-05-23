@@ -136,6 +136,8 @@ export default {
       // Add plugin names as key and arguments as value
       // Install them before as dependencies with npm or yarn
       plugins: {
+        /* More info at https://github.com/postcss/postcss-easings */
+        'postcss-easings': {},
         /* More info at https://github.com/TrySound/postcss-easy-import */
         'postcss-easy-import': {
           extensions: '.pcss'
@@ -163,10 +165,7 @@ export default {
       },
       // Change the postcss-preset-env settings
       preset: {
-        stage: 0,
-        insertBefore: {
-          'nesting-rules': require('postcss-mixins')()
-        }
+        stage: 0
       }
     },
     /**
