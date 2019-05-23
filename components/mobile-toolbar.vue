@@ -1,6 +1,6 @@
 <template>
   <Media :query="{maxWidth: 768}" @media-leave="unlockScroll">
-    <header class="MobileToolbar" :aria-expanded="isExpanded">
+    <div class="MobileToolbar" :aria-expanded="isExpanded">
 
       <div class="Panel" ref="panel">
         <ThemeSwitcher class="MobileThemeSwitcher" />
@@ -28,7 +28,7 @@
         </button>
       </div>
 
-    </header>
+    </div>
   </Media>
 </template>
 
