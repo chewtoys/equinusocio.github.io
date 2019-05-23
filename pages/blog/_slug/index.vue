@@ -40,11 +40,12 @@ const client = createClient()
 
 
 export default {
-  asyncData ({ error, route }) {
+  asyncData ({ error, params }) {
     return client.getEntries({
       'content_type': 'blogPost',
-      'fields.slug': route.path.split("/").pop()
+      'fields.slug': params.slug
     }).then(entries => {
+      console.log(entries.items)
       if (entries.items.length === 0) {
         const status = { statusCode: 404, message: 'Post not found' }
         throw (status)
