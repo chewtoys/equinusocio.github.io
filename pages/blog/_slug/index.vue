@@ -100,9 +100,6 @@ export default {
     Prism.highlightAll()
   },
   computed: {
-    post () {
-      return this.$store.getters.post
-    },
     shortDate() {
       return FormatDate(this.post.fields.publishDate, {
         year: 'numeric',
