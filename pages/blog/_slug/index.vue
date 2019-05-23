@@ -38,10 +38,11 @@ import createClient from '~/plugins/contentful.js'
 
 const client = createClient()
 
+
 export default {
   asyncData ({ error, route }) {
     return client.getEntries({
-      'content_type': process.env.CTF_BLOG_POST_TYPE_ID,
+      'content_type': 'blogPost',
       'fields.slug': route.path.split("/").pop()
     }).then(entries => {
       if (entries.items.length === 0) {
@@ -95,10 +96,13 @@ export default {
     StoryContainer,
     VueMarkdown
   },
-  beforeMount () {
+  mounted () {
     Prism.highlightAll()
   },
   computed: {
+    post () {
+      return this.$store.getters.post
+    },
     shortDate() {
       return FormatDate(this.post.fields.publishDate, {
         year: 'numeric',

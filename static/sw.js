@@ -2,8 +2,8 @@ importScripts('/_nuxt/workbox.4c4f5ca6.js')
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "/_nuxt/09b93c5fed76ffa7c60d.js",
-    "revision": "33736d2137924e19bc7db20c599f3471"
+    "url": "/_nuxt/0987c30455afdadb3671.js",
+    "revision": "9cbe87012029769f0a0876d354fdaafd"
   },
   {
     "url": "/_nuxt/0a06d88cb316faef5116.css",
@@ -42,10 +42,6 @@ workbox.precaching.precacheAndRoute([
     "revision": "cc2ca01d9d0c85bc28ea3774d21b50ce"
   },
   {
-    "url": "/_nuxt/284c1a750c55912719f5.css",
-    "revision": "a7bf2e0d2515c2348a1be75baac50bab"
-  },
-  {
     "url": "/_nuxt/2ce0ef01d6352c528ffb.css",
     "revision": "11b814830b98c5df55aac3c2b62448fe"
   },
@@ -74,8 +70,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "ccc2ddbfd3c36af1f4f74d49ba027fc9"
   },
   {
-    "url": "/_nuxt/5efaf3620a51936b0103.js",
-    "revision": "ee7d82af77c3eb6d61638ff7430f89a7"
+    "url": "/_nuxt/66bd11ad0e0839fe8c80.css",
+    "revision": "13853926572bc609687cc1e3dc614909"
   },
   {
     "url": "/_nuxt/7b87b7ce36476ea549fa.css",
@@ -94,8 +90,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "fd4cfb5491b11859957c5770b561e2f6"
   },
   {
-    "url": "/_nuxt/8d6e22f63398bd592d8b.js",
-    "revision": "dac57a4a2c24649c57f5abcdcdb64b79"
+    "url": "/_nuxt/9212b97c651476f095d0.js",
+    "revision": "913040818607bd1c06e32f7de22f2b2a"
   },
   {
     "url": "/_nuxt/9421aebd7813e781dd08.js",
@@ -118,8 +114,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "4629c9f6da5be03facbbef8631eb0b1b"
   },
   {
-    "url": "/_nuxt/ad94d8830365a8af0161.js",
-    "revision": "fc6f66ad411b93ec56aee74e84767533"
+    "url": "/_nuxt/a8a4e9ddba09bd9dded5.js",
+    "revision": "c3f8a0f81193ab788fa74bea0f764494"
   },
   {
     "url": "/_nuxt/b96eb75b8291d565c19d.css",
@@ -132,6 +128,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "/_nuxt/c94bfa40ad346fe38c5f.js",
     "revision": "27176b5b409129f7da11d4f6357940c6"
+  },
+  {
+    "url": "/_nuxt/cc64e3b0a20f287bd610.js",
+    "revision": "c504ee25c1005b6d3ecb8f95f911debb"
   },
   {
     "url": "/_nuxt/cd00a9879eccac68d851.css",
