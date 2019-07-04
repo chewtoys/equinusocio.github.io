@@ -48,7 +48,11 @@
       <p class="SmallBody" itemprop="description">{{ post.fields.description }}</p>
 
       <a rel="noopener" v-if="post.fields.externalUrl" ne-button target="_blank" :href="post.fields.externalUrl">
-        Read this story ↗️
+        Read this story
+        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5V11C12 11.6 11.6 12 11 12C10.4 12 10 11.6 10 11V7.4L5.7 11.7C5.5 11.9 5.3 12 5 12C4.7 12 4.5 11.9 4.3 11.7C3.9 11.3 3.9 10.7 4.3 10.3L8.6 6H5C4.4 6 4 5.6 4 5C4 4.4 4.4 4 5 4H11C11.6 4 12 4.4 12 5Z"/>
+        </svg>
+
       </a>
       <nuxt-link v-else tag="button" ne-button :to="{ name: 'blog-slug', params: { slug: post.fields.slug, id: post.sys.id }}">
         Read this story
