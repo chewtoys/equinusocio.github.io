@@ -1,6 +1,8 @@
 {
+  "name": "equinusocio.github.io",
   "version": 2,
   "alias": [
+    "www.equinusocio.dev",
     "equinusocio.dev"
   ],
   "scope": "equinusocio",
@@ -13,7 +15,14 @@
   }],
   "build": {
     "env": {
-      "BASE_URL": "https://equinusocio.dev"
+      "BASE_URL": "https://equinusocio.dev",
+      "CTF_BLOG_POST_TYPE_ID": "@ctf_blog_post_type_id",
+      "CTF_CDA_ACCESS_TOKEN": "@ctf_cda_access_token",
+      "CTF_CMA_ACCESS_TOKEN": "@ctf_cma_access_token",
+      "CTF_PAGE_TYPE_ID": "@ctf_page_type_id",
+      "CTF_PERSON_ID": "@ctf_person_id",
+      "CTF_PROJECT_TYPE_ID": "@ctf_project_type_id",
+      "CTF_SPACE_ID": "@ctf_space_id"
     }
   },
   "routes": [{
