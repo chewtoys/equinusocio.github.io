@@ -91,6 +91,8 @@ export default {
     }
   ],
 
+  serverMiddleware: ['~/lib/headers.js'],
+
   /*
    ** Nuxt.js modules
    */
