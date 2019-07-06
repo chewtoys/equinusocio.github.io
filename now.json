@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "alias": [
+    "www.equinusocio.dev",
+    "equinusocio.dev"
+  ],
+  "scope": "equinusocio",
+  "builds": [{
+    "src": "package.json",
+    "use": "@now/static-build",
+    "config": {
+      "distDir": "dist"
+    }
+  }],
+  "routes": [{
+      "src": "/blog/(.*)",
+      "dest": "/200.html"
+    },
+    {
+      "src": "/(.*).js",
+      "headers": {
+        "cache-control": "public, max-age=31536000"
+      }
+    }, {
+      "src": "/(.*).css",
+      "headers": {
+        "cache-control": "public, max-age=31536000"
+      }
+    }, {
+      "src": "/(.*).png",
+      "headers": {
+        "cache-control": "public, max-age=31536000"
+      }
+    }, {
+      "src": "/(.*).webp",
+      "headers": {
+        "cache-control": "public, max-age=31536000"
+      }
+    }, {
+      "src": "/(.*).svg",
+      "headers": {
+        "cache-control": "public, max-age=31536000"
+      }
+    }
+  ]
+}
