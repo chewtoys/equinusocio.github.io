@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "nuxt",
     "start": "nuxt start",
-    "now-build": "nuxt generate",
+    "now-build": "nuxt build --spa",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . static/",
     "precommit": "npm run lint"
   },
