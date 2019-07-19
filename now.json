@@ -1,6 +1,6 @@
 {
   "name": "equinusocio.github.io",
-  "version": 1,
+  "version": 2,
   "alias": [
     "www.equinusocio.dev",
     "equinusocio.dev"
@@ -8,10 +8,7 @@
   "scope": "equinusocio",
   "builds": [{
     "src": "package.json",
-    "use": "@now/static-build",
-    "config": {
-      "distDir": "dist"
-    }
+    "use": "@now/static-build"
   }],
   "github": {
     "silent": true

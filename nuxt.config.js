@@ -33,7 +33,7 @@ export default {
   env,
 
   // Set the build mode
-  mode: 'universal',
+  mode: 'spa',
 
   /**
    * PWA Manifest file generation
