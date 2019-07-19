@@ -8,7 +8,10 @@
   "scope": "equinusocio",
   "builds": [{
     "src": "package.json",
-    "use": "@now/static-build"
+    "use": "@now/static-build",
+    "config": {
+      "distDir": "dist"
+    }
   }],
   "github": {
     "silent": true
