@@ -7,8 +7,8 @@
   ],
   "scope": "equinusocio",
   "builds": [{
-    "src": "nuxt.config.js",
-    "use": "@nuxtjs/now-builder"
+    "src": "package.json",
+    "use": "@now/static-build"
   }],
   "github": {
     "silent": true
