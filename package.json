@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "nuxt",
     "start": "nuxt start",
-    "now-build": "BASE_URL=https://equinusocio.dev nuxt generate",
+    "now-build": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . static/",
     "precommit": "npm run lint"
   },
