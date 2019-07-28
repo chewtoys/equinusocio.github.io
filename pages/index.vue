@@ -58,8 +58,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content:
-            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+          content: 'UX Engineer in Milan and member of Open Source Design.'
         },
         { hid: 'ip:name', itemprop: 'name', content: 'Mattia Astorino' },
         {
@@ -70,13 +69,12 @@ export default {
         {
           hid: 'ip:description',
           itemprop: 'description',
-          content:
-            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+          content: 'UX Engineer in Milan and member of Open Source Design.'
         },
         {
           hid: 'ip:image',
           itemprop: 'image',
-          content: `${process.env.baseUrl}/cover.jpg`
+          content: `https:${person.fields.image.fields.file.url}`
         },
         {
           hid: 'og:title',
@@ -91,18 +89,17 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${process.env.baseUrl}/cover.jpg`
+          content: `https:${person.fields.image.fields.file.url}`
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+          content: 'UX Engineer in Milan and member of Open Source Design.'
         },
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: `${process.env.baseUrl}/cover.jpg`
+          content: `https:${person.fields.image.fields.file.url}`
         },
         {
           hid: 'twitter:title',
@@ -112,8 +109,7 @@ export default {
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content:
-            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+          content: 'UX Engineer in Milan and member of Open Source Design.'
         },
         {
           hid: 'twitter:creator',
