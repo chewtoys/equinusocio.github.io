@@ -53,17 +53,72 @@ export default {
         'og:image': ['content'],
         'twitter:image': ['content']
       },
+      title: 'Development articles and projects',
       meta: [
-        { hid: 'ip:name', itemprop: 'name', content: this.person.fields.name },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+        },
+        { hid: 'ip:name', itemprop: 'name', content: 'Mattia Astorino' },
         {
           hid: 'ip:headline',
           itemprop: 'headline',
-          content: this.person.fields.title
+          content: 'Development articles and projects'
+        },
+        {
+          hid: 'ip:description',
+          itemprop: 'description',
+          content:
+            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+        },
+        {
+          hid: 'ip:image',
+          itemprop: 'image',
+          content: `${process.env.baseUrl}/cover.jpg`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Development articles and projects'
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://equinusocio.dev${this.$route.fullPath}`
+          content: `${process.env.baseUrl}${this.$route.fullPath}`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${process.env.baseUrl}/cover.jpg`
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: `${process.env.baseUrl}/cover.jpg`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Development articles and projects'
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            "I'm Mattia Astorino, UX Engineer in Milan and member of Open Source Design."
+        },
+        {
+          hid: 'twitter:creator',
+          name: 'twitter:creator',
+          content: '@equinusocio'
         }
       ]
     }
