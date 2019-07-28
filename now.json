@@ -29,10 +29,6 @@
     }
   },
   "routes": [{
-      "src": "/blog/(.*)",
-      "dest": "/200.html"
-    },
-    {
       "src": "/_nuxt/.+",
       "headers": {
         "cache-control": "s-maxage=31536000"
