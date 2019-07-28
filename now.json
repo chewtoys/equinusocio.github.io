@@ -10,7 +10,9 @@
     "src": "nuxt.config.js",
     "use": "@nuxtjs/now-builder",
     "config": {
-      "distDir": "dist"
+      "config": {
+        "serverFiles": ["lib/**"]
+      }
     }
   }],
   "github": {
