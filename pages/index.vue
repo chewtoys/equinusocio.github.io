@@ -6,13 +6,17 @@
     </HeroBanner>
 
     <ArticlesList>
-      <article-preview class="ArticleCard" :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
+      <article-preview
+        class="ArticleCard"
+        :post="post"
+        :index="index"
+        v-for="(post, index) in posts"
+        :key="post.sys.id"
+      ></article-preview>
     </ArticlesList>
 
     <div class="LoadMore">
-      <nuxt-link :to="{ name: 'blog' }">
-        More stories →
-      </nuxt-link>
+      <nuxt-link :to="{ name: 'blog' }">More stories →</nuxt-link>
     </div>
 
     <Footer />
@@ -26,9 +30,9 @@ import VueMarkdown from 'vue-markdown'
 const client = createClient()
 
 export default {
-  async asyncData (context) {
+  async asyncData(context) {
     const posts = await client.getEntries({
-      'content_type': process.env.CTF_BLOG_POST_TYPE_ID,
+      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
       limit: 3,
       order: '-sys.createdAt'
     })
@@ -42,15 +46,35 @@ export default {
       person: person.items[0]
     }
   },
-  head () {
+  head() {
     return {
+      __dangerouslyDisableSanitizersByTagID: {
+        'ip:image': ['content'],
+        'og:image': ['content'],
+        'twitter:image': ['content']
+      },
       meta: [
-        { hid: 'description', name: 'description', content: this.person.fields.shortBio },
-        { hid: 'ip:name', itemprop: 'name', content: this.person.fields.name },
-        { hid: 'ip:headline', itemprop: 'headline', content: this.person.fields.title },
-        { hid: 'ip:descriptiom', itemprop: 'description', content: this.person.fields.shortBio },
-        { hid: 'ip:image', itemprop: 'image', content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9` },
-        { hid: 'og:url', property: 'og:url', content: `https://equinusocio.dev${this.$route.fullPath}` }
+        { hid: 'ip:name', content: this.person.fields.name },
+        {
+          hid: 'ip:headline',
+          content: this.person.fields.title
+        },
+        {
+          hid: 'ip:image',
+          content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9`
+        },
+        {
+          hid: 'og:image',
+          content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9`
+        },
+        {
+          hid: 'twitter:image',
+          content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9`
+        },
+        {
+          hid: 'og:url',
+          content: `https://equinusocio.dev${this.$route.fullPath}`
+        }
       ]
     }
   },
@@ -106,7 +130,6 @@ export default {
   }
 }
 
-
 .SubTitle {
   margin-top: 0;
   max-width: 700px;
@@ -124,7 +147,6 @@ export default {
     color: var(--callToActionColor);
   }
 }
-
 
 @keyframes clip-text {
   from {
