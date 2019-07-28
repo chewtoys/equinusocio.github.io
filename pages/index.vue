@@ -54,36 +54,11 @@ export default {
         'twitter:image': ['content']
       },
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.person.fields.shortBio
-        },
         { hid: 'ip:name', itemprop: 'name', content: this.person.fields.name },
         {
           hid: 'ip:headline',
           itemprop: 'headline',
           content: this.person.fields.title
-        },
-        {
-          hid: 'ip:descriptiom',
-          itemprop: 'description',
-          content: this.person.fields.shortBio
-        },
-        {
-          hid: 'ip:image',
-          itemprop: 'image',
-          content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9`
-        },
-        {
-          hid: 'og:image',
-          property: 'image',
-          content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9`
-        },
-        {
-          hid: 'twitter:image',
-          property: 'image',
-          content: `https:${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9`
         },
         {
           hid: 'og:url',
