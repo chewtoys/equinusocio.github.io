@@ -64,11 +64,6 @@ export default {
   },
   head() {
     return {
-      __dangerouslyDisableSanitizersByTagID: {
-        'ip:image': ['content'],
-        'og:image': ['content'],
-        'twitter:image': ['content']
-      },
       title: this.post.fields.title,
       meta: [
         {
