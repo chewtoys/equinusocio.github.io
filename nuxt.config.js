@@ -75,6 +75,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    { src: '~plugins/ga.js', mode: 'client' },
     '~/plugins/contentful',
     {
       src: '~/plugins/lazy-load',
@@ -87,15 +88,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: 'UA-134447939-1'
-      }
-    ],
-    '@nuxtjs/pwa'
-  ],
+  modules: ['@nuxtjs/pwa'],
 
   /* Force scroll-top when route change */
   router: {
