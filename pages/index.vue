@@ -74,7 +74,7 @@ export default {
         {
           hid: 'ip:image',
           itemprop: 'image',
-          content: `https:${person.fields.image.fields.file.url}`
+          content: `https:${this.person.fields.image.fields.file.url}`
         },
         {
           hid: 'og:title',
@@ -89,7 +89,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `https:${person.fields.image.fields.file.url}`
+          content: `https:${this.person.fields.image.fields.file.url}`
         },
         {
           hid: 'og:description',
@@ -99,7 +99,7 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: `https:${person.fields.image.fields.file.url}`
+          content: `https:${this.person.fields.image.fields.file.url}`
         },
         {
           hid: 'twitter:title',
