@@ -1,31 +1,22 @@
+/* eslint-disable nuxt/no-cjs-in-config */
 /**
  * Import package.json to get
  * basic package informations
  * */
-import { headConfig } from './lib/headConfig.js'
-import getConfigForKeys from './lib/configs.js'
-
-const ctfConfig = getConfigForKeys([
-  'CTF_SPACE_ID',
-  'CTF_CDA_ACCESS_TOKEN',
-  'CTF_PERSON_ID',
-  'CTF_BLOG_POST_TYPE_ID',
-  'CTF_PAGE_TYPE_ID',
-  'CTF_PROJECT_TYPE_ID'
-])
-
+const headConfig = require('./lib/headConfig.js')
+const cmsConfig = require('./contentful.config.json')
 /**
  * Configure contentful info as env variable
  * to access them inside vue components
  */
 const env = {
   baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-  CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
-  CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
-  CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
-  CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
-  CTF_PAGE_TYPE_ID: ctfConfig.CTF_PAGE_TYPE_ID,
-  CTF_PROJECT_TYPE_ID: ctfConfig.CTF_PROJECT_TYPE_ID
+  CTF_SPACE_ID: cmsConfig.CTF_SPACE_ID,
+  CTF_CDA_ACCESS_TOKEN: cmsConfig.CTF_CDA_ACCESS_TOKEN,
+  CTF_PERSON_ID: cmsConfig.CTF_PERSON_ID,
+  CTF_BLOG_POST_TYPE_ID: cmsConfig.CTF_BLOG_POST_TYPE_ID,
+  CTF_PAGE_TYPE_ID: cmsConfig.CTF_PAGE_TYPE_ID,
+  CTF_PROJECT_TYPE_ID: cmsConfig.CTF_PROJECT_TYPE_ID
 }
 
 export default {
