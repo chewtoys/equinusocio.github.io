@@ -64,6 +64,11 @@ export default {
   },
   head() {
     return {
+      __dangerouslyDisableSanitizersByTagID: {
+        'ip:image': ['content'],
+        'og:image': ['content'],
+        'twitter:image': ['content']
+      },
       title: this.post.fields.title,
       meta: [
         {
@@ -113,6 +118,11 @@ export default {
           content: this.post.fields.description
         },
         { hid: 'og:locale', property: 'og:locale', content: 'default' },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: `https:${this.post.fields.heroImage.fields.file.url}?fit=pad&f=top&w=1200&h=630&bg=rgb:F3F6F9`
+        },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
