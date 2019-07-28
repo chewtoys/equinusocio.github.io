@@ -25,16 +25,9 @@ npx degit equinusocio/nuxt-contentful-starter my-new-project
 
 ## Configure
 
-After cloning the repo, create a file named `contentful.config.json` at the project root, then add and populate the contentful required keys:
+Your `SPACE_ID` and `CDA_ACCESS_TOKEN` are defined inside a `.contentful.json`. After cloning the repo, rename `.contentful.sample.json` into `.contentful.json` and **MAKE SURE TO NOT ADD IT TO THE REPOSITORY.**
 
-```json
-{
-  "CTF_SPACE_ID": "",
-  "CTF_CDA_ACCESS_TOKEN": ""
-}
-```
-
-The config file is ignored by default, but **MAKE SURE TO NOT ADD IT ACCIDENTALLY TO THE REPOSITORY.**
+The `contentful.js` plugin provided makes use of the nuxt configured `env` variables. If you want to add new contentuful keys and make them available inside nuxt add them to `.contentful.json` and the `env` const inside **nuxt.config.js**.
 
 ## Build Setup
 
@@ -43,29 +36,30 @@ The config file is ignored by default, but **MAKE SURE TO NOT ADD IT ACCIDENTALL
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ yarn run dev
 
 # build for production and launch server
-$ yarn build
+$ yarn run build
+$ yarn start
 
 # generate static project
-$ yarn generate
+$ yarn run generate
 ```
 
 # Contentful client usage (example)
 
-You can use the nuxt `asyncData` function to get data from Contentful:
+You can use the nuxt `asyncData` function to get data from Contentful. Assuming you have a `CTF_BLOG_POST_TYPE_ID` env inside your `.contentful.json` and `nuxt.config.js`:
 
 ```html
 <script>
-  import { createClient } from '~/plugins/contentful.js'
+  import createClient from '~/plugins/contentful.js'
   const client = createClient()
-
+  
   export default {
     async asyncData({ env }) {
       try {
         let getPosts = await client.getEntries({
-          content_type: 'blogPost',
+          content_type: env.CTF_BLOG_POST_TYPE_ID,
           order: '-sys.createdAt'
         });
         return {
