@@ -2,21 +2,21 @@
   <nav role="navigation" :class="`MainNavigation`" :data-direction="direction.toLowerCase()">
     <template v-if="this.$router.options.routes">
       <nuxt-link class="NagivationItem" :to="{ name: 'blog' }">BLOG</nuxt-link>
-      <nuxt-link class="NagivationItem" :to="{ name: 'projects' }">PROJECTS</nuxt-link>
+      <nuxt-link class="NagivationItem" :to="{ name: 'lab' }">LAB</nuxt-link>
       <nuxt-link class="NagivationItem" :to="{ name: 'about' }">ABOUT</nuxt-link>
     </template>
   </nav>
 </template>
 
 <script>
-  export default {
-    props: {
-      direction: {
-        type: String,
-        default: 'row'
-      }
+export default {
+  props: {
+    direction: {
+      type: String,
+      default: 'row'
     }
   }
+}
 </script>
 
 <style scoped lang="postcss">
@@ -43,7 +43,7 @@
   padding: 16px 24px;
 
   &.nuxt-link-active {
-    color: var(--callToActionColor, #00E2BC);
+    color: var(--callToActionColor, #00e2bc);
   }
 }
 
