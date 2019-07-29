@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 /* eslint-disable nuxt/no-cjs-in-config */
 /**
  * Import package.json to get
@@ -91,52 +93,47 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa' /* '@nuxtjs/feed' */],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/feed'],
 
-  // feed: [
-  //   {
-  //     path: '/feed.xml', // The route to your feed.
-  //     async create(feed) {
-  //       feed.options = {
-  //         title: 'Equinusocio Blog',
-  //         link: 'https://equinusocio.dev/feed.xml',
-  //         description: 'Development tips and projects'
-  //       }
+  feed: [
+    {
+      path: '/feed.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: 'Equinusocio Blog',
+          link: 'https://equinusocio.dev/feed.xml',
+          description: 'Development tips and projects'
+        }
 
-  //       await fetch(
-  //         `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}`
-  //       )
-  //         .then(resp => resp.json())
-  //         .then(data => {
-  //           const posts = data.items
+        await axios
+          .get(
+            `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}`
+          )
+          .then(function(response) {
+            const posts = response.data.items
 
-  //           posts.items.forEach(post => {
-  //             feed.addItem({
-  //               title: post.fields.title,
-  //               id: process.env.baseUrl + post.fields.slug,
-  //               link: process.env.baseUrl + post.fields.slug,
-  //               externalLink: post.fields.externalUrl,
-  //               description: post.fields.description,
-  //               content: post.fields.body
-  //             })
-  //           })
-  //         })
-  //         .catch(error => {
-  //           console.log(error)
-  //         })
+            posts.forEach(post => {
+              feed.addItem({
+                title: post.fields.title,
+                id: process.env.baseUrl + post.fields.slug,
+                link: process.env.baseUrl + post.fields.slug,
+                externalLink: post.fields.externalUrl,
+                description: post.fields.description,
+                content: post.fields.body
+              })
+            })
+          })
 
-  //       feed.addCategory('Nuxt.js')
-
-  //       feed.addContributor({
-  //         name: 'Mattia Astorino',
-  //         email: 'astorino.design@gmail.com',
-  //         link: 'https://equinusocio.dev/'
-  //       })
-  //     },
-  //     cacheTime: 1000 * 60 * 15,
-  //     type: 'rss2'
-  //   }
-  // ],
+        feed.addContributor({
+          name: 'Mattia Astorino',
+          email: 'astorino.design@gmail.com',
+          link: 'https://equinusocio.dev/'
+        })
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2'
+    }
+  ],
 
   /* Force scroll-top when route change */
   router: {
