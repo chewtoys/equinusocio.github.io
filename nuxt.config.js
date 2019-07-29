@@ -3,13 +3,8 @@
  * Import package.json to get
  * basic package informations
  * */
-import createClient from './plugins/contentful.js'
 const headConfig = require('./lib/headConfig.js')
 const cmsConfig = require('./contentful.config.json')
-const client = createClient(
-  cmsConfig.CTF_SPACE_ID,
-  cmsConfig.CTF_CDA_ACCESS_TOKEN
-)
 
 /**
  * Configure contentful info as env variable
@@ -83,8 +78,7 @@ export default {
   plugins: [
     // { src: '~plugins/ga.js', mode: 'client' },
     {
-      src: '~/plugins/contentful',
-      mode: 'client'
+      src: '~/plugins/contentful'
     },
     {
       src: '~/plugins/lazy-load',
@@ -99,44 +93,50 @@ export default {
    */
   modules: ['@nuxtjs/pwa', '@nuxtjs/feed'],
 
-  feed: [
-    {
-      path: '/feed.xml', // The route to your feed.
-      async create(feed) {
-        feed.options = {
-          title: 'Equinusocio Blog',
-          link: 'https://equinusocio.dev/feed.xml',
-          description: 'Development tips and projects'
-        }
+  // feed: [
+  //   {
+  //     path: '/feed.xml', // The route to your feed.
+  //     async create(feed) {
+  //       feed.options = {
+  //         title: 'Equinusocio Blog',
+  //         link: 'https://equinusocio.dev/feed.xml',
+  //         description: 'Development tips and projects'
+  //       }
 
-        const posts = await client.getEntries({
-          content_type: env.CTF_BLOG_POST_TYPE_ID,
-          order: '-sys.createdAt'
-        })
+  //       await fetch(
+  //         `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}`
+  //       )
+  //         .then(resp => resp.json())
+  //         .then(data => {
+  //           const posts = data.items
 
-        posts.items.forEach(post => {
-          feed.addItem({
-            title: post.fields.title,
-            id: process.env.baseUrl + post.fields.slug,
-            link: process.env.baseUrl + post.fields.slug,
-            externalLink: post.fields.externalUrl,
-            description: post.fields.description,
-            content: post.fields.body
-          })
-        })
+  //           posts.items.forEach(post => {
+  //             feed.addItem({
+  //               title: post.fields.title,
+  //               id: process.env.baseUrl + post.fields.slug,
+  //               link: process.env.baseUrl + post.fields.slug,
+  //               externalLink: post.fields.externalUrl,
+  //               description: post.fields.description,
+  //               content: post.fields.body
+  //             })
+  //           })
+  //         })
+  //         .catch(error => {
+  //           console.log(error)
+  //         })
 
-        feed.addCategory('Nuxt.js')
+  //       feed.addCategory('Nuxt.js')
 
-        feed.addContributor({
-          name: 'Mattia Astorino',
-          email: 'astorino.design@gmail.com',
-          link: 'https://equinusocio.dev/'
-        })
-      },
-      cacheTime: 1000 * 60 * 15,
-      type: 'rss2'
-    }
-  ],
+  //       feed.addContributor({
+  //         name: 'Mattia Astorino',
+  //         email: 'astorino.design@gmail.com',
+  //         link: 'https://equinusocio.dev/'
+  //       })
+  //     },
+  //     cacheTime: 1000 * 60 * 15,
+  //     type: 'rss2'
+  //   }
+  // ],
 
   /* Force scroll-top when route change */
   router: {
