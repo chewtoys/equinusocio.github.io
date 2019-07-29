@@ -105,30 +105,31 @@ export default {
           link: 'https://equinusocio.dev/feed.xml',
           description: 'Development tips and projects'
         }
-
-        const posts = await client.getEntries({
-          content_type: env.CTF_BLOG_POST_TYPE_ID,
-          order: '-sys.createdAt'
-        })
-
-        posts.items.forEach(post => {
-          feed.addItem({
-            title: post.fields.title,
-            id: process.env.baseUrl + post.fields.slug,
-            link: process.env.baseUrl + post.fields.slug,
-            externalLink: post.fields.externalUrl,
-            description: post.fields.description,
-            content: post.fields.body
+        if (!process.server) {
+          const posts = await client.getEntries({
+            content_type: env.CTF_BLOG_POST_TYPE_ID,
+            order: '-sys.createdAt'
           })
-        })
 
-        feed.addCategory('Nuxt.js')
+          posts.items.forEach(post => {
+            feed.addItem({
+              title: post.fields.title,
+              id: process.env.baseUrl + post.fields.slug,
+              link: process.env.baseUrl + post.fields.slug,
+              externalLink: post.fields.externalUrl,
+              description: post.fields.description,
+              content: post.fields.body
+            })
+          })
 
-        feed.addContributor({
-          name: 'Mattia Astorino',
-          email: 'astorino.design@gmail.com',
-          link: 'https://equinusocio.dev/'
-        })
+          feed.addCategory('Nuxt.js')
+
+          feed.addContributor({
+            name: 'Mattia Astorino',
+            email: 'astorino.design@gmail.com',
+            link: 'https://equinusocio.dev/'
+          })
+        }
       },
       cacheTime: 1000 * 60 * 15,
       type: 'rss2'
