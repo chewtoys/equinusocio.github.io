@@ -102,14 +102,16 @@ export default {
         feed.options = {
           title: 'Equinusocio Blog',
           link: 'https://equinusocio.dev/feed.xml',
-          description: 'Development tips and projects'
+          description: 'Development tips and projects',
+          favicon: 'https://equinusocio.dev/favicon.png',
+          generator: ''
         }
 
         await axios
           .get(
             `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}`
           )
-          .then(function(response) {
+          .then(response => {
             const posts = response.data.items
 
             posts.forEach(post => {
@@ -117,6 +119,7 @@ export default {
                 title: post.fields.title,
                 id: process.env.baseUrl + post.fields.slug,
                 link: process.env.baseUrl + post.fields.slug,
+                image: `https:${post.fields.heroImage.fields.file.url}?fit=pad&f=top&w=1200&h=630&bg=rgb:F3F6F9`,
                 externalLink: post.fields.externalUrl,
                 description: post.fields.description,
                 content: post.fields.body
