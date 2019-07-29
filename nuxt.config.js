@@ -82,7 +82,10 @@ export default {
    */
   plugins: [
     // { src: '~plugins/ga.js', mode: 'client' },
-    '~/plugins/contentful',
+    {
+      src: '~/plugins/contentful',
+      mode: 'client'
+    },
     {
       src: '~/plugins/lazy-load',
       mode: 'client'
