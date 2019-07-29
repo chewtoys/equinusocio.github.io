@@ -125,7 +125,6 @@ export default {
                   : 'https://equinusocio.dev' + post.fields.slug,
                 externalLink: post.fields.externalUrl,
                 description: post.fields.description,
-                image: 'https://equinusocio.dev/cover.jpg',
                 content: toHTML
               })
             })
