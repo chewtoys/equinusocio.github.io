@@ -3,7 +3,6 @@
     <template v-if="this.$router.options.routes">
       <nuxt-link class="NagivationItem" :to="{ name: 'blog' }">BLOG</nuxt-link>
       <nuxt-link class="NagivationItem" :to="{ name: 'lab' }">LAB</nuxt-link>
-      <nuxt-link class="NagivationItem" :to="{ name: 'about' }">ABOUT</nuxt-link>
     </template>
   </nav>
 </template>
