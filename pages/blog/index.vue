@@ -9,7 +9,13 @@
     </HeroBanner>
 
     <ArticlesList>
-      <article-preview class="ArticleCard" :post="post" :index="index" v-for="(post, index) in posts" :key="post.sys.id"></article-preview>
+      <article-preview
+        class="ArticleCard"
+        :post="post"
+        :index="index"
+        v-for="(post, index) in posts"
+        :key="post.sys.id"
+      ></article-preview>
     </ArticlesList>
 
     <Footer />
@@ -18,7 +24,6 @@
 
 <script>
 import createClient from '~/plugins/contentful.js'
-
 const client = createClient()
 
 export default {
@@ -27,29 +32,31 @@ export default {
       let person = await Promise.all([
         client.getEntries({
           'sys.id': env.CTF_PERSON_ID
-        }),
-      ]);
+        })
+      ])
       let posts = await Promise.all([
         client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          content_type: env.CTF_BLOG_POST_TYPE_ID,
           order: '-sys.createdAt'
         })
       ])
       return {
         person: person[0].items[0],
         posts: posts[0].items
-      };
+      }
     } catch (e) {
       console.log(e)
     }
   },
   computed: {
-    tags: function () {
-      return this.removeDuplicates(this.posts.reduce((acc, src) => acc.concat(src.fields.tags), []))
+    tags: function() {
+      return this.removeDuplicates(
+        this.posts.reduce((acc, src) => acc.concat(src.fields.tags), [])
+      )
     }
   },
   methods: {
-    removeDuplicates (arr) {
+    removeDuplicates(arr) {
       return Array.from(new Set(arr))
     }
   },
@@ -62,15 +69,35 @@ export default {
     Tag: () => import('~/components/article/tag.vue')
   },
   transition: 'bounce',
-  head () {
+  head() {
     return {
       meta: [
-        { hid: 'description', name: 'description', content: this.person.fields.shortBio },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.person.fields.shortBio
+        },
         { hid: 'ip:name', itemprop: 'name', content: this.person.fields.name },
-        { hid: 'ip:headline', itemprop: 'headline', content: this.person.fields.title },
-        { hid: 'ip:descriptiom', itemprop: 'description', content: this.person.fields.shortBio },
-        { hid: 'ip:image', itemprop: 'image', content: `${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9` },
-        { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}${this.$route.fullPath}` }
+        {
+          hid: 'ip:headline',
+          itemprop: 'headline',
+          content: this.person.fields.title
+        },
+        {
+          hid: 'ip:descriptiom',
+          itemprop: 'description',
+          content: this.person.fields.shortBio
+        },
+        {
+          hid: 'ip:image',
+          itemprop: 'image',
+          content: `${this.person.fields.image.fields.file.url}?fit=fill&f=top&w=1200&h=630&bg=rgb:F3F6F9`
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${process.env.baseUrl}${this.$route.fullPath}`
+        }
       ]
     }
   }

@@ -53,7 +53,7 @@ export default {
         'og:image': ['content'],
         'twitter:image': ['content']
       },
-      title: 'Development articles and projects',
+      title: 'Development tips and projects',
       meta: [
         {
           hid: 'description',
@@ -64,7 +64,7 @@ export default {
         {
           hid: 'ip:headline',
           itemprop: 'headline',
-          content: 'Development articles and projects'
+          content: 'Development tips and projects'
         },
         {
           hid: 'ip:description',
@@ -79,7 +79,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Development articles and projects'
+          content: 'Development tips and projects'
         },
         {
           hid: 'og:url',
@@ -104,7 +104,7 @@ export default {
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: 'Development articles and projects'
+          content: 'Development tips and projects'
         },
         {
           hid: 'twitter:description',
