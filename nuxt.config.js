@@ -3,8 +3,10 @@
  * Import package.json to get
  * basic package informations
  * */
+import axios from 'axios'
 const headConfig = require('./lib/headConfig.js')
 const cmsConfig = require('./contentful.config.json')
+
 /**
  * Configure contentful info as env variable
  * to access them inside vue components
@@ -88,7 +90,49 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/feed'],
+
+  feed: [
+    {
+      path: '/feed.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: 'Equinusocio Blog',
+          link: 'https://equinusocio.dev/feed.xml',
+          description: 'Development tips and projects'
+        }
+
+        await axios
+          .get(
+            `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}`
+          )
+          .then(function(response) {
+            const posts = response.data.items
+
+            posts.forEach(post => {
+              feed.addItem({
+                title: post.fields.title,
+                id: process.env.baseUrl + post.fields.slug,
+                link: process.env.baseUrl + post.fields.slug,
+                externalLink: post.fields.externalUrl,
+                description: post.fields.description,
+                content: post.fields.body
+              })
+            })
+          })
+
+        feed.addCategory('Nuxt.js')
+
+        feed.addContributor({
+          name: 'Mattia Astorino',
+          email: 'astorino.design@gmail.com',
+          link: 'https://equinusocio.dev/'
+        })
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2'
+    }
+  ],
 
   /* Force scroll-top when route change */
   router: {
