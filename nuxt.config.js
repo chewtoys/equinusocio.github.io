@@ -3,9 +3,13 @@
  * Import package.json to get
  * basic package informations
  * */
-import axios from 'axios'
+import createClient from './plugins/contentful.js'
 const headConfig = require('./lib/headConfig.js')
 const cmsConfig = require('./contentful.config.json')
+const client = createClient(
+  cmsConfig.CTF_SPACE_ID,
+  cmsConfig.CTF_CDA_ACCESS_TOKEN
+)
 
 /**
  * Configure contentful info as env variable
@@ -102,24 +106,21 @@ export default {
           description: 'Development tips and projects'
         }
 
-        await axios
-          .get(
-            `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}`
-          )
-          .then(function(response) {
-            const posts = response.data.items
+        const posts = await client.getEntries({
+          content_type: env.CTF_BLOG_POST_TYPE_ID,
+          order: '-sys.createdAt'
+        })
 
-            posts.forEach(post => {
-              feed.addItem({
-                title: post.fields.title,
-                id: process.env.baseUrl + post.fields.slug,
-                link: process.env.baseUrl + post.fields.slug,
-                externalLink: post.fields.externalUrl,
-                description: post.fields.description,
-                content: post.fields.body
-              })
-            })
+        posts.items.forEach(post => {
+          feed.addItem({
+            title: post.fields.title,
+            id: process.env.baseUrl + post.fields.slug,
+            link: process.env.baseUrl + post.fields.slug,
+            externalLink: post.fields.externalUrl,
+            description: post.fields.description,
+            content: post.fields.body
           })
+        })
 
         feed.addCategory('Nuxt.js')
 
