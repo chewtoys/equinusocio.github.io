@@ -10,7 +10,7 @@
     "src": "nuxt.config.js",
     "use": "@nuxtjs/now-builder",
     "config": {
-      "serverFiles": ["lib/**", "plugins/**", "node_modules/contentful/**", "contentful.config.json"]
+      "serverFiles": ["lib/**", "plugins/**", "contentful.config.json"]
     }
   }],
   "github": {
