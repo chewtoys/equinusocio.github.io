@@ -5,8 +5,10 @@ import axios from 'axios'
  * Import package.json to get
  * basic package informations
  * */
+const MarkdownIt = require('markdown-it')
 const headConfig = require('./lib/headConfig.js')
 const cmsConfig = require('./contentful.config.json')
+const md = new MarkdownIt()
 
 /**
  * Configure contentful info as env variable
@@ -102,27 +104,29 @@ export default {
         feed.options = {
           title: 'Equinusocio Blog',
           link: 'https://equinusocio.dev/feed.xml',
-          description: 'Development tips and projects',
-          favicon: 'https://equinusocio.dev/favicon.png',
-          generator: ''
+          description: 'Development tips and projects'
         }
 
         await axios
           .get(
-            `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}`
+            `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}&content_type=blogPost`
           )
           .then(response => {
             const posts = response.data.items
 
             posts.forEach(post => {
+              const toHTML = md.render(post.fields.body)
+
               feed.addItem({
                 title: post.fields.title,
-                id: process.env.baseUrl + post.fields.slug,
-                link: process.env.baseUrl + post.fields.slug,
-                image: `https:${post.fields.heroImage.fields.file.url}?fit=pad&f=top&w=1200&h=630&bg=rgb:F3F6F9`,
+                id: post.fields.slug,
+                link: post.fields.externalUrl
+                  ? post.fields.externalUrl
+                  : 'https://equinusocio.dev' + post.fields.slug,
                 externalLink: post.fields.externalUrl,
                 description: post.fields.description,
-                content: post.fields.body
+                image: 'https://equinusocio.dev/cover.jpg',
+                content: toHTML
               })
             })
           })
