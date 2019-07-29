@@ -5,9 +5,9 @@ import axios from 'axios'
  * Import package.json to get
  * basic package informations
  * */
-const MarkdownIt = require('markdown-it')
-const headConfig = require('./lib/headConfig.js')
-const cmsConfig = require('./contentful.config.json')
+import MarkdownIt from 'markdown-it'
+import { headConfig } from './lib/headConfig.js'
+import cmsConfig from './contentful.config.json'
 const md = new MarkdownIt()
 
 /**
