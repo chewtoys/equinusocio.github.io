@@ -91,7 +91,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', '@nuxtjs/feed'],
+  modules: ['@nuxtjs/pwa' /* '@nuxtjs/feed' */],
 
   // feed: [
   //   {
