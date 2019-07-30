@@ -25,6 +25,7 @@
           </svg>
         </button>
         <button class="MenuButton" v-if="isExpanded" @click="closeMenu">
+          Close
           <svg
             role="button"
             aria-label="Close menu"
