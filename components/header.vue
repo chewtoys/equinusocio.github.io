@@ -1,6 +1,5 @@
 <template>
   <header class="Header">
-
     <MobileToolbar />
 
     <Media :query="{minWidth: 768}">
@@ -18,7 +17,6 @@
         <ThemeSwitcher />
       </div>
     </Media>
-
   </header>
 </template>
 
