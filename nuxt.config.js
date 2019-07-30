@@ -137,7 +137,7 @@ export default {
           link: 'https://equinusocio.dev/'
         })
       },
-      cacheTime: 10,
+      cacheTime: 3600,
       type: 'rss2'
     }
   ],
