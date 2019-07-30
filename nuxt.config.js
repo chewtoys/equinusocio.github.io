@@ -137,7 +137,7 @@ export default {
         })
       },
       cacheTime: 1000 * 60 * 15,
-      type: 'rss2'
+      type: 'atom1'
     }
   ],
 
