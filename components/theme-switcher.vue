@@ -1,6 +1,6 @@
 <template>
   <div class="ThemeSwitcher" role="radiogroup">
-    <a :href="feedUrl" class="Icon" target="_blank">
+    <a href="http://feeds.feedburner.com/equinusocio-blog" class="Icon" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18"
@@ -76,11 +76,6 @@ export default {
         type: String,
         default: 'light-theme'
       }
-    }
-  },
-  computed: {
-    feedUrl() {
-      return `${process.env.baseUrl}/feed.xml`
     }
   },
   mounted() {
