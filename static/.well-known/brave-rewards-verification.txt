@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: equinusocio.dev
+Token: de44e9b114ec31272d77fcc14a3546837a319d66029d1ec2af0866dcdefb6079
