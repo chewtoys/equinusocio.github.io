@@ -260,6 +260,7 @@ $RECYCLE.BIN/
 # Contentful private
 .contentful.json
 contentful.json
+contentful.config.json
 
 # End of https://www.gitignore.io/api/node,linux,macos,nuxtjs,windows,intellij,visualstudiocode
 
