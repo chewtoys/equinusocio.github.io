@@ -6,9 +6,8 @@ import axios from 'axios'
  * basic package informations
  * */
 import MarkdownIt from 'markdown-it'
-import dotenv from 'dotenv'
 import { headConfig } from './lib/headConfig.js'
-dotenv.config()
+require('dotenv').config()
 const md = new MarkdownIt()
 
 /**
