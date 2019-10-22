@@ -111,8 +111,6 @@ export default {
         : null
     },
     setTheme(theme) {
-      localStorage.removeItem('themeName')
-      localStorage.removeItem('themeTokens')
       localStorage.setItem('themeName', theme.name)
       process.browser
         ? document.documentElement.setAttribute('data-theme', theme.name)
