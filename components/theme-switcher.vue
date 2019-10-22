@@ -84,8 +84,8 @@ export default {
 
     if (currentTheme) {
       this.currentTheme = currentTheme
-      this.getThemeFromLocalStorage(JSON.parse(currentThemeTokens))
       this.setRootTheme(currentTheme)
+      this.getThemeFromLocalStorage(JSON.parse(currentThemeTokens))
     } else {
       this.currentTheme = 'light-theme'
       this.setRootTheme('light-theme')
@@ -111,6 +111,8 @@ export default {
         : null
     },
     setTheme(theme) {
+      localStorage.removeItem('themeName')
+      localStorage.removeItem('themeTokens')
       localStorage.setItem('themeName', theme.name)
       process.browser
         ? document.documentElement.setAttribute('data-theme', theme.name)
