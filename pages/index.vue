@@ -1,7 +1,7 @@
 <template>
   <main>
     <HeroBanner height="calc(100vh - 170px)" v-if="person">
-      <h1 class="DisplayTitle">Hello. 👻</h1>
+      <h1 class="DisplayTitle">Hello.</h1>
       <vue-markdown class="SubTitle">{{ person.fields.shortBio }}</vue-markdown>
     </HeroBanner>
 

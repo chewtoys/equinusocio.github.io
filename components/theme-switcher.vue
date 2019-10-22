@@ -111,6 +111,7 @@ export default {
         : null
     },
     setTheme(theme) {
+      localStorage.clear();
       localStorage.setItem('themeName', theme.name)
       process.browser
         ? document.documentElement.setAttribute('data-theme', theme.name)
@@ -150,12 +151,12 @@ export default {
   }
 
   @nest [data-theme='light-theme'] &[data-theme-id='light-theme'] {
-    fill: var(--callToActionColor, #00e2bc);
-    stroke: var(--callToActionColor, #00e2bc);
+    fill: var(--callToActionColor, #00E2BC);
+    stroke: var(--callToActionColor, #00E2BC);
   }
   @nest [data-theme='dark-theme'] &[data-theme-id='dark-theme'] {
-    fill: var(--callToActionColor, #00e2bc);
-    stroke: var(--callToActionColor, #00e2bc);
+    fill: var(--callToActionColor, #00E2BC);
+    stroke: var(--callToActionColor, #00E2BC);
   }
 }
 
