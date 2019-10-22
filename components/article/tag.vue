@@ -23,7 +23,7 @@
   padding: 7px 10px;
   line-height: 1;
   font-size: 12px;
-  color: var(--callToActionColor, #00E2BC);
+  color: var(--callToActionColorDark, #08D8B5);
   position: relative;
   white-space: nowrap;
   text-overflow: ellipsis;
