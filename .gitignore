@@ -191,6 +191,10 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.env.staging
+.env.development
+.env.build
+.env.production
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -260,6 +264,7 @@ $RECYCLE.BIN/
 # Contentful private
 .contentful.json
 contentful.json
+contentful.config.json
 
 # End of https://www.gitignore.io/api/node,linux,macos,nuxtjs,windows,intellij,visualstudiocode
 

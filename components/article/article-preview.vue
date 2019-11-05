@@ -20,7 +20,7 @@
             :alt="post.fields.title"
           />
           <source
-            type="image/png"
+            type="image/jpeg"
             :srcset="`https:${post.fields.heroImage.fields.file.url}?w=410&h=467&fm=png, https:${post.fields.heroImage.fields.file.url}?fm=jpg 2x`"
             draggable="false"
             :alt="post.fields.title"
