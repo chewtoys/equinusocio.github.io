@@ -110,7 +110,7 @@ export default {
 
         await axios
           .get(
-            `https://cdn.contentful.com/spaces/${cmsConfig.CTF_SPACE_ID}/environments/master/entries?access_token=${cmsConfig.CTF_CDA_ACCESS_TOKEN}&content_type=blogPost`
+            `https://cdn.contentful.com/spaces/${process.env.CTF_SPACE_ID}/environments/master/entries?access_token=${process.env.CTF_CDA_ACCESS_TOKEN}&content_type=blogPost`
           )
           .then(response => {
             const posts = response.data.items

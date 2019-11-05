@@ -14,7 +14,7 @@ const createClient = (
 ) => {
   return contentful.createClient({
     space: spaceId,
-    accessToken: accessToken
+    accessToken
   })
 }
 
