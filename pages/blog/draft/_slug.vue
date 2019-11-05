@@ -1,6 +1,7 @@
 <template>
   <main>
     <article itemscope itemtype="http://schema.org/NewsArticle">
+      suka
       <HeroBanner height="calc(100vh - 200px)">
         <TagList>
           <Tag :tag="tag" :key="tag" v-for="(tag) in post.fields.tags">{{tag}}</Tag>
