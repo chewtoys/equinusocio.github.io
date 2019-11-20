@@ -143,10 +143,9 @@ export default {
       script: [
         {
           type: 'text/javascript',
-          src: '//cdn.embedly.com/widgets/platform.js',
-          charset: 'UTF-8',
+          src: 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js',
           async: true,
-          body: true
+          defer: true
         }
       ]
     }
